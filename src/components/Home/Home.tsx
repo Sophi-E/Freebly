@@ -28,7 +28,7 @@ const Home: React.FC = () => {
             alt='illustration from undraw'
           />
           <div className={styles.intro}>
-            <h3 className={styles.heading}>Website Caption</h3>
+            <h3 className={styles.heading}>Website Captions</h3>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a
               felis tristique, suscipit felis vitae, laoreet dui. Sed malesuada
