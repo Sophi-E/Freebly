@@ -28,7 +28,7 @@ const Home: React.FC = () => {
             alt='illustration from undraw'
           />
           <div className={styles.intro}>
-            <h3 className={styles.heading}>Website Captions</h3>
+            <h3 className={styles.heading}>Website Caption</h3>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a
               felis tristique, suscipit felis vitae, laoreet dui. Sed malesuada
@@ -40,7 +40,7 @@ const Home: React.FC = () => {
         </div>
         <div className={styles.containerTwo}>
           <div className={styles.containerP}>
-            <img src={giftbox} alt='random' />
+            <img className={styles.fullWidth} src={giftbox} alt='random' />
             <p>
               Pellentesque habitant morbi tristique senectus et netus et
               malesuada fames ac turpis egestas. Phasellus iaculis risus ante,
@@ -49,7 +49,7 @@ const Home: React.FC = () => {
             </p>
           </div>
           <div className={styles.containerP}>
-            <img src={delivery} alt='random' />
+            <img className={styles.fullWidth} src={delivery} alt='random' />
             <p>
               Pellentesque habitant morbi tristique senectus et netus et
               malesuada fames ac turpis egestas. Phasellus iaculis risus ante,
