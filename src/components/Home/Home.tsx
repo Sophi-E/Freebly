@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from './home.module.css';
-import undraw from '../images/undraw.svg';
-import giftbox from '../images/gift-box.png';
-import delivery from '../images/delivery.png';
+import undraw from '../../images/undraw.svg';
+import giftbox from '../../images/gift-box.png';
+import delivery from '../../images/delivery.png';
 const Home: React.FC = () => {
   return (
     <>

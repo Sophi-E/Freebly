@@ -137,6 +137,7 @@ img {
     flex-direction: row-reverse;
     padding: 0 2em;
     justify-content: space-between;
+    align-items: center;
   }
   .heading {
     text-align: left;
