@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import loginImg from '../../images/undraw_Login.png';
+import styles from './formStyles.module.css';
 
 const Login = () => {
   // const [values, setValues] = useState({
@@ -21,34 +24,40 @@ const Login = () => {
   //   console.log(values);
   // };
   return (
-    <div className='container'>
-      <form //onSubmit={handleSubmit}
-        className='white'
-      >
-        <h5 className='grey-text text-darken-3'>Sign In</h5>
-        <div className='input-field'>
-          <label htmlFor='email'>Email</label>
+    <div className={styles.container}>
+      <img src={loginImg} alt='vector' />
+
+      <div className={styles.formContainer}>
+        <form //onSubmit={handleSubmit}
+          className='white'
+        >
+          <h5 className={styles.formHeading}>Login</h5>
+
           <input
             type='email'
             id='email'
+            placeholder='Email'
             // value={values.email}
             // onChange={handleChange}
           />
-        </div>
 
-        <div className='input-field'>
-          <label htmlFor='password'>Password</label>
           <input
             type='password'
             id='password'
+            placeholder='Password'
             // value={values.password}
             // onChange={handleChange}
           />
-        </div>
-        <div className='input-field'>
-          <button className='btn pink lighten-1 z-depth-0'>Login</button>
-        </div>
-      </form>
+
+          <input type='submit' value='Login' />
+        </form>
+        <small>
+          don't have an account?{' '}
+          <Link className={styles.link} to='/signup'>
+            Register
+          </Link>
+        </small>
+      </div>
     </div>
   );
 };
