@@ -8,6 +8,7 @@ import PrivacyPolicy from './components/Footer/PrivacyPolicy';
 import './App.css';
 import Login from './components/forms/Login';
 import Terms from './components/Footer/Terms';
+import Dashboard from './components/Dashboard/Dashboard';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path='/login' component={Login} />
           <Route path='/privacypolicy' component={PrivacyPolicy} />
           <Route path='/terms' component={Terms} />
+          <Route path='/dashboard' component={Dashboard} />
         </Switch>
       </div>
     </Router>
