@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import loginImg from '../../images/undraw_Login.png';
+import styles from './formStyles.module.css';
 
 const Signup = () => {
   const [values, setValues] = useState({
@@ -22,52 +25,53 @@ const Signup = () => {
   //   console.log(values);
   // };
   return (
-    <div className='container'>
-      <form //onSubmit={handleSubmit}
-        className='white'
-      >
-        <h5 className='grey-text text-darken-3'>Sign Up</h5>
-        <div className='input-field'>
-          <label htmlFor='name'>Name</label>
+    <div className={styles.container}>
+      <img src={loginImg} alt='vector' />
+
+      <div className={styles.formContainer}>
+        <form //onSubmit={handleSubmit}
+          className='white'
+        >
           <input
-            type='text'
+            type='name'
             id='name'
-            // value={values.name}
-            // onChange={handleChange}
-          />
-        </div>
-        <div className='input-field'>
-          <label htmlFor='email'>Email</label>
-          <input
-            type='email'
-            id='email'
+            placeholder='Name'
             // value={values.email}
             // onChange={handleChange}
           />
-        </div>
+          <input
+            type='email'
+            id='email'
+            placeholder='Email'
+            // value={values.email}
+            // onChange={handleChange}
+          />
 
-        <div className='input-field'>
-          <label htmlFor='password'>Password</label>
+          <input
+            type='password'
+            id='password2'
+            placeholder='Confirm password'
+            // value={values.email}
+            // onChange={handleChange}
+          />
+
           <input
             type='password'
             id='password'
+            placeholder='Password'
             // value={values.password}
             // onChange={handleChange}
           />
-        </div>
-        <div className='input-field'>
-          <label htmlFor='password2'>Confirm Password</label>
-          <input
-            type='password'
-            id='confirmPassword'
-            // value={values.confirmPassword}
-            // onChange={handleChange}
-          />
-        </div>
-        <div className='input-field'>
-          <button className='btn pink lighten-1 z-depth-0'>Login</button>
-        </div>
-      </form>
+
+          <input type='submit' value='Sign Up' />
+          <small>
+            already have an account?{' '}
+            <Link className={styles.link} to='/login'>
+              Login
+            </Link>
+          </small>
+        </form>
+      </div>
     </div>
   );
 };
