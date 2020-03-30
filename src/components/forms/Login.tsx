@@ -31,8 +31,6 @@ const Login = () => {
         <form //onSubmit={handleSubmit}
           className='white'
         >
-          <h5 className={styles.formHeading}>Login</h5>
-
           <input
             type='email'
             id='email'
@@ -50,13 +48,13 @@ const Login = () => {
           />
 
           <input type='submit' value='Login' />
+          <small>
+            don't have an account?{' '}
+            <Link className={styles.link} to='/signup'>
+              Register
+            </Link>
+          </small>
         </form>
-        <small>
-          don't have an account?{' '}
-          <Link className={styles.link} to='/signup'>
-            Register
-          </Link>
-        </small>
       </div>
     </div>
   );
