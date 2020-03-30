@@ -5,6 +5,7 @@
 }
 .container {
   width: 100%;
+  padding: 0 2em;
 }
 .avi {
   display: flex;
@@ -12,19 +13,60 @@
   align-items: center;
   padding: 1em;
 }
+.avi p {
+  font-weight: bold;
+  font-size: 18px;
+}
 .headerAvi {
   width: 40px;
   height: 40px;
-  background-color: #302f55;
+  background-color: #c4c4c4;
   border-radius: 50%;
-  margin: 0 1em;
+  margin-left: 1em;
 }
 .avatar {
-  width: 100px;
-  height: 100px;
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
-  background-color: #302f55;
+  background-color: #c4c4c4;
+  margin: 0 auto;
+  margin-bottom: 20px;
 }
 button {
   width: 100%;
+  border-radius: 15px;
+  border: none;
+  font-weight: bold;
+  color: #fff;
+  font-size: 18px;
+}
+.avatarContainer {
+  padding: 2em 0;
+  text-align: center;
+}
+.avatarContainer p {
+  font-size: 24px;
+}
+.editBtn {
+  padding: 8px 0;
+  background-color: #535070;
+  margin-bottom: 2em;
+}
+.createBtn {
+  padding: 15px 0;
+  background-color: #57b793;
+  margin-bottom: 15px;
+}
+.viewBtn {
+  padding: 15px 0;
+  background-color: #577db7;
+}
+.delAcct {
+  padding: 20px 0 10px 0;
+  text-align: right;
+}
+.bio {
+  color: #969595;
+  padding: 1em 0 1em 0.5em;
+  font-size: 18px;
 }

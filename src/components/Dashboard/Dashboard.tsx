@@ -8,15 +8,21 @@ const Dashboard: React.FC = () => {
         <p>Logout</p>
         <div className={styles.headerAvi}></div>
       </div>
-      <div>
+      <div className={styles.avatarContainer}>
         <div className={styles.avatar}></div>
         <p>John Doe</p>
       </div>
-      <button>Edit Profile</button>
-      <div className={styles.actions}>
-        <button>Create Post</button>
-        <button>View All Post</button>
+      <div className={styles.bio}>
+        <p>Email</p>
+        <p>Location</p>
+        <p>Phone</p>
       </div>
+      <button className={styles.editBtn}>Edit Profile</button>
+      <div className={styles.actions}>
+        <button className={styles.createBtn}>Create Post</button>
+        <button className={styles.viewBtn}>View All Post</button>
+      </div>
+      <p className={styles.delAcct}>Delete Account?</p>
     </div>
   );
 };
