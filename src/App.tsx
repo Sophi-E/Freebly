@@ -9,21 +9,24 @@ import './App.css';
 import Login from './components/forms/Login';
 import Terms from './components/Footer/Terms';
 import Dashboard from './components/Dashboard/Dashboard';
+import { AuthProvider } from './components/Auth';
 
 function App() {
   return (
-    <Router>
-      <div className='App'>
-        <Switch>
-          <Route path='/' exact component={Home} />
-          <Route path='/signup' component={Signup} />
-          <Route path='/login' component={Login} />
-          <Route path='/privacypolicy' component={PrivacyPolicy} />
-          <Route path='/terms' component={Terms} />
-          <Route path='/dashboard' component={Dashboard} />
-        </Switch>
-      </div>
-    </Router>
+    <AuthProvider>
+      <Router>
+        <div className='App'>
+          <Switch>
+            <Route path='/' exact component={Home} />
+            <Route path='/signup' component={Signup} />
+            <Route path='/login' component={Login} />
+            <Route path='/privacypolicy' component={PrivacyPolicy} />
+            <Route path='/terms' component={Terms} />
+            <Route path='/dashboard' component={Dashboard} />
+          </Switch>
+        </div>
+      </Router>
+    </AuthProvider>
   );
 }
 
