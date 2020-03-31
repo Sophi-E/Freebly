@@ -1,38 +1,45 @@
-import React, { useCallback } from 'react';
-import { withRouter } from 'react-router';
-import { Link } from 'react-router-dom';
+import React, { useCallback, useContext } from 'react';
+import { withRouter, Redirect } from 'react-router';
+import { Link, RouteComponentProps } from 'react-router-dom';
 import Config from '../../config';
 import loginImg from '../../images/undraw_Login.png';
 import styles from './formStyles.module.css';
+import { AuthContext } from '../Auth';
 
-const Login = () => {
-  // const [values, setValues] = useState({
-  //   email: '',
-  //   password: '',
-  //   showPassword: false
-  // });
+const Login: React.FC<RouteComponentProps> = ({ history }) => {
+  const handleLogin = useCallback(
+    async event => {
+      event.preventDefault();
+      const { email, password } = event.target.elements;
+      try {
+        await Config.auth().signInWithEmailAndPassword(
+          email.value,
+          password.value
+        );
+        history.push('/');
+      } catch (error) {
+        alert(error);
+      }
+    },
+    [history]
+  );
 
-  // const handleChange = e => {
-  //   console.log(values);
-  //   setValues({ ...values, [e.target.id]: e.target.value });
-  // };
+  const { currentUser } = useContext(AuthContext);
+
+  if (currentUser) {
+    return <Redirect to='/' />;
+  }
 
   // // const handleClickShowPassword = () => {
   // //   setValues({ ...values, showPassword: !values.showPassword });
   // // };
 
-  // const handleSubmit = e => {
-  //   e.preventDefault();
-  //   console.log(values);
-  // };
   return (
     <div className={styles.container}>
       <img src={loginImg} alt='vector' />
 
       <div className={styles.formContainer}>
-        <form //onSubmit={handleSubmit}
-          className='white'
-        >
+        <form onSubmit={handleLogin} className='white'>
           <input
             type='email'
             id='email'
@@ -62,4 +69,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default withRouter(Login);

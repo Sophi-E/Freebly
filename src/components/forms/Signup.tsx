@@ -17,7 +17,7 @@ const Signup: React.FC<RouteComponentProps> = ({ history }) => {
           email.value,
           password.value
         );
-        history.push('/');
+        history.push('/login');
       } catch (error) {
         alert(error);
       }
@@ -64,27 +64,19 @@ const Signup: React.FC<RouteComponentProps> = ({ history }) => {
             // value={values.email}
             // onChange={handleChange}
           />
-
-          <input
-            type='password'
-            id='password2'
-            placeholder='Confirm password'
-            // value={values.email}
-            // onChange={handleChange}
-          />
-          <input
-            type='password'
-            id='password2'
-            placeholder='Confirm password'
-            // value={values.email}
-            // onChange={handleChange}
-          />
-
           <input
             type='password'
             id='password'
             placeholder='Password'
             // value={values.password}
+            // onChange={handleChange}
+          />
+
+          <input
+            type='password'
+            id='password2'
+            placeholder='Confirm password'
+            // value={values.email}
             // onChange={handleChange}
           />
 
