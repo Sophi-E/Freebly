@@ -1,16 +1,36 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useCallback } from 'react';
+import { Link, RouteComponentProps } from 'react-router-dom';
+import { withRouter } from 'react-router';
+
+import Config from '../../config';
 import loginImg from '../../images/undraw_Login.png';
 import styles from './formStyles.module.css';
+import { configure } from '@testing-library/react';
 
-const Signup = () => {
-  const [values, setValues] = useState({
-    name: '',
-    email: '',
-    password: '',
-    confirmPassword: '',
-    showPassword: false
-  });
+const Signup: React.FC<RouteComponentProps> = ({ history }) => {
+  const handleSignUp = useCallback(
+    async event => {
+      event.preventDefault();
+      const { email, password } = event.target.elements;
+      try {
+        await Config.auth().createUserWithEmailAndPassword(
+          email.value,
+          password.value
+        );
+        history.push('/');
+      } catch (error) {
+        alert(error);
+      }
+    },
+    [history]
+  );
+  // const [values, setValues] = useState({
+  //   name: '',
+  //   email: '',
+  //   password: '',
+  //   confirmPassword: '',
+  //   showPassword: false
+  // });
 
   // const handleChange = e => {
   //   setValues({ ...values, [e.target.id]: e.target.value });
@@ -29,9 +49,7 @@ const Signup = () => {
       <img src={loginImg} alt='vector' />
 
       <div className={styles.formContainer}>
-        <form //onSubmit={handleSubmit}
-          className='white'
-        >
+        <form onSubmit={handleSignUp} className='white'>
           <input
             type='name'
             id='name'
@@ -47,6 +65,13 @@ const Signup = () => {
             // onChange={handleChange}
           />
 
+          <input
+            type='password'
+            id='password2'
+            placeholder='Confirm password'
+            // value={values.email}
+            // onChange={handleChange}
+          />
           <input
             type='password'
             id='password2'
@@ -75,4 +100,4 @@ const Signup = () => {
     </div>
   );
 };
-export default Signup;
+export default withRouter(Signup);
