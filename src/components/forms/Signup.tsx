@@ -1,11 +1,10 @@
-import React, { useState, useCallback } from 'react';
+import React, { useCallback } from 'react';
 import { Link, RouteComponentProps } from 'react-router-dom';
 import { withRouter } from 'react-router';
 
 import Config from '../../config';
 import loginImg from '../../images/undraw_Login.png';
 import styles from './formStyles.module.css';
-import { configure } from '@testing-library/react';
 
 const Signup: React.FC<RouteComponentProps> = ({ history }) => {
   const handleSignUp = useCallback(

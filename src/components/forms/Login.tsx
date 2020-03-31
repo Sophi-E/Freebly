@@ -16,7 +16,7 @@ const Login: React.FC<RouteComponentProps> = ({ history }) => {
           email.value,
           password.value
         );
-        history.push('/');
+        history.push('/dashboard');
       } catch (error) {
         alert(error);
       }
@@ -27,7 +27,7 @@ const Login: React.FC<RouteComponentProps> = ({ history }) => {
   const { currentUser } = useContext(AuthContext);
 
   if (currentUser) {
-    return <Redirect to='/' />;
+    return <Redirect to='/dashboard' />;
   }
 
   // // const handleClickShowPassword = () => {

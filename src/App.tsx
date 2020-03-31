@@ -10,8 +10,9 @@ import Login from './components/forms/Login';
 import Terms from './components/Footer/Terms';
 import Dashboard from './components/Dashboard/Dashboard';
 import { AuthProvider } from './components/Auth';
+import PrivateRoute from './components/PrivateRoute';
 
-function App() {
+const App = () => {
   return (
     <AuthProvider>
       <Router>
@@ -22,12 +23,12 @@ function App() {
             <Route path='/login' component={Login} />
             <Route path='/privacypolicy' component={PrivacyPolicy} />
             <Route path='/terms' component={Terms} />
-            <Route path='/dashboard' component={Dashboard} />
+            <PrivateRoute path='/dashboard' component={Dashboard} />
           </Switch>
         </div>
       </Router>
     </AuthProvider>
   );
-}
+};
 
 export default App;

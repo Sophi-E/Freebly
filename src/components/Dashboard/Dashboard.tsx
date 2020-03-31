@@ -1,11 +1,12 @@
 import React from 'react';
+import Config from '../../config';
 import styles from './dashboard.module.css';
 
 const Dashboard: React.FC = () => {
   return (
     <div className={styles.container}>
       <div className={styles.avi}>
-        <p>Logout</p>
+        <button onClick={() => Config.auth().signOut()}>Logout</button>
         <div className={styles.headerAvi}></div>
       </div>
       <div className={styles.profile}>
