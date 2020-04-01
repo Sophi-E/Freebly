@@ -14,7 +14,14 @@ const PostContainer: React.FC<PostItemProps> = ({
   postDate,
   location
 }: PostItemProps) => {
-  return <div className={styles.postContainer}></div>;
+  return (
+    <div className={styles.postContainer}>
+      {/* <img src={image} alt=""/> */}
+      <h3>{title}</h3>
+      <p>Posted on: {postDate}</p>
+      <p>Location: {location}</p>
+    </div>
+  );
 };
 
 export default PostContainer;
