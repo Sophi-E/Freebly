@@ -6,8 +6,12 @@
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
   border-radius: 5px; /* 5px rounded corners */
-  padding: 1em;
-  margin: 2em;
+  /* padding: 1em;
+  margin: 2em; */
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
 }
 .card:hover {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
