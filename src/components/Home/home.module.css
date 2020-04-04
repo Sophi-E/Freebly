@@ -60,11 +60,7 @@ img {
 .cta:hover {
   transform: scaleY(1.2);
 }
-/* .headerImg {
-  width: 100%;
-  height: auto;
-  padding: 2em 0;
-} */
+
 .bottomNav {
   background-color: #605d82;
   padding: 2em 1em;
