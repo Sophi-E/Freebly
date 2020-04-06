@@ -11,21 +11,21 @@ const PostsArray = [
     location: 'Woji Estate, Port Harcourt',
   },
   {
-    id: 1,
+    id: 2,
     imageUrl: 'https://via.placeholder.com/200',
     title: 'Wristwatch',
     postDate: '1st April 2020',
     location: 'Woji Estate, Port Harcourt',
   },
   {
-    id: 1,
+    id: 3,
     imageUrl: 'https://via.placeholder.com/200',
     title: 'Wristwatch',
     postDate: '1st April 2020',
     location: 'Woji Estate, Port Harcourt',
   },
   {
-    id: 1,
+    id: 4,
     imageUrl: 'https://via.placeholder.com/200',
     title: 'Wristwatch',
     postDate: '1st April 2020',
@@ -41,7 +41,7 @@ const PostsPage = () => {
       </div>
       <div className={styles.postContainer}>
         {PostsArray.map((post) => (
-          <div className={styles.card}>
+          <div className={styles.card} key={post.id}>
             <PostContainer
               imageUrl={post.imageUrl}
               title={post.title}
@@ -51,6 +51,7 @@ const PostsPage = () => {
           </div>
         ))}
       </div>
+      <p className={styles.copyright}>@ copyright 2020</p>
     </>
   );
 };
