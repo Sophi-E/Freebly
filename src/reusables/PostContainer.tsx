@@ -12,11 +12,11 @@ const PostContainer: React.FC<PostItemProps> = ({
   imageUrl,
   title,
   postDate,
-  location
+  location,
 }: PostItemProps) => {
   return (
     <div>
-      <img src={imageUrl} alt='' />
+      <img className={styles.postImg} src={imageUrl} alt='' />
       <h4>{title}</h4>
       <p>Posted on: {postDate}</p>
       <p>Location: {location}</p>

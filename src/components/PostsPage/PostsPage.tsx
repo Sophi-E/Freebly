@@ -31,14 +31,42 @@ const PostsArray = [
     postDate: '1st April 2020',
     location: 'Woji Estate, Port Harcourt',
   },
+  {
+    id: 5,
+    imageUrl: 'https://via.placeholder.com/200',
+    title: 'Wristwatch',
+    postDate: '1st April 2020',
+    location: 'Woji Estate, Port Harcourt',
+  },
+  {
+    id: 6,
+    imageUrl: 'https://via.placeholder.com/200',
+    title: 'Wristwatch',
+    postDate: '1st April 2020',
+    location: 'Woji Estate, Port Harcourt',
+  },
+  {
+    id: 7,
+    imageUrl: 'https://via.placeholder.com/200',
+    title: 'Wristwatch',
+    postDate: '1st April 2020',
+    location: 'Woji Estate, Port Harcourt',
+  },
+  {
+    id: 8,
+    imageUrl: 'https://via.placeholder.com/200',
+    title: 'Wristwatch',
+    postDate: '1st April 2020',
+    location: 'Woji Estate, Port Harcourt',
+  },
 ];
 const PostsPage = () => {
   return (
     <>
-      <div>
+      {/* <div>
         <input type='search' placeholder='search' />
         <button>Filter</button>
-      </div>
+      </div> */}
       <div className={styles.postContainer}>
         {PostsArray.map((post) => (
           <div className={styles.card} key={post.id}>
