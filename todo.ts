@@ -4,12 +4,12 @@
 //make nav and footer standalone components
 //fix css
 //connect firebase firestore
+//functionality
 //api calls
 //fix error messages
 //add spinner
 //dark mode
 //database
-//functionality
 //crud
 //test
 
