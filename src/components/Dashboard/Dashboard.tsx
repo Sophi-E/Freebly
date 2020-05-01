@@ -1,6 +1,7 @@
 import React from 'react';
 import Config from '../../config';
 import styles from './dashboard.module.css';
+import { Link } from 'react-router-dom';
 
 const Dashboard: React.FC = () => {
   return (
@@ -23,8 +24,12 @@ const Dashboard: React.FC = () => {
       </div>
 
       <div className={styles.actions}>
-        <button className={styles.createBtn}>Create Post</button>
-        <button className={styles.viewBtn}>View All Post</button>
+        <Link to='/create-post' className={styles.createBtn}>
+          Create Post
+        </Link>
+        <Link to='/view-posts' className={styles.viewBtn}>
+          View All Post
+        </Link>
       </div>
       <p className={styles.delAcct}>Delete Account?</p>
     </div>
