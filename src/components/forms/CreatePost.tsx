@@ -6,7 +6,11 @@ const CreatePost = () => {
     <div>
       <h1>Create Post</h1>
       <form>
-        <input type='text' />
+        <label htmlFor='itemName'> Item Name:</label>
+        <input type='text' name='itemName' />
+        <label htmlFor='location'> Location:</label>
+        <input type='text' name='location' />
+        <label htmlFor='upload'>Upload Photos:</label>
       </form>
     </div>
   );
