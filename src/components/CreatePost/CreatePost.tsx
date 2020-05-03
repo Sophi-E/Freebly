@@ -1,5 +1,4 @@
 import React from 'react';
-import styles from '../forms/formStyles.module.css';
 
 const CreatePost = () => {
   return (
@@ -11,6 +10,7 @@ const CreatePost = () => {
         <label htmlFor='location'> Location:</label>
         <input type='text' name='location' />
         <label htmlFor='upload'>Upload Photos:</label>
+        <input type='file' name='itemImage' id='itemImage' />
       </form>
     </div>
   );

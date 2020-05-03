@@ -8,7 +8,7 @@ import { AuthContext } from '../Auth';
 
 const Login: React.FC<RouteComponentProps> = ({ history }) => {
   const handleLogin = useCallback(
-    async event => {
+    async (event) => {
       event.preventDefault();
       const { email, password } = event.target.elements;
       try {
@@ -39,7 +39,7 @@ const Login: React.FC<RouteComponentProps> = ({ history }) => {
       <img src={loginImg} alt='vector' />
 
       <div className={styles.formContainer}>
-        <form onSubmit={handleLogin} className='white'>
+        <form onSubmit={handleLogin} className={styles.white}>
           <input
             type='email'
             id='email'

@@ -12,7 +12,7 @@ import Dashboard from './components/Dashboard/Dashboard';
 import { AuthProvider } from './components/Auth';
 import PrivateRoute from './components/PrivateRoute';
 import PostsPage from './components/PostsPage/PostsPage';
-import CreatePost from './components/forms/CreatePost';
+import CreatePost from './components/CreatePost/CreatePost';
 
 const App = () => {
   return (

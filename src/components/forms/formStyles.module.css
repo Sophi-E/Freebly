@@ -16,10 +16,10 @@ img {
 .container {
   color: #fff;
 }
-form {
+.white {
   padding: 2em 0;
 }
-input {
+.white input {
   width: 90%;
   margin: 0 5%;
   padding: 0.6em 2em;
@@ -27,16 +27,16 @@ input {
   margin-bottom: 15px;
   border: none;
 }
-input:focus {
+.white input:focus {
   outline: none;
   border: 2px solid #00bb14;
 }
-input[type='submit'] {
+.white input[type='submit'] {
   background-color: #00bb14;
   font-weight: bold;
   color: #fff;
 }
-input[type='submit']:hover {
+.white input[type='submit']:hover {
   background-color: #00bb13a1;
   color: #302f55;
 }
@@ -63,7 +63,7 @@ small {
     flex-direction: row-reverse;
     align-items: center;
   }
-  form {
+  .white {
     max-width: 80%;
     display: block;
     margin: 30vh auto;

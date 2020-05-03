@@ -8,7 +8,7 @@ import styles from './formStyles.module.css';
 
 const Signup: React.FC<RouteComponentProps> = ({ history }) => {
   const handleSignUp = useCallback(
-    async event => {
+    async (event) => {
       event.preventDefault();
       const { email, password } = event.target.elements;
       try {
@@ -48,7 +48,7 @@ const Signup: React.FC<RouteComponentProps> = ({ history }) => {
       <img src={loginImg} alt='vector' />
 
       <div className={styles.formContainer}>
-        <form onSubmit={handleSignUp} className='white'>
+        <form onSubmit={handleSignUp} className={styles.white}>
           <input
             type='name'
             id='name'
