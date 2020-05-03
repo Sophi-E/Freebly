@@ -25,7 +25,7 @@ const CreatePost = () => {
           Free Shipping?
           <input type='checkbox' name='shipping' id='shipping' />
         </label>
-        <button>Submit</button>
+        <button className={styles.postBtn}>Submit</button>
       </form>
     </div>
   );

@@ -4,3 +4,7 @@
   width: 50%;
   margin: 0 auto;
 }
+.postBtn {
+  background-color: rgb(235, 159, 235);
+  color: #fff;
+}
