@@ -30,10 +30,6 @@ const Login: React.FC<RouteComponentProps> = ({ history }) => {
     return <Redirect to='/dashboard' />;
   }
 
-  // // const handleClickShowPassword = () => {
-  // //   setValues({ ...values, showPassword: !values.showPassword });
-  // // };
-
   return (
     <div className={styles.container}>
       <img src={loginImg} alt='vector' />
