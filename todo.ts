@@ -1,5 +1,4 @@
 //get all UIs working
-//fix flex issue on post page
 //add nav and footer to desired pages
 //make nav and footer standalone components
 //fix css
@@ -14,5 +13,6 @@
 //test
 
 //DONE
+//fix flex issue on post page
 //integrate firebase >> done
 //authentication >> done
