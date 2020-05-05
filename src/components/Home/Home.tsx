@@ -11,13 +11,13 @@ const Home: React.FC = () => {
         <a className={styles.logo} href='/'>
           FREEBLY
         </a>
-        <div className={styles.navLinks}>
-          <Link className={styles.two} to='/login'>
-            LOGIN
-          </Link>
+        {/* <div className={styles.navLinks}> */}
+        <Link className={styles.two} to='/login'>
+          LOGIN
+        </Link>
 
-          <Link to='/signup'>SIGNUP</Link>
-        </div>
+        <Link to='/signup'>SIGNUP</Link>
+        {/* </div> */}
       </nav>
 
       <div className={styles.homeContainer}>

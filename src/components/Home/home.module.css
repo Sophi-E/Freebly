@@ -20,9 +20,9 @@
   display: flex;
 }
 
-.logo {
-  flex-grow: 3;
-}
+/* .logo {
+  float: left;
+} */
 /*  */
 
 .navWrapper a {
