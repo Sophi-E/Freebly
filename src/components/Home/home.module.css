@@ -20,9 +20,9 @@
   display: flex;
 }
 
-/* .logo {
-  float: left;
-} */
+.logo {
+  align-self: left;
+}
 /*  */
 
 .navWrapper a {
@@ -31,10 +31,10 @@
   font-size: 18px;
   padding: 0 8px;
 }
-.navWrapper .navLinks a:hover {
+.navWrapper a:hover {
   color: #fff;
   background-color: #302f55;
-  transform: rotate(20deg);
+  /* transform: rotate(20deg); */
 }
 .heading {
   font-size: var(--heading-font-size);

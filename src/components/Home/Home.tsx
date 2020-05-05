@@ -20,7 +20,7 @@ const Home: React.FC = () => {
         {/* </div> */}
       </nav>
 
-      <div className={styles.homeContainer}>
+      {/* <div className={styles.homeContainer}>
         <div className={styles.headerContainer}>
           <img
             className={styles.headerImg}
@@ -58,7 +58,7 @@ const Home: React.FC = () => {
             </p>
           </div>
         </div>
-      </div>
+      </div> */}
       <div className={styles.bottomNav}>
         <div className={styles.footerLinks}>
           <ul>
