@@ -19,7 +19,7 @@ const Footer = () => {
           <button>Subscribe</button>
         </div>
       </div>
-      <p className={styles.copyright}>@ copyright 2020</p>
+      <p className={styles.copyright}>copyright @FREEBLY 2020</p>
     </div>
   );
 };
