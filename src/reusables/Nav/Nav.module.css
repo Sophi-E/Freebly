@@ -1,0 +1,19 @@
+.navWrapper {
+  position: sticky;
+  top: 0;
+  background: #000;
+  padding: 0.8em 10px;
+  box-shadow: 2px 4px 15px #c5c5c585;
+  display: flex;
+}
+.navWrapper a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 18px;
+  padding: 0 8px;
+}
+.navWrapper a:hover {
+  color: #fff;
+  background-color: #302f55;
+  /* transform: rotate(20deg); */
+}

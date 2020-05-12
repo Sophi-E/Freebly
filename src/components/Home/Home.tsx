@@ -4,21 +4,12 @@ import styles from './home.module.css';
 import undraw from '../../images/undraw.svg';
 import giftbox from '../../images/gift-box.png';
 import delivery from '../../images/delivery.png';
+import Footer from '../../reusables/Footer/Footer';
+import Nav from '../../reusables/Nav/Nav';
 const Home: React.FC = () => {
   return (
     <>
-      <nav className={styles.navWrapper}>
-        <a className={styles.logo} href='/'>
-          FREEBLY
-        </a>
-        {/* <div className={styles.navLinks}> */}
-        <Link className={styles.two} to='/login'>
-          LOGIN
-        </Link>
-
-        <Link to='/signup'>SIGNUP</Link>
-        {/* </div> */}
-      </nav>
+      <Nav />
 
       {/* <div className={styles.homeContainer}>
         <div className={styles.headerContainer}>
@@ -59,21 +50,7 @@ const Home: React.FC = () => {
           </div>
         </div>
       </div> */}
-      <div className={styles.bottomNav}>
-        <div className={styles.footerLinks}>
-          <ul>
-            <Link to='/about us'>About Us</Link>
-            <Link to='/contact us'>Contact Us</Link>
-            <Link to='/privacypolicy'>Privacy Policy</Link>
-            <Link to='/terms'>Terms of Use</Link>
-          </ul>
-        </div>
-        <div className={styles.subscribeBtn}>
-          <input className='input' type='email' placeholder='Newsletter' />
-          <button>Subscribe</button>
-        </div>
-      </div>
-      <p className={styles.copyright}>@ copyright 2020</p>
+      <Footer />
     </>
   );
 };
