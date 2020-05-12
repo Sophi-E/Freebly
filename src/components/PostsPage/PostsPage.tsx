@@ -1,5 +1,5 @@
 import React from 'react';
-import PostContainer from '../../reusables/PostContainer';
+import PostContainer from '../../reusables/PostsContainer/PostContainer';
 import styles from './PostsPage.module.css';
 
 const PostsArray = [
