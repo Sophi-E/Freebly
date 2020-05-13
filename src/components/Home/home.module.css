@@ -35,6 +35,7 @@
   letter-spacing: 0.8px;
 }
 .cta {
+  font-style: italic;
   text-align: center;
   font-size: 28px;
 }
