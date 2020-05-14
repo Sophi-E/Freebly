@@ -18,7 +18,11 @@ const Signup: React.FC<RouteComponentProps> = ({ history }) => {
         );
         history.push('/login');
       } catch (error) {
-        alert(error);
+        const errorBox = document.getElementById('errorBox');
+        console.log(errorBox);
+        if (errorBox !== null) {
+          errorBox.innerText = error.message;
+        }
       }
     },
     [history]
@@ -26,11 +30,17 @@ const Signup: React.FC<RouteComponentProps> = ({ history }) => {
   return (
     <div className={styles.formContainer}>
       <form onSubmit={handleSignUp} className={styles.white}>
-        <input type='name' id='name' placeholder='Name' />
-        <input type='email' id='email' placeholder='Email' />
-        <input type='password' id='password' placeholder='Password' />
+        <p id='errorBox' className={styles.errorBox}></p>
+        <input type='name' id='name' placeholder='Name' required />
+        <input type='email' id='email' placeholder='Email' required />
+        <input type='password' id='password' placeholder='Password' required />
 
-        <input type='password' id='password2' placeholder='Confirm password' />
+        <input
+          type='password'
+          id='password2'
+          placeholder='Confirm password'
+          required
+        />
 
         <input type='submit' value='Sign Up' />
         <small>

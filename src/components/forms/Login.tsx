@@ -18,7 +18,11 @@ const Login: React.FC<RouteComponentProps> = ({ history }) => {
         );
         history.push('/dashboard');
       } catch (error) {
-        return <p>{error}</p>;
+        const errorBox = document.getElementById('errorBox');
+        console.log(errorBox);
+        if (errorBox !== null) {
+          errorBox.innerText = error.message;
+        }
       }
     },
     [history]
@@ -33,10 +37,12 @@ const Login: React.FC<RouteComponentProps> = ({ history }) => {
   return (
     <div className={styles.formContainer}>
       <form onSubmit={handleLogin} className={styles.white}>
+        <p id='errorBox' className={styles.errorBox}></p>
         <input
           type='email'
           id='email'
           placeholder='Email'
+          required
           // value={values.email}
           // onChange={handleChange}
         />
@@ -45,6 +51,7 @@ const Login: React.FC<RouteComponentProps> = ({ history }) => {
           type='password'
           id='password'
           placeholder='Password'
+          required
           // value={values.password}
           // onChange={handleChange}
         />
