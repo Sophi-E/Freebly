@@ -2,7 +2,7 @@ import React, { useCallback, useContext } from 'react';
 import { withRouter, Redirect } from 'react-router';
 import { Link, RouteComponentProps } from 'react-router-dom';
 import Config from '../../config';
-import loginImg from '../../images/undraw_Login.png';
+
 import styles from './formStyles.module.css';
 import { AuthContext } from '../Auth';
 
@@ -18,7 +18,7 @@ const Login: React.FC<RouteComponentProps> = ({ history }) => {
         );
         history.push('/dashboard');
       } catch (error) {
-        alert(error);
+        return <p>{error}</p>;
       }
     },
     [history]
@@ -31,36 +31,32 @@ const Login: React.FC<RouteComponentProps> = ({ history }) => {
   }
 
   return (
-    <div className={styles.container}>
-      <img src={loginImg} alt='vector' />
+    <div className={styles.formContainer}>
+      <form onSubmit={handleLogin} className={styles.white}>
+        <input
+          type='email'
+          id='email'
+          placeholder='Email'
+          // value={values.email}
+          // onChange={handleChange}
+        />
 
-      <div className={styles.formContainer}>
-        <form onSubmit={handleLogin} className={styles.white}>
-          <input
-            type='email'
-            id='email'
-            placeholder='Email'
-            // value={values.email}
-            // onChange={handleChange}
-          />
+        <input
+          type='password'
+          id='password'
+          placeholder='Password'
+          // value={values.password}
+          // onChange={handleChange}
+        />
 
-          <input
-            type='password'
-            id='password'
-            placeholder='Password'
-            // value={values.password}
-            // onChange={handleChange}
-          />
-
-          <input type='submit' value='Login' />
-          <small>
-            don't have an account?{' '}
-            <Link className={styles.link} to='/signup'>
-              Register
-            </Link>
-          </small>
-        </form>
-      </div>
+        <input type='submit' value='Login' />
+        <small>
+          don't have an account?{' '}
+          <Link className={styles.link} to='/signup'>
+            Register
+          </Link>
+        </small>
+      </form>
     </div>
   );
 };
