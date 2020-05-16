@@ -2,7 +2,7 @@ import React from 'react';
 import PostContainer from '../../reusables/PostsContainer/PostContainer';
 import styles from './PostsPage.module.css';
 
-const PostsArray = [
+export const PostsArray = [
   {
     id: 1,
     imageUrl:
