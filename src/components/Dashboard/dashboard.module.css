@@ -40,14 +40,7 @@
   margin: 0 auto;
   margin-bottom: 20px;
 }
-.dashboardContainer a,
-button {
-  width: 100%;
-  border-radius: 15px;
-  border: none;
-  font-weight: bold;
-  color: #fff;
-  font-size: 18px;
+.
   text-align: center;
   text-decoration: none;
 }
@@ -96,13 +89,8 @@ button {
     padding: 10px 15px;
     margin: 0 10px;
   }
-  /* .actions {
-    display: flex;
-    margin-left: 30%;
-    padding: 1px 16px;
-    justify-content: space-evenly;
-  }
   .actions a {
-    width: 35%;
-  } */
+    display: block;
+    padding-top: 1em;
+  }
 }
