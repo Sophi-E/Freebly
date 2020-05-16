@@ -10,6 +10,7 @@ export const PostsArray = [
     title: 'Wristwatch',
     postDate: '1st April 2020',
     location: 'Woji Estate, Port Harcourt',
+    shipping: 'Yes',
   },
   {
     id: 2,
@@ -18,6 +19,7 @@ export const PostsArray = [
     title: 'Camera',
     postDate: '21st April 2020',
     location: 'Woji Estate, Port Harcourt',
+    shipping: 'No',
   },
   {
     id: 3,
@@ -26,6 +28,7 @@ export const PostsArray = [
     title: 'Strap bag',
     postDate: '5th April 2020',
     location: 'Woji Estate, Port Harcourt',
+    shipping: 'Yes',
   },
   {
     id: 4,
@@ -34,6 +37,7 @@ export const PostsArray = [
     title: 'Backpack',
     postDate: '1st March 2020',
     location: 'Woji Estate, Port Harcourt',
+    shipping: 'Yes',
   },
   {
     id: 5,
@@ -42,6 +46,7 @@ export const PostsArray = [
     title: 'Backpack',
     postDate: '5th March 2020',
     location: 'Woji Estate, Port Harcourt',
+    shipping: 'No',
   },
   {
     id: 6,
@@ -50,6 +55,7 @@ export const PostsArray = [
     title: 'Dress shoes',
     postDate: '21st April 2020',
     location: 'Woji Estate, Port Harcourt',
+    shipping: 'Yes',
   },
   {
     id: 7,
@@ -58,6 +64,7 @@ export const PostsArray = [
     title: 'Sneakers',
     postDate: '7th April 2020',
     location: 'Woji Estate, Port Harcourt',
+    shipping: 'No',
   },
   {
     id: 8,
@@ -66,6 +73,7 @@ export const PostsArray = [
     title: 'Heels',
     postDate: '1st April 2020',
     location: 'Woji Estate, Port Harcourt',
+    shipping: 'No',
   },
 ];
 const PostsPage = () => {
@@ -83,6 +91,7 @@ const PostsPage = () => {
               title={post.title}
               postDate={post.postDate}
               location={post.location}
+              shipping={post.shipping}
             />
           </div>
         ))}

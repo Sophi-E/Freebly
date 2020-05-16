@@ -6,6 +6,7 @@ type PostItemProps = {
   title: string;
   postDate: string;
   location: string;
+  shipping?: string;
 };
 
 const PostContainer: React.FC<PostItemProps> = ({
@@ -13,6 +14,7 @@ const PostContainer: React.FC<PostItemProps> = ({
   title,
   postDate,
   location,
+  shipping,
 }: PostItemProps) => {
   return (
     <div>
@@ -20,6 +22,7 @@ const PostContainer: React.FC<PostItemProps> = ({
       <h4>{title}</h4>
       <p>Posted on: {postDate}</p>
       <p>Location: {location}</p>
+      <p>Free Shipping: {shipping}</p>
     </div>
   );
 };
