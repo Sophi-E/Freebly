@@ -7,7 +7,7 @@ import { Spin } from 'antd';
 import Spinner from '../../reusables/Spinner/Spinner';
 
 const PostsPage = () => {
-  const [posts, setPosts] = useState([]);
+  const [posts, setPosts] = useState<any[]>([]);
 
   useEffect(() => {
     axios
@@ -24,17 +24,17 @@ const PostsPage = () => {
         <Spinner />
       ) : (
         <div className={styles.postContainer}>
-          {/* {posts.map((post) => (
-          <div className={styles.card} key={post.id}>
-            <PostContainer
-              imageUrl={post.imageUrl}
-              title={post.title}
-              postDate={post.postDate}
-              location={post.location}
-              shipping={post.shipping}
-            />
-          </div>
-        ))} */}
+          {posts.map((post) => (
+            <div className={styles.card} key={post.id}>
+              <PostContainer
+                imageUrl={post.imageUrl}
+                title={post.title}
+                postDate={post.postDate}
+                location={post.location}
+                shipping={post.shipping}
+              />
+            </div>
+          ))}
         </div>
       )}
       <Footer />

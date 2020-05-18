@@ -3,7 +3,7 @@ import { Spin } from 'antd';
 
 const spinStyle = {
   textAlign: 'center',
-  background: 'rgba(0, 0, 0, 0.05)',
+  width: '90vh',
   borderRadius: '4px',
   marginBottom: '20px',
   padding: '30px 50px',
@@ -14,6 +14,7 @@ const Spinner = () => {
   return (
     <div style={spinStyle}>
       <Spin />
+      <p>Loading Posts...</p>
     </div>
   );
 };
