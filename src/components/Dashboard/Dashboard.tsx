@@ -3,7 +3,7 @@ import Config from '../../config';
 import classes from './dashboard.module.css';
 import { Link } from 'react-router-dom';
 import Footer from '../../reusables/Footer/Footer';
-import { PostsArray } from '../PostsPage/PostsPage';
+// import { PostsArray } from '../PostsPage/PostsPage';
 import styles from '../PostsPage/PostsPage.module.css';
 import PostContainer from '../../reusables/PostsContainer/PostContainer';
 
@@ -27,7 +27,7 @@ const Dashboard: React.FC = () => {
           </div>
         </div>
         <p>Recent Posts</p>
-        <div className={styles.postContainer}>
+        {/* <div className={styles.postContainer}>
           {PostsArray.map((post) => (
             <div className={styles.card} key={post.id}>
               <PostContainer
@@ -38,7 +38,7 @@ const Dashboard: React.FC = () => {
               />
             </div>
           ))}
-        </div>
+        </div> */}
         <p className={styles.delAcct}>Delete Account?</p>
       </div>
       <Footer />
