@@ -3,7 +3,7 @@ import { Spin } from 'antd';
 
 const spinStyle = {
   textAlign: 'center',
-  width: '90vh',
+  // width: '90vh',
   borderRadius: '4px',
   marginBottom: '20px',
   padding: '30px 50px',

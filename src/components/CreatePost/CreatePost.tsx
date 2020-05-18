@@ -23,7 +23,7 @@ const CreatePost = () => {
         <input type='text' name='comment' />
         <label htmlFor='shipping'>
           Free Shipping?
-          <input type='checkbox' name='shipping' id='shipping' />
+          <input type='text' name='shipping' id='shipping' />
         </label>
         <button className={styles.postBtn}>Submit</button>
       </form>

@@ -7,13 +7,14 @@
   width: 100%;
   padding: 0 1em;
 }
-.avi {
+/* .avi {
   display: flex;
   justify-content: flex-end;
   align-items: center;
   padding: 0.6em 0.2em;
-}
+} */
 .avi button {
+  float: right;
   font-size: 12px;
   padding: 8px 13px;
   border: none;
