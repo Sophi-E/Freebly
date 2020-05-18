@@ -31,17 +31,9 @@ const Signup: React.FC<RouteComponentProps> = ({ history }) => {
     <div className={styles.formContainer}>
       <form onSubmit={handleSignUp} className={styles.white}>
         <p id='errorBox' className={styles.errorBox}></p>
-        <input type='name' id='name' placeholder='Name' required />
+
         <input type='email' id='email' placeholder='Email' required />
         <input type='password' id='password' placeholder='Password' required />
-
-        <input
-          type='password'
-          id='password2'
-          placeholder='Confirm password'
-          required
-        />
-
         <input type='submit' value='Sign Up' />
         <small>
           already have an account?{' '}

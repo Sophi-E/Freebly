@@ -29,7 +29,7 @@ const Login: React.FC<RouteComponentProps> = ({ history }) => {
   );
 
   const { currentUser } = useContext(AuthContext);
-
+  console.log(currentUser);
   if (currentUser) {
     return <Redirect to='/dashboard' />;
   }

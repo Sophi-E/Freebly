@@ -12,7 +12,6 @@ const Dashboard: React.FC = () => {
     <>
       <div className={classes.dashboardContainer}>
         <div className={classes.avi}>
-          <button className={classes.editBtn}>Edit Profile</button>
           <button onClick={() => Config.auth().signOut()}>Logout</button>
         </div>
         <div className={classes.profile}>
