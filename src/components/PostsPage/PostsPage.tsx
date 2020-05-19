@@ -17,7 +17,7 @@ const PostsPage = () => {
       })
       .catch((error) => console.error(error));
   }, []);
-  console.log(posts);
+
   return (
     <>
       {posts.length === 0 ? (
