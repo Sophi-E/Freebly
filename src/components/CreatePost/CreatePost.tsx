@@ -2,21 +2,16 @@ import React from 'react';
 import styles from './CreatePost.module.css';
 import axios from 'axios';
 
-//@ts-ignore
-
 const CreatePost = () => {
   const handleSubmit = (e: any) => {
     e.preventDefault();
 
-    // let postForm = document.getElementById('postForm');
-    //@ts-ignore
-    // let formData = new FormData(postForm);
     const data = new FormData(e.target);
-    axios
-      .post('http://localhost:5000/posts', {
-        data: data,
-        headers: { 'content-type': 'multipart/form-data' },
-      })
+    axios({
+      method: 'post',
+      url: 'http://localhost:5000/posts',
+      data: data,
+    })
       .then(function (response) {
         //handle success
         console.log(response);
