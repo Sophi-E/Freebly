@@ -63,6 +63,54 @@
       "postDate": "1st April 2020",
       "location": "Woji Estate, Port Harcourt",
       "shipping": "No"
+    },
+    {
+      "title": "watch",
+      "location": "woji ",
+      "shipping": "yes",
+      "comment": "in good condition",
+      "imageUrl": "",
+      "id": 9
+    },
+    {
+      "title": "bag",
+      "location": "asaba",
+      "shipping": "no",
+      "comment": "in good condition",
+      "imageUrl": "",
+      "id": 10
+    },
+    {
+      "title": "Shoes",
+      "location": "Warri",
+      "shipping": "No",
+      "comment": "in good condition",
+      "imageUrl": "C:\\fakepath\\boxes.jpg",
+      "id": 11
+    },
+    {
+      "title": "Contact Lens",
+      "location": "Port Harcourt, Rivers State, Nigeria",
+      "shipping": "yes",
+      "comment": "Not very new",
+      "imageUrl": "",
+      "id": 12
+    },
+    {
+      "title": "",
+      "location": "",
+      "shipping": "",
+      "comment": "",
+      "imageUrl": "",
+      "id": 13
+    },
+    {
+      "title": "",
+      "location": "",
+      "shipping": "",
+      "comment": "",
+      "imageUrl": "",
+      "id": 14
     }
   ]
 }
