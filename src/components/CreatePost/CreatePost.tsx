@@ -45,6 +45,7 @@ const CreatePost = () => {
           type='file'
           name='imageUrl'
           id='imageUrl'
+          multiple
           onChange={(e) => setImageUrl(e.target.value)}
         />
         <label htmlFor='title'> Item Name:</label>

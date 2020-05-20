@@ -11,7 +11,11 @@ const PostsPage = () => {
 
   useEffect(() => {
     axios
-      .get('http://localhost:5000/posts')
+      .get('http://localhost:5000/posts', {
+        params: {
+          _limit: 8,
+        },
+      })
       .then((res) => {
         setPosts(res.data);
       })
