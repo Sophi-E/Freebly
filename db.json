@@ -63,20 +63,6 @@
       "postDate": "1st April 2020",
       "location": "Woji Estate, Port Harcourt",
       "shipping": "No"
-    },
-    {
-      "data": {},
-      "headers": {
-        "content-type": "multipart/form-data"
-      },
-      "id": 9
-    },
-    {
-      "data": {},
-      "headers": {
-        "content-type": "multipart/form-data"
-      },
-      "id": 10
     }
   ]
 }
