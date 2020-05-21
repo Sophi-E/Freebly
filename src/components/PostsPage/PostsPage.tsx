@@ -3,7 +3,7 @@ import PostContainer from '../../reusables/PostsContainer/PostContainer';
 import styles from './PostsPage.module.css';
 import Footer from '../../reusables/Footer/Footer';
 import axios from 'axios';
-import { Spin } from 'antd';
+//import { Pagination } from 'antd';
 import Spinner from '../../reusables/Spinner/Spinner';
 
 const PostsPage = () => {
@@ -41,6 +41,7 @@ const PostsPage = () => {
           ))}
         </div>
       )}
+
       <Footer />
     </>
   );
