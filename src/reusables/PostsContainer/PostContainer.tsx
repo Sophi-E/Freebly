@@ -4,7 +4,7 @@ import styles from './PostContainer.module.css';
 type PostItemProps = {
   imageUrl: string;
   title: string;
-  postDate: string;
+  postDate?: Date;
   location: string;
   shipping?: string;
 };
