@@ -33,7 +33,7 @@ const PostsPage = () => {
               <PostContainer
                 imageUrl={post.imageUrl}
                 title={post.title}
-                postDate={new Date().toLocaleString}
+                postDate={new Date().toLocaleDateString}
                 location={post.location}
                 shipping={post.shipping}
               />
