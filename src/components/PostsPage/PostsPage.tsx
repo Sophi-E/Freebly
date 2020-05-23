@@ -6,6 +6,7 @@ import axios from 'axios';
 //import { Pagination } from 'antd';
 import Spinner from '../../reusables/Spinner/Spinner';
 import { Link } from 'react-router-dom';
+import Nav from '../../reusables/Nav/Nav';
 
 const PostsPage = () => {
   const [posts, setPosts] = useState<any[]>([]);
@@ -25,6 +26,7 @@ const PostsPage = () => {
 
   return (
     <>
+      <Nav login='Logout' />
       {posts.length === 0 ? (
         <Spinner />
       ) : (
@@ -35,7 +37,7 @@ const PostsPage = () => {
                 <PostContainer
                   imageUrl={post.imageUrl}
                   title={post.title}
-                  postDate={new Date().toLocaleDateString()}
+                  postDate={post.postDate}
                   location={post.location}
                   shipping={post.shipping}
                 />

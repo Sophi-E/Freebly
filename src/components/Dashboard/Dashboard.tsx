@@ -6,14 +6,16 @@ import Footer from '../../reusables/Footer/Footer';
 // import { PostsArray } from '../PostsPage/PostsPage';
 import styles from '../PostsPage/PostsPage.module.css';
 import PostContainer from '../../reusables/PostsContainer/PostContainer';
+import Nav from '../../reusables/Nav/Nav';
 
 const Dashboard: React.FC = () => {
   return (
     <>
+      <Nav login='Logout' />
       <div className={classes.dashboardContainer}>
-        <div className={classes.avi}>
+        {/* <div className={classes.avi}>
           <button onClick={() => Config.auth().signOut()}>Logout</button>
-        </div>
+        </div> */}
         <div className={classes.profile}>
           <div className={classes.avatar}></div>
           <p>John Doe</p>

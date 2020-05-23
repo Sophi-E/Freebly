@@ -1,116 +1,48 @@
 {
   "posts": [
     {
-      "id": 1,
-      "imageUrl": "https://images.pexels.com/photos/190819/pexels-photo-190819.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
-      "title": "Wristwatch",
-      "postDate": "1st April 2020",
-      "location": "Woji Estate, Port Harcourt",
-      "shipping": "Yes"
-    },
-    {
-      "id": 2,
-      "imageUrl": "https://images.pexels.com/photos/51383/photo-camera-subject-photographer-51383.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
-      "title": "Camera",
-      "postDate": "21st April 2020",
-      "location": "Woji Estate, Port Harcourt",
-      "shipping": "No"
-    },
-    {
-      "id": 3,
-      "imageUrl": "https://images.pexels.com/photos/1152077/pexels-photo-1152077.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
-      "title": "Strap bag",
-      "postDate": "5th April 2020",
-      "location": "Woji Estate, Port Harcourt",
-      "shipping": "Yes"
-    },
-    {
-      "id": 4,
-      "imageUrl": "https://images.pexels.com/photos/1546003/pexels-photo-1546003.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
-      "title": "Backpack",
-      "postDate": "1st March 2020",
-      "location": "Woji Estate, Port Harcourt",
-      "shipping": "Yes"
-    },
-    {
-      "id": 5,
-      "imageUrl": "https://images.pexels.com/photos/2081199/pexels-photo-2081199.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
-      "title": "Backpack",
-      "postDate": "5th March 2020",
-      "location": "Woji Estate, Port Harcourt",
-      "shipping": "No"
-    },
-    {
-      "id": 6,
-      "imageUrl": "https://images.pexels.com/photos/292998/pexels-photo-292998.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
-      "title": "Dress shoes",
-      "postDate": "21st April 2020",
-      "location": "Woji Estate, Port Harcourt",
-      "shipping": "Yes"
-    },
-    {
-      "id": 7,
-      "imageUrl": "https://images.pexels.com/photos/1598505/pexels-photo-1598505.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
-      "title": "Sneakers",
-      "postDate": "7th April 2020",
-      "location": "Woji Estate, Port Harcourt",
-      "shipping": "No"
-    },
-    {
-      "id": 8,
-      "imageUrl": "https://images.pexels.com/photos/1445696/pexels-photo-1445696.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
-      "title": "Heels",
-      "postDate": "1st April 2020",
-      "location": "Woji Estate, Port Harcourt",
-      "shipping": "No"
+      "title": "Bag",
+      "location": "Woji, Port Harcourt",
+      "shipping": "Yes",
+      "comment": "In good condition",
+      "imageUrl": "C:\\fakepath\\boxes.jpg",
+      "id": 1
     },
     {
       "title": "watch",
-      "location": "woji ",
-      "shipping": "yes",
-      "comment": "in good condition",
-      "imageUrl": "",
-      "id": 9
-    },
-    {
-      "title": "bag",
-      "location": "asaba",
-      "shipping": "no",
-      "comment": "in good condition",
-      "imageUrl": "",
-      "id": 10
-    },
-    {
-      "title": "Shoes",
       "location": "Warri",
-      "shipping": "No",
-      "comment": "in good condition",
-      "imageUrl": "C:\\fakepath\\boxes.jpg",
-      "id": 11
-    },
-    {
-      "title": "Contact Lens",
-      "location": "Port Harcourt, Rivers State, Nigeria",
       "shipping": "yes",
       "comment": "Not very new",
       "imageUrl": "",
-      "id": 12
+      "postDate": "5/23/2020",
+      "id": 2
     },
     {
-      "title": "",
-      "location": "",
-      "shipping": "",
-      "comment": "",
+      "title": "Sandals",
+      "location": "Port Harcourt, Rivers State, Nigeria",
+      "shipping": "Yes",
+      "comment": "Not very new",
       "imageUrl": "",
-      "id": 13
+      "postDate": "5/23/2020",
+      "id": 3
     },
     {
-      "title": "",
-      "location": "",
-      "shipping": "",
-      "comment": "",
+      "title": "watch",
+      "location": "Woji, Port Harcourt",
+      "shipping": "Yes",
+      "comment": "Not very new",
       "imageUrl": "",
-      "id": 14
+      "postDate": "5/23/2020",
+      "id": 4
+    },
+    {
+      "title": "watch",
+      "location": "Woji, Port Harcourt",
+      "shipping": "No",
+      "comment": "in good condition",
+      "imageUrl": "C:\\fakepath\\female-shopaholic-with-laptop-shopping-online-in-messy-3791614.jpg",
+      "postDate": "5/23/2020",
+      "id": 5
     }
   ]
 }
