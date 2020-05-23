@@ -5,6 +5,7 @@ import Footer from '../../reusables/Footer/Footer';
 import axios from 'axios';
 //import { Pagination } from 'antd';
 import Spinner from '../../reusables/Spinner/Spinner';
+import { Link } from 'react-router-dom';
 
 const PostsPage = () => {
   const [posts, setPosts] = useState<any[]>([]);
@@ -30,13 +31,15 @@ const PostsPage = () => {
         <div className={styles.postContainer}>
           {posts.map((post) => (
             <div className={styles.card} key={post.id}>
-              <PostContainer
-                imageUrl={post.imageUrl}
-                title={post.title}
-                //postDate={new Date().toLocaleDateString}
-                location={post.location}
-                shipping={post.shipping}
-              />
+              <Link to={`/view-posts/${post.id}`}>
+                <PostContainer
+                  imageUrl={post.imageUrl}
+                  title={post.title}
+                  postDate={new Date().toLocaleDateString()}
+                  location={post.location}
+                  shipping={post.shipping}
+                />
+              </Link>
             </div>
           ))}
         </div>

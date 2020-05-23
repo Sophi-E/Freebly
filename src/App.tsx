@@ -13,6 +13,7 @@ import { AuthProvider } from './components/Auth';
 import PrivateRoute from './components/PrivateRoute';
 import PostsPage from './components/PostsPage/PostsPage';
 import CreatePost from './components/CreatePost/CreatePost';
+import PostDetail from './components/PostDetail/PostDetail';
 
 const App = () => {
   return (
@@ -26,8 +27,9 @@ const App = () => {
             <Route path='/privacypolicy' component={PrivacyPolicy} />
             <Route path='/terms' component={Terms} />
             <PrivateRoute path='/dashboard' component={Dashboard} />
-            <Route path='/view-posts' component={PostsPage} />
+            <Route path='/view-posts' exact component={PostsPage} />
             <Route path='/create-post' component={CreatePost} />
+            <Route path='/view-posts/:id' component={PostDetail} />
           </Switch>
         </div>
       </Router>
