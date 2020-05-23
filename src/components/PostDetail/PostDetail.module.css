@@ -1,5 +1,20 @@
+.postDetail {
+  padding: 2em 3em;
+}
+
 .postDetail .reqBtn {
   padding: 1em;
-  background-color: blue;
+  background-color: #6c63ff;
+  color: #fff;
   cursor: pointer;
+}
+.postDetail .thumbnail img {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+  width: 150px;
+  margin: 5px;
+}
+.postDetail .thumbnail img:hover {
+  box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
 }

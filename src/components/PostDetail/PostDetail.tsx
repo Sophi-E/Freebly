@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import styles from './PostDetail.module.css';
+import Footer from '../../reusables/Footer/Footer';
+import Nav from '../../reusables/Nav/Nav';
 
 //@ts-ignore
 const PostDetail = ({ match }) => {
@@ -16,15 +18,25 @@ const PostDetail = ({ match }) => {
   const [post, setPost] = useState<any>({});
   console.log(post);
   return (
-    <div className={styles.postDetail}>
-      <img src={post.imageUrl} alt='post-pic' />
-      <h2>{post.title}</h2>
-      <p>Location: {post.location}</p>
-      <p>Free shipping: {post.shipping}</p>
-      <p>Posted on: {post.postDate}</p>
-      <p>Comment: {post.comment}</p>
-      <button className={styles.reqBtn}>Request Item</button>
-    </div>
+    <>
+      <Nav />
+      <div className={styles.postDetail}>
+        <img src={post.imageUrl} alt='post-pic' />
+        <div className={styles.thumbnail}>
+          <img src={post.imageUrl} alt='post-pic' />
+          <img src={post.imageUrl} alt='post-pic' />
+          <img src={post.imageUrl} alt='post-pic' />
+          <img src={post.imageUrl} alt='post-pic' />
+        </div>
+        <h2>{post.title}</h2>
+        <p>Location: {post.location}</p>
+        <p>Free shipping: {post.shipping}</p>
+        <p>Posted on: {post.postDate}</p>
+        <p>Comment: {post.comment}</p>
+        <button className={styles.reqBtn}>Request Item</button>
+      </div>
+      <Footer />
+    </>
   );
 };
 
