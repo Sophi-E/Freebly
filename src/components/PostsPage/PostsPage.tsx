@@ -14,7 +14,7 @@ const PostsPage = () => {
     axios
       .get('http://localhost:5000/posts', {
         params: {
-          _limit: 8,
+          //_limit: 8,
         },
       })
       .then((res) => {
