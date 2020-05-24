@@ -2,7 +2,9 @@
   padding: 2em 3em;
   position: relative;
 }
-
+.postDetail p {
+  padding: 0.3em 0;
+}
 .postDetail .reqBtn {
   padding: 0.8em 1.5em;
   background-color: #6c63ff;
