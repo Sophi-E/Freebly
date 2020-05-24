@@ -8,6 +8,7 @@
   background-color: #6c63ff;
   color: #fff;
   cursor: pointer;
+  border-radius: 5px;
 }
 .postDetail .thumbnail img {
   border: 1px solid #ddd;
