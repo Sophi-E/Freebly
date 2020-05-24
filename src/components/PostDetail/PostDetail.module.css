@@ -4,11 +4,13 @@
 }
 
 .postDetail .reqBtn {
-  padding: 1em;
+  padding: 0.8em 1.5em;
   background-color: #6c63ff;
   color: #fff;
   cursor: pointer;
-  border-radius: 5px;
+  border: none;
+  border-radius: 25px;
+  margin-top: 1em;
 }
 .postDetail .thumbnail img {
   border: 1px solid #ddd;
