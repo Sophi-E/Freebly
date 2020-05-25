@@ -43,6 +43,15 @@
       "imageUrl": "C:\\fakepath\\female-shopaholic-with-laptop-shopping-online-in-messy-3791614.jpg",
       "postDate": "5/23/2020",
       "id": 5
+    },
+    {
+      "title": "Phone",
+      "location": "Warri",
+      "shipping": "No",
+      "comment": "Scratched all over but works",
+      "imageUrl": "C:\\fakepath\\boxes.jpg",
+      "postDate": "5/25/2020",
+      "id": 6
     }
   ]
 }

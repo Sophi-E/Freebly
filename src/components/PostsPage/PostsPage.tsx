@@ -33,7 +33,7 @@ const PostsPage = () => {
         <div className={styles.postContainer}>
           {posts.map((post) => (
             <div className={styles.card} key={post.id}>
-              <Link to={`/view-posts/${post.id}`}>
+              <Link to={`/view-posts/${post.id}`} className={styles.postLink}>
                 <PostContainer
                   imageUrl={post.imageUrl}
                   title={post.title}
