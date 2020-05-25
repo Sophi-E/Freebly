@@ -19,6 +19,6 @@
 }
 .formContainer {
   border-radius: 5px;
-  background-color: #f2f2f2;
-  padding: 0 3em;
+  /* background-color: #f2f2f2; */
+  padding: 1em 3em;
 }

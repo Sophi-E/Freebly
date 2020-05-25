@@ -40,10 +40,10 @@ const CreatePost = () => {
   };
   return (
     <div>
-      <Nav login='logout' />
+      <Nav login='Logout' />
       <div className={styles.formContainer}>
         <form id='postForm' className={styles.postForm} onSubmit={handleSubmit}>
-          <h1>Create Post</h1>
+          {/* <h1>Create Post</h1> */}
           <label htmlFor='imageUrl'>Upload Photos:</label>
           <input
             type='file'
@@ -90,7 +90,7 @@ const CreatePost = () => {
             onChange={(e) => setShipping(e.target.value)}
           />
 
-          <button className={styles.postBtn}>Submit</button>
+          <button className={styles.postBtn}>Submit Post</button>
         </form>
       </div>
       <Footer />
