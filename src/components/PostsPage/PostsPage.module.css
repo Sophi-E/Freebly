@@ -1,10 +1,10 @@
 .postContainer {
   box-sizing: border-box;
-  display: flex;
+  /* display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content: space-evenly; */
   margin: 2em auto;
-  max-width: 1400px;
+  width: 300px;
 }
 .postContainer .postLink {
   text-decoration: none;
@@ -13,18 +13,48 @@
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
-  border-radius: 5px; /* 5px rounded corners */
-  width: 23%;
+  border-radius: 5px;
+  width: 100%;
   margin-bottom: 2em;
   padding-bottom: 2em;
   margin-top: 2em;
-  /* text-align: center; */
   font-family: arial;
   cursor: pointer;
 }
 .card:hover {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
-/* img {
-  width: 100%;
-} */
+
+@media only screen and (min-width: 600px) {
+  .postContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    width: 100%;
+  }
+  .card {
+    width: 45%;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .postContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    width: 100%;
+  }
+  .card {
+    width: 31%;
+  }
+}
+@media only screen and (min-width: 992px) {
+  .postContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    max-width: 1400px;
+  }
+  .card {
+    width: 23%;
+  }
+}
