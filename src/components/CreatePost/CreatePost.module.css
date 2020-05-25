@@ -1,10 +1,14 @@
-/* .postForm {
-  display: flex;
-  flex-direction: column;
-  width: 50%;
-  margin: 0 auto;
+.postForm {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 1em;
 }
-.postBtn {
+.postForm input {
+  width: 90%;
+  padding: 0.5em 1em;
+  margin: 1em;
+}
+/* .postBtn {
   background-color: rgb(235, 159, 235);
   color: #fff;
-} */
+}  */
