@@ -58,6 +58,7 @@ const CreatePost = () => {
             type='text'
             name='title'
             id='title'
+            placeholder='Enter Item Name'
             value={title}
             onChange={(e) => setTitle(e.target.value)}
           />
@@ -66,6 +67,7 @@ const CreatePost = () => {
             type='text'
             name='location'
             id='location'
+            placeholder='Enter Item Location'
             value={location}
             onChange={(e) => setLocation(e.target.value)}
           />
@@ -74,6 +76,7 @@ const CreatePost = () => {
             type='text'
             name='comment'
             id='comment'
+            placeholder='Enter any comment/info about the item'
             value={comment}
             onChange={(e) => setComment(e.target.value)}
           />
@@ -82,6 +85,7 @@ const CreatePost = () => {
             type='text'
             name='shipping'
             id='shipping'
+            placeholder='Willing to pay for shipping fees if applicable?'
             value={shipping}
             onChange={(e) => setShipping(e.target.value)}
           />
