@@ -40,7 +40,7 @@ const CreatePost = () => {
   };
   return (
     <div>
-      <Nav login='Logout' />
+      <Nav logout='LOGOUT' />
       <div className={styles.formContainer}>
         <form id='postForm' className={styles.postForm} onSubmit={handleSubmit}>
           {/* <h1>Create Post</h1> */}

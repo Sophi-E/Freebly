@@ -19,7 +19,7 @@ const PostDetail = ({ match }) => {
   console.log(post);
   return (
     <>
-      <Nav login='Logout' />
+      <Nav logout='LOGOUT' />
       <div className={styles.postDetail}>
         <h2>{post.title}</h2>
         <img src={post.imageUrl} alt='post-pic' />

@@ -15,7 +15,9 @@ const Home: React.FC = () => {
         <div className={styles.intro}>
           <h1>All things have value</h1>
           <p>
-            Choose to give something of value to someone at no extra cost to you
+            {/* Choose to give something of value to someone at no extra cost to you */}
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi dolore
+            ipsam
           </p>
         </div>
 

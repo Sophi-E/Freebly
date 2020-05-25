@@ -5,13 +5,13 @@ import { Link } from 'react-router-dom';
 import Footer from '../../reusables/Footer/Footer';
 // import { PostsArray } from '../PostsPage/PostsPage';
 import styles from '../PostsPage/PostsPage.module.css';
-import PostContainer from '../../reusables/PostsContainer/PostContainer';
+//import PostContainer from '../../reusables/PostsContainer/PostContainer';
 import Nav from '../../reusables/Nav/Nav';
 
 const Dashboard: React.FC = () => {
   return (
     <>
-      <Nav login='Logout' />
+      <Nav logout='LOGOUT' />
       <div className={classes.dashboardContainer}>
         {/* <div className={classes.avi}>
           <button onClick={() => Config.auth().signOut()}>Logout</button>

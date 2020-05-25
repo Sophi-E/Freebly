@@ -26,7 +26,7 @@ const PostsPage = () => {
 
   return (
     <>
-      <Nav login='Logout' />
+      <Nav logout='LOGOUT' />
       {posts.length === 0 ? (
         <Spinner />
       ) : (

@@ -1,12 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Nav.module.css';
+import Config from '../../config';
 
 type NavProps = {
   login?: string;
+  logout?: string;
   signup?: string;
 };
-const Nav: React.FC<NavProps> = ({ login, signup }: NavProps) => {
+const Nav: React.FC<NavProps> = ({ login, signup, logout }: NavProps) => {
   return (
     <nav className={styles.navWrapper}>
       <a className={styles.logo} href='/'>
@@ -14,6 +16,7 @@ const Nav: React.FC<NavProps> = ({ login, signup }: NavProps) => {
       </a>
 
       <Link to='/login'>{login}</Link>
+      <button onClick={() => Config.auth().signOut()}>{logout}</button>
 
       <Link to='/signup'>{signup}</Link>
     </nav>
