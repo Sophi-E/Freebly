@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styles from './CreatePost.module.css';
-import axios from 'axios';
+// import axios from 'axios';
+import * as DataStore from '../../services/firestore';
 import Nav from '../../reusables/Nav/Nav';
 import Footer from '../../reusables/Footer/Footer';
 
@@ -21,22 +22,18 @@ const CreatePost = () => {
       imageUrl,
       postDate: new Date().toLocaleDateString(),
     };
-    axios({
-      method: 'post',
-      url: 'http://localhost:5000/posts',
-      data: data,
-    })
-      .then(function (response) {
-        console.log(response);
-        setComment('');
-        setImageUrl('');
-        setLocation('');
-        setTitle('');
-        setShipping('');
-      })
-      .catch(function (response) {
-        console.log(response);
-      });
+    const newPost = DataStore.addPost(data)
+    // axios({
+    //   method: 'post',
+    //   url: 'http://localhost:5000/posts',
+    //   data: data,
+    // })
+    console.log(newPost);
+    setComment('');
+    setImageUrl('');
+    setLocation('');
+    setTitle('');
+    setShipping('');
   };
   return (
     <div>
@@ -99,3 +96,4 @@ const CreatePost = () => {
 };
 
 export default CreatePost;
+

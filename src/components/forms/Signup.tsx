@@ -2,7 +2,8 @@ import React, { useCallback } from 'react';
 import { Link, RouteComponentProps } from 'react-router-dom';
 import { withRouter } from 'react-router';
 
-import Config from '../../config';
+// import Config from '../../config';
+import * as FirebaseService from '../../services/firestore'
 
 import styles from './formStyles.module.css';
 
@@ -12,7 +13,7 @@ const Signup: React.FC<RouteComponentProps> = ({ history }) => {
       event.preventDefault();
       const { email, password } = event.target.elements;
       try {
-        await Config.auth().createUserWithEmailAndPassword(
+        await FirebaseService.registerViaEmail(
           email.value,
           password.value
         );
