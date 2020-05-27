@@ -20,9 +20,9 @@ const CreatePost = () => {
       shipping,
       comment,
       imageUrl,
-      postDate: new Date().toLocaleDateString(),
+      postDate: Date.now(),
     };
-    const newPost = DataStore.addPost(data)
+    const newPost = DataStore.addPost(data);
     // axios({
     //   method: 'post',
     //   url: 'http://localhost:5000/posts',
@@ -96,4 +96,3 @@ const CreatePost = () => {
 };
 
 export default CreatePost;
-

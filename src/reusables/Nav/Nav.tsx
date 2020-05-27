@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Nav.module.css';
-import Config from '../../config';
+//import Config from '../../config';
 
 type NavProps = {
   login?: string;
@@ -16,7 +16,7 @@ const Nav: React.FC<NavProps> = ({ login, signup, logout }: NavProps) => {
       </a>
 
       <Link to='/login'>{login}</Link>
-      <button onClick={() => Config.auth().signOut()}>{logout}</button>
+      {/* <button onClick={() => Config.auth().signOut()}>{logout}</button> */}
 
       <Link to='/signup'>{signup}</Link>
     </nav>
