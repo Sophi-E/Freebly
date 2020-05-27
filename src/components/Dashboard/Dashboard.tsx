@@ -1,5 +1,8 @@
 import React from 'react';
-import Config from '../../config';
+// import Config from '../../config';
+
+import * as DataStore from '../../services/firestore';
+
 import classes from './dashboard.module.css';
 import { Link } from 'react-router-dom';
 import Footer from '../../reusables/Footer/Footer';
@@ -14,7 +17,7 @@ const Dashboard: React.FC = () => {
       <Nav logout='LOGOUT' />
       <div className={classes.dashboardContainer}>
         {/* <div className={classes.avi}>
-          <button onClick={() => Config.auth().signOut()}>Logout</button>
+          <button onClick={() => DataStore.signOut()}>Logout</button>
         </div> */}
         <div className={classes.profile}>
           <div className={classes.avatar}></div>

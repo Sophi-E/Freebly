@@ -1,7 +1,7 @@
 import React, { useCallback, useContext } from 'react';
 import { withRouter, Redirect } from 'react-router';
 import { Link, RouteComponentProps } from 'react-router-dom';
-import Config from '../../config';
+import * as FirebaseService from '../../services/firestore';
 
 import styles from './formStyles.module.css';
 import { AuthContext } from '../Auth';
@@ -12,7 +12,7 @@ const Login: React.FC<RouteComponentProps> = ({ history }) => {
       event.preventDefault();
       const { email, password } = event.target.elements;
       try {
-        await Config.auth().signInWithEmailAndPassword(
+        await FirebaseService.signInViaEmail(
           email.value,
           password.value
         );
