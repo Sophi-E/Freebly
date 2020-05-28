@@ -13,7 +13,7 @@ const Nav: React.FC<NavProps> = ({ login, signup, logout }: NavProps) => {
   return (
     <nav className={styles.navWrapper}>
       <a className={styles.logo} href='/'>
-        FREEBLY
+        FREEBLI
       </a>
 
       <Link to='/login'>{login}</Link>

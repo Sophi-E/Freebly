@@ -114,14 +114,6 @@ const Terms = () => {
           with the laws of Nigeria and you irrevocably submit to the exclusive
           jurisdiction of the courts in that State or location.
         </p>
-        <p>
-          <a
-            href='https://getterms.io'
-            title='Generate a free terms of use document'
-          >
-            Terms of Use created with GetTerms.
-          </a>
-        </p>
       </div>
       <Footer />
     </>

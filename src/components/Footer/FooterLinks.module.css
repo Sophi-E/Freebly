@@ -1,6 +1,15 @@
 .linksWrapper {
   padding: 1em 3em;
 }
+.linksWrapper * {
+  padding: 1em 0;
+}
 .faqWrapper {
   padding: 1em 3em;
+}
+.faqWrapper div {
+  padding: 1.3em 0;
+}
+.faqWrapper div p {
+  padding-top: 1em;
 }

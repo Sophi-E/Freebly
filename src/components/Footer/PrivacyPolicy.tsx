@@ -49,11 +49,8 @@ const PrivacyPolicy = () => {
           questions about how we handle user data and personal information, feel
           free to contact us.
         </p>
-        <p>This policy is effective as of 1 June 2020.</p>
         <p>
-          <a href='https://getterms.io' title='Generate a free privacy policy'>
-            Privacy Policy created with GetTerms.
-          </a>
+          This policy is effective as of 1<sup>st</sup> June 2020.
         </p>
       </div>
       <Footer />
