@@ -6,7 +6,7 @@ import Footer from '../../reusables/Footer/Footer';
 const PrivacyPolicy = () => {
   return (
     <>
-      <Nav logout='Logout' />
+      <Nav logout='LOGOUT' />
       <div className={styles.linksWrapper}>
         <h2>Privacy Policy</h2>
         <p>

@@ -6,7 +6,7 @@ import styles from './FooterLinks.module.css';
 const Terms = () => {
   return (
     <>
-      <Nav logout='Logout' />
+      <Nav logout='LOGOUT' />
       <div className={styles.linksWrapper}>
         <h2>Freebli Terms of Service</h2>
         <h3>1. Terms</h3>
