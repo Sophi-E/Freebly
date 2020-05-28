@@ -8,8 +8,8 @@ const Footer = () => {
       <div className={styles.bottomNav}>
         <div className={styles.footerLinks}>
           <ul>
-            <Link to='/about us'>About Us</Link>
-            <Link to='/contact us'>Contact Us</Link>
+            <Link to='/about'>About Us</Link>
+            <Link to='/contact'>Contact Us</Link>
             <Link to='/privacypolicy'>Privacy Policy</Link>
             <Link to='/terms'>Terms of Use</Link>
           </ul>
