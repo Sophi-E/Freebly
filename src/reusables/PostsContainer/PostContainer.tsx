@@ -19,7 +19,7 @@ const PostContainer: React.FC<PostItemProps> = ({
   return (
     <div className={styles.postContainer}>
       <img className={styles.postImg} src={imageUrl} alt='' />
-      <h4>{title.toUpperCase()}</h4>
+      <h4>{title}</h4>
       <p>Posted on: {postDate}</p>
       <p>Location: {location}</p>
       <p>Free Shipping: {shipping}</p>
