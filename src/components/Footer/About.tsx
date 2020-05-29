@@ -12,7 +12,7 @@ const About = () => {
         <div>
           <h3>What is Freebli?</h3>
           <p>
-            We're a non-profit that gives you an opportunity to de-clutter your
+            We're a non-profit that gives you an opportunity to declutter your
             home while also giving other people things that'll be of use to them
           </p>
         </div>
