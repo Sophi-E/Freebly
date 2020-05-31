@@ -14,9 +14,12 @@
   margin: 4em 0;
 }
 .iconWrapper div {
-  border: 1px dotted #6c63ff;
+  border: 1px solid #6c63ff;
   padding: 1em;
   width: 200px;
+}
+.iconWrapper div p {
+  padding: 0.5em 0;
 }
 .iconWrapper .icon {
   font-size: 4em;
