@@ -42,7 +42,7 @@ const PostDetail = ({ match }) => {
           </div>
           <p>Location: {post.data.location}</p>
           <p>Free shipping: {post.data.shipping}</p>
-          <p>Posted on: {post.data.postDate}</p>
+          <p>Posted on: {new Date(post.data.postDate).toLocaleDateString() }</p>
           <p>Comment: {post.data.comment}</p>
           <button className={styles.reqBtn}>Request Item</button>
         </div>
