@@ -7,17 +7,25 @@
 .contactWrapper {
   padding: 1em 3em;
   text-align: center;
+  box-sizing: border-box;
+  margin: 5em 0;
+}
+.contactWrapper h3 {
+  padding: 1em 0;
 }
 .contactWrapper div {
   border: 1px solid gray;
-  padding: 1em;
+  padding: 1.5em;
   margin: 1em;
   width: 200px;
   display: inline-block;
 }
 .contactWrapper .contactIcon {
   color: #6c63ff;
-  font-size: 24px;
+  font-size: 20px;
+}
+.contactWrapper p {
+  padding: 0.3em 0;
 }
 .faqWrapper {
   padding: 1em 3em;

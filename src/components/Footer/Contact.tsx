@@ -14,7 +14,7 @@ const Contact = () => {
     <>
       <Nav logout='LOGOUT' />
       <div className={styles.contactWrapper}>
-        <h4>For more info, contact us</h4>
+        <h3>For more info, contact us</h3>
         <div>
           <FontAwesomeIcon icon={faPhone} className={styles.contactIcon} />
           <p>Phone</p>
