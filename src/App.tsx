@@ -15,6 +15,7 @@ import PostsPage from './components/PostsPage/PostsPage';
 import CreatePost from './components/CreatePost/CreatePost';
 import PostDetail from './components/PostDetail/PostDetail';
 import About from './components/Footer/About';
+import Contact from './components/Footer/Contact';
 
 const App = () => {
   return (
@@ -28,6 +29,7 @@ const App = () => {
             <Route path='/privacypolicy' component={PrivacyPolicy} />
             <Route path='/terms' component={Terms} />
             <Route path='/about' component={About} />
+            <Route path='/contact' component={Contact} />
             <PrivateRoute path='/dashboard' component={Dashboard} />
             <Route path='/view-posts' exact component={PostsPage} />
             <Route path='/create-post' component={CreatePost} />
