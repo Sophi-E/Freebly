@@ -2,15 +2,29 @@ import * as firebase from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/firestore';
 
-export const Config = firebase.initializeApp({
-  apiKey: 'AIzaSyC07b5BHcNWuUGd4bkMA1P7a-bjrewaUVQ',
-  authDomain: 'freebly.firebaseapp.com',
-  databaseURL: 'https://freebly.firebaseio.com',
-  projectId: 'freebly',
-  storageBucket: 'freebly.appspot.com',
-  messagingSenderId: '681902899769',
-  appId: '1:681902899769:web:1364a22155ac42853c43e8',
-});
+const freebliConfig = {
+    apiKey: 'AIzaSyC07b5BHcNWuUGd4bkMA1P7a-bjrewaUVQ',
+    authDomain: 'freebly.firebaseapp.com',
+    databaseURL: 'https://freebly.firebaseio.com',
+    projectId: 'freebly',
+    storageBucket: 'freebly.appspot.com',
+    messagingSenderId: '681902899769',
+    appId: '1:681902899769:web:1364a22155ac42853c43e8',
+  };
+const tobyDevConfig =   {
+  apiKey: "AIzaSyAWo0ZWObKQYijaeWRvT5ygQeDSR21rnxk",
+  authDomain: "sharing-stuff-3ccd8.firebaseapp.com",
+  databaseURL: "https://sharing-stuff-3ccd8.firebaseio.com",
+  projectId: "sharing-stuff-3ccd8",
+  storageBucket: "sharing-stuff-3ccd8.appspot.com",
+  messagingSenderId: "313621377942",
+  appId: "1:313621377942:web:ea5f0002ff393bdecc63b7"
+};
+
+export const Config = firebase.initializeApp(
+  // Temporarily swapping in my firebase, so I can see what's going on.
+  tobyDevConfig
+);
 
 const db = firebase.firestore();
 
@@ -50,18 +64,30 @@ export const signOut = () => {
   return firebase.auth().signOut();
 };
 
-export const getAllPosts = () => {
-  return db
+export const getAllPosts = async() => {
+  let allPosts = [];
+
+  await db
     .collection('posts')
     .get()
-    .then((querySnapshot) => querySnapshot);
+    .then(querySnapshot => querySnapshot.forEach(doc =>{
+      allPosts = [...allPosts, {id: doc.id, data: doc.data()}]
+    }));
+  return allPosts;
 };
 
-export const addPost = (dataObj) => {
+export const findPostById = async(id) => {
+  let result;
+  await db.collection('posts').doc(id).get().then(doc =>{
+    result = {id, data: doc.data() };
+  })
+  return result;
+};
+
+export const addPost = async (dataObj) => {
   // do this to create a unique id for this post
-  const newPostRef = db.collection('posts').push();
-  newPostRef.set(dataObj);
-  return newPostRef;
+  const newPostRef = await db.collection('posts').add(dataObj)
+  return newPostRef.id;
 };
 
 export const updatePost = (postId, dataObj) => {

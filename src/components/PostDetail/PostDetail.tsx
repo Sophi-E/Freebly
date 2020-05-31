@@ -1,40 +1,53 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+// import axios from 'axios';
+import * as DataSource from '../../services/firestore';
+//import * as DataSource from '../../services/freebli';
+
+import Spinner from '../../reusables/Spinner/Spinner';
+
 import styles from './PostDetail.module.css';
 import Footer from '../../reusables/Footer/Footer';
 import Nav from '../../reusables/Nav/Nav';
 
 //@ts-ignore
 const PostDetail = ({ match }) => {
-  useEffect(() => {
-    axios
-      .get(`http://localhost:5000/posts?id=${match.params.id}`)
-      .then((res) => {
-        setPost(res.data[0]);
-      })
-      .catch((error) => console.error(error));
-  }, []);
-
   const [post, setPost] = useState<any>({});
-  console.log(post);
+  let postId=match.params.id;
+
+    useEffect(() => {
+      // Because useEffect doesn't accept asynchronous functions, we have
+      //  to define our async function in here, and then call it.
+      const findPostById = async (id: string) => {
+        const thePost = await DataSource.findPostById(id);
+        setPost(thePost)
+      }
+
+      findPostById(postId)
+    }, [postId]);
+
   return (
     <>
       <Nav logout='LOGOUT' />
-      <div className={styles.postDetail}>
-        <h2>{post.title}</h2>
-        <img src={post.imageUrl} alt='post-pic' />
-        <div className={styles.thumbnail}>
-          <img src={post.imageUrl} alt='post-pic' />
-          <img src={post.imageUrl} alt='post-pic' />
-          <img src={post.imageUrl} alt='post-pic' />
-          <img src={post.imageUrl} alt='post-pic' />
+      {console.log(post)===null || !post.hasOwnProperty("id") ? (
+        <Spinner />
+      ) : (
+        <div className={styles.postDetail} id={post.id}>
+          <h2>{post.data.title}</h2>
+          <img src={post.data.imageUrl} alt='post-pic' />
+          <div className={styles.thumbnail}>
+            <img src={post.data.imageUrl} alt='post-pic' />
+            <img src={post.data.imageUrl} alt='post-pic' />
+            <img src={post.data.imageUrl} alt='post-pic' />
+            <img src={post.data.imageUrl} alt='post-pic' />
+          </div>
+          <p>Location: {post.data.location}</p>
+          <p>Free shipping: {post.data.shipping}</p>
+          <p>Posted on: {post.data.postDate}</p>
+          <p>Comment: {post.data.comment}</p>
+          <button className={styles.reqBtn}>Request Item</button>
         </div>
-        <p>Location: {post.location}</p>
-        <p>Free shipping: {post.shipping}</p>
-        <p>Posted on: {post.postDate}</p>
-        <p>Comment: {post.comment}</p>
-        <button className={styles.reqBtn}>Request Item</button>
-      </div>
+
+      )}
       <Footer />
     </>
   );

@@ -2,7 +2,10 @@ import React, { useEffect, useState } from 'react';
 import PostContainer from '../../reusables/PostsContainer/PostContainer';
 import styles from './PostsPage.module.css';
 import Footer from '../../reusables/Footer/Footer';
-import axios from 'axios';
+
+import * as DataSource from '../../services/firestore';
+//import * as DataSource from '../../services/freebli';
+
 //import { Pagination } from 'antd';
 import Spinner from '../../reusables/Spinner/Spinner';
 import { Link } from 'react-router-dom';
@@ -12,17 +15,15 @@ const PostsPage = () => {
   const [posts, setPosts] = useState<any[]>([]);
 
   useEffect(() => {
-    axios
-      .get('http://localhost:5000/posts', {
-        params: {
-          //_limit: 8,
-        },
-      })
-      .then((res) => {
-        setPosts(res.data);
-      })
-      .catch((error) => console.error(error));
+    const getAllPosts = async()=>{
+      const allPosts = await DataSource.getAllPosts();
+      console.log(allPosts);
+      setPosts(allPosts);
+    }
+
+    getAllPosts();
   }, []);
+
 
   return (
     <>
@@ -35,11 +36,11 @@ const PostsPage = () => {
             <div className={styles.card} key={post.id}>
               <Link to={`/view-posts/${post.id}`} className={styles.postLink}>
                 <PostContainer
-                  imageUrl={post.imageUrl}
-                  title={post.title}
-                  postDate={post.postDate}
-                  location={post.location}
-                  shipping={post.shipping}
+                  imageUrl={post.data.imageUrl}
+                  title={post.data.title}
+                  postDate={post.data.postDate}
+                  location={post.data.location}
+                  shipping={post.data.shipping}
                 />
               </Link>
             </div>
