@@ -23,7 +23,7 @@ const tobyDevConfig =   {
 
 export const Config = firebase.initializeApp(
   // Temporarily swapping in my firebase, so I can see what's going on.
-  tobyDevConfig
+  freebliConfig
 );
 
 const db = firebase.firestore();
