@@ -3,34 +3,34 @@ import { Link, RouteComponentProps } from 'react-router-dom';
 import { withRouter } from 'react-router';
 
 // import Config from '../../config';
-import * as FirebaseService from '../../services/firestore'
+import * as FirebaseService from '../../services/firestore';
 
 import styles from './formStyles.module.css';
 
 const Signup: React.FC<RouteComponentProps> = ({ history }) => {
-  const handleSignUp = useCallback(
-    async (event) => {
-      event.preventDefault();
-      const { email, password } = event.target.elements;
-      try {
-        await FirebaseService.registerViaEmail(
-          email.value,
-          password.value
-        );
-        history.push('/login');
-      } catch (error) {
-        const errorBox = document.getElementById('errorBox');
-        console.log(errorBox);
-        if (errorBox !== null) {
-          errorBox.innerText = error.message;
-        }
-      }
-    },
-    [history]
-  );
+  // const handleSignUp = useCallback(
+  //   async (event) => {
+  //     event.preventDefault();
+  //     const { email, password } = event.target.elements;
+  //     try {
+  //       await FirebaseService.registerViaEmail(
+  //         email.value,
+  //         password.value
+  //       );
+  //       history.push('/login');
+  //     } catch (error) {
+  //       const errorBox = document.getElementById('errorBox');
+  //       console.log(errorBox);
+  //       if (errorBox !== null) {
+  //         errorBox.innerText = error.message;
+  //       }
+  //     }
+  //   },
+  //   [history]
+  // );
   return (
     <div className={styles.formContainer}>
-      <form onSubmit={handleSignUp} className={styles.white}>
+      {/* <form onSubmit={handleSignUp} className={styles.white}>
         <p id='errorBox' className={styles.errorBox}></p>
 
         <input type='email' id='email' placeholder='Email' required />
@@ -42,7 +42,7 @@ const Signup: React.FC<RouteComponentProps> = ({ history }) => {
             Login
           </Link>
         </small>
-      </form>
+      </form> */}
     </div>
   );
 };

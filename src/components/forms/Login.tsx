@@ -7,36 +7,36 @@ import styles from './formStyles.module.css';
 import { AuthContext } from '../Auth';
 
 const Login: React.FC<RouteComponentProps> = ({ history }) => {
-  const handleLogin = useCallback(
-    async (event) => {
-      event.preventDefault();
-      const { email, password } = event.target.elements;
-      try {
-        await FirebaseService.signInViaEmail(
-          email.value,
-          password.value
-        );
-        history.push('/dashboard');
-      } catch (error) {
-        const errorBox = document.getElementById('errorBox');
-        console.log(errorBox);
-        if (errorBox !== null) {
-          errorBox.innerText = error.message;
-        }
-      }
-    },
-    [history]
-  );
+  // const handleLogin = useCallback(
+  //   async (event) => {
+  //     event.preventDefault();
+  //     const { email, password } = event.target.elements;
+  //     try {
+  //       await FirebaseService.signInViaEmail(
+  //         email.value,
+  //         password.value
+  //       );
+  //       history.push('/dashboard');
+  //     } catch (error) {
+  //       const errorBox = document.getElementById('errorBox');
+  //       console.log(errorBox);
+  //       if (errorBox !== null) {
+  //         errorBox.innerText = error.message;
+  //       }
+  //     }
+  //   },
+  //   [history]
+  // );
 
-  const { currentUser } = useContext(AuthContext);
-  // console.log(currentUser);
-  if (currentUser) {
-    return <Redirect to='/dashboard' />;
-  }
+  // const { currentUser } = useContext(AuthContext);
+  // // console.log(currentUser);
+  // if (currentUser) {
+  //   return <Redirect to='/dashboard' />;
+  // }
 
   return (
     <div className={styles.formContainer}>
-      <form onSubmit={handleLogin} className={styles.white}>
+      {/* <form onSubmit={handleLogin} className={styles.white}>
         <p id='errorBox' className={styles.errorBox}></p>
         <input
           type='email'
@@ -63,7 +63,7 @@ const Login: React.FC<RouteComponentProps> = ({ history }) => {
             Register
           </Link>
         </small>
-      </form>
+      </form> */}
     </div>
   );
 };
