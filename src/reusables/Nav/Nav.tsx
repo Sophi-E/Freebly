@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Nav.module.css';
 //import Config from '../../config';
-import { signOut } from '../../services/firestore';
+import { signOut, signInViaGoogle } from '../../services/firestore';
 
 type NavProps = {
   login?: string;
@@ -16,10 +16,10 @@ const Nav: React.FC<NavProps> = ({ login, signup, logout }: NavProps) => {
         FREEBLI.
       </a>
 
-      <Link to='/login'>{login}</Link>
+      <button onClick={signInViaGoogle}>{login}</button>
       <button onClick={signOut}>{logout}</button>
 
-      <Link to='/signup'>{signup}</Link>
+      <button>{signup}</button>
     </nav>
   );
 };
