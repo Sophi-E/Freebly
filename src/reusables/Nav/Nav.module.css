@@ -23,23 +23,21 @@
   font-size: 20px;
   text-decoration: underline;
 }
-.navWrapper a {
+.navWrapper button {
   color: #000;
   font-size: 16px;
   padding: 0 8px;
   text-decoration: none;
   cursor: pointer;
-}
-.navWrapper a:hover {
-  text-decoration: underline;
-}
-.navWrapper button {
   border: none;
   outline: none;
 
-  cursor: pointer;
   background-color: transparent;
 }
+/* .navWrapper a:hover {
+  text-decoration: underline;
+} */
+
 .navWrapper button:hover {
   text-decoration: underline;
 }

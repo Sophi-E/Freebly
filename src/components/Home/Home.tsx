@@ -10,7 +10,7 @@ import { faPeopleCarry } from '@fortawesome/free-solid-svg-icons';
 const Home: React.FC = () => {
   return (
     <>
-      <Nav login='LOGIN' signup='SIGNUP' />
+      <Nav login='LOGIN' />
       <div className={styles.homeContainer}>
         <div className={styles.intro}>
           <h1>All things have value</h1>

@@ -7,9 +7,8 @@ import { signOut, signInViaGoogle } from '../../services/firestore';
 type NavProps = {
   login?: string;
   logout?: string;
-  signup?: string;
 };
-const Nav: React.FC<NavProps> = ({ login, signup, logout }: NavProps) => {
+const Nav: React.FC<NavProps> = ({ login, logout }: NavProps) => {
   return (
     <nav className={styles.navWrapper}>
       <a className={styles.logo} href='/'>
@@ -18,8 +17,6 @@ const Nav: React.FC<NavProps> = ({ login, signup, logout }: NavProps) => {
 
       <button onClick={signInViaGoogle}>{login}</button>
       <button onClick={signOut}>{logout}</button>
-
-      <button>{signup}</button>
     </nav>
   );
 };
