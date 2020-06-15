@@ -1,6 +1,9 @@
+import React from 'react';
 import * as firebase from 'firebase/app';
+
 import 'firebase/auth';
 import 'firebase/firestore';
+import { Redirect } from 'react-router-dom';
 
 const freebliConfig = {
   apiKey: 'AIzaSyC07b5BHcNWuUGd4bkMA1P7a-bjrewaUVQ',
@@ -57,6 +60,7 @@ export const signInViaGoogle = () => {
     .auth()
     .signInWithPopup(provider)
     .then((result) => result.user)
+    .then((_) => <Redirect to={'/dashboard'} />)
     .catch((error) => console.error(error));
 };
 
@@ -103,3 +107,12 @@ export const updatePost = (postId, dataObj) => {
 export const deletePost = (postId) => {
   db.collection('posts').doc(postId).remove();
 };
+
+// export const onSignIn = (googleUser) => {
+//   var profile = googleUser.getBasicProfile();
+//   console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+//   console.log('Name: ' + profile.getName());
+//   console.log('Image URL: ' + profile.getImageUrl());
+//   console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+// };
+// onSignIn();
