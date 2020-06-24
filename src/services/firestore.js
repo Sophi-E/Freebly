@@ -54,7 +54,7 @@ export const signInViaEmail = (email, password) => {
     .catch((error) => console.error(error));
 };
 
-export const signInViaGoogle = () => {
+export const signInViaGoogle = (props) => {
   const provider = new firebase.auth.GoogleAuthProvider();
   return firebase
     .auth()

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+
 import styles from './Nav.module.css';
 //import Config from '../../config';
 import { signOut, signInViaGoogle } from '../../services/firestore';
@@ -16,6 +16,7 @@ const Nav: React.FC<NavProps> = ({ login, logout }: NavProps) => {
       </a>
 
       <button onClick={signInViaGoogle}>{login}</button>
+
       <button onClick={signOut}>{logout}</button>
     </nav>
   );
