@@ -54,13 +54,17 @@ export const signInViaEmail = (email, password) => {
     .catch((error) => console.error(error));
 };
 
-export const signInViaGoogle = (props) => {
+export const signInViaGoogle = (history) => {
   const provider = new firebase.auth.GoogleAuthProvider();
   return firebase
     .auth()
     .signInWithPopup(provider)
-    .then((result) => result.user)
-    .then((_) => <Redirect to={'/dashboard'} />)
+    .then((result) => {
+      if (result) {
+        console.log(result);
+        history.push('/dashboard');
+      }
+    })
     .catch((error) => console.error(error));
 };
 
