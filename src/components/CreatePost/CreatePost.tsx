@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { useHistory} from 'react-router-dom';
+
 import styles from './CreatePost.module.css';
 // import axios from 'axios';
 // import * as DataStore from '../../services/freebli';
@@ -8,11 +10,16 @@ import Footer from '../../reusables/Footer/Footer';
 
 
 const CreatePost = () => {
+  const history = useHistory();
   const [title, setTitle] = useState('');
   const [location, setLocation] = useState('');
   const [shipping, setShipping] = useState('');
   const [comment, setComment] = useState('');
   const [imageUrl, setImageUrl] = useState('');
+
+  const handleLogout = ()=>{
+    history.push('/');
+  }
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
@@ -35,7 +42,7 @@ const CreatePost = () => {
   };
   return (
     <div>
-      <Nav logout='LOGOUT' />
+      <Nav logout='LOGOUT' logoutCallback={handleLogout} />
       <div className={styles.formContainer}>
         <form id='postForm' className={styles.postForm} onSubmit={handleSubmit}>
           {/* <h1>Create Post</h1> */}

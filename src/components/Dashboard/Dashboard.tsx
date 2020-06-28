@@ -1,7 +1,9 @@
-import React from 'react';
+//@ts-nocheck
+
+import React, { useContext } from 'react';
 // import Config from '../../config';
 
-import * as DataStore from '../../services/firestore';
+import {AuthContext} from '../Auth';
 
 import classes from './dashboard.module.css';
 import { Link } from 'react-router-dom';
@@ -10,18 +12,26 @@ import Footer from '../../reusables/Footer/Footer';
 import styles from '../PostsPage/PostsPage.module.css';
 //import PostContainer from '../../reusables/PostsContainer/PostContainer';
 import Nav from '../../reusables/Nav/Nav';
+import { User } from '../../datatypes/User';
+import { useHistory } from 'react-router-dom';
 
 const Dashboard: React.FC = () => {
-  return (
+  const history = useHistory();
+
+  const handleLogout = ()=> {
+    history.push(`/`);
+  }
+  let {currentUser} = useContext<Partial<User> >(AuthContext);
+    return (
     <>
-      <Nav logout='LOGOUT' />
+      <Nav logout='LOGOUT' logoutCallback={handleLogout} />
       <div className={classes.dashboardContainer}>
         {/* <div className={classes.avi}>
           <button onClick={() => DataStore.signOut()}>Logout</button>
         </div> */}
         <div className={classes.profile}>
           <div className={classes.avatar}></div>
-          <p>John Doe</p>
+          <p>{currentUser.displayName}</p>
           <div className={classes.actions}>
             <Link to='/create-post' className={classes.createBtn}>
               Create Post

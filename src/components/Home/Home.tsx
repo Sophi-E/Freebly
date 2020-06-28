@@ -1,4 +1,5 @@
 import React from 'react';
+import {useHistory} from 'react-router-dom';
 import styles from './home.module.css';
 import boxes from '../../images/boxes.jpg';
 import Footer from '../../reusables/Footer/Footer';
@@ -8,9 +9,17 @@ import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 import { faGifts } from '@fortawesome/free-solid-svg-icons';
 import { faPeopleCarry } from '@fortawesome/free-solid-svg-icons';
 const Home: React.FC = () => {
+  const history=useHistory();
+  const handleLogin = (result:any) => {
+    if (result) {
+      console.log(result.user.displayName);
+      history.push('/dashboard');
+    }
+  }
+
   return (
     <>
-      <Nav login='LOGIN' />
+      <Nav login='LOGIN' loginCallback={handleLogin}/>
       <div className={styles.homeContainer}>
         <div className={styles.intro}>
           <h1>All things have value</h1>

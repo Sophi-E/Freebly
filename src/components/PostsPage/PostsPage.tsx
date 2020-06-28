@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import { useHistory } from 'react-router-dom';
+
 import PostContainer from '../../reusables/PostsContainer/PostContainer';
 import styles from './PostsPage.module.css';
 import Footer from '../../reusables/Footer/Footer';
@@ -12,7 +14,13 @@ import { Link } from 'react-router-dom';
 import Nav from '../../reusables/Nav/Nav';
 
 const PostsPage = () => {
+  const history = useHistory();
+
   const [posts, setPosts] = useState<any[]>([]);
+
+  const handleLogout = ()=>{
+    history.push(`/`);
+  }
 
   useEffect(() => {
     const getAllPosts = async()=>{
@@ -27,7 +35,7 @@ const PostsPage = () => {
 
   return (
     <>
-      <Nav logout='LOGOUT' />
+      <Nav logout='LOGOUT' logoutCallback={handleLogout} />
       {posts.length === 0 ? (
         <Spinner />
       ) : (

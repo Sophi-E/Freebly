@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
+
 // import axios from 'axios';
 import * as DataSource from '../../services/firestore';
 //import * as DataSource from '../../services/freebli';
@@ -11,8 +13,14 @@ import Nav from '../../reusables/Nav/Nav';
 
 //@ts-ignore
 const PostDetail = ({ match }) => {
+  const history = useHistory();
   const [post, setPost] = useState<any>({});
   let postId=match.params.id;
+
+  const handleLogout = ()=>{
+    console.log('Logged out from the post details page!');
+    history.push('/');
+  }
 
     useEffect(() => {
       // Because useEffect doesn't accept asynchronous functions, we have
@@ -27,7 +35,7 @@ const PostDetail = ({ match }) => {
 
   return (
     <>
-      <Nav logout='LOGOUT' />
+      <Nav logout='LOGOUT' logoutCallback={handleLogout} />
       {console.log(post)===null || !post.hasOwnProperty("id") ? (
         <Spinner />
       ) : (

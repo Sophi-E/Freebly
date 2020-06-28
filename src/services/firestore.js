@@ -1,9 +1,9 @@
-import React from 'react';
+// import React from 'react';
 import * as firebase from 'firebase/app';
 
 import 'firebase/auth';
 import 'firebase/firestore';
-import { Redirect } from 'react-router-dom';
+// import { Redirect } from 'react-router-dom';
 
 const freebliConfig = {
   apiKey: 'AIzaSyC07b5BHcNWuUGd4bkMA1P7a-bjrewaUVQ',
@@ -26,7 +26,8 @@ const tobyDevConfig = {
 
 export const Config = firebase.initializeApp(
   // Temporarily swapping in my firebase, so I can see what's going on.
-  freebliConfig
+  tobyDevConfig
+//  freebliConfig
 );
 
 const db = firebase.firestore();
@@ -54,22 +55,19 @@ export const signInViaEmail = (email, password) => {
     .catch((error) => console.error(error));
 };
 
-export const signInViaGoogle = (history) => {
+export const signInViaGoogle = (callback) => {
   const provider = new firebase.auth.GoogleAuthProvider();
   return firebase
     .auth()
     .signInWithPopup(provider)
-    .then((result) => {
-      if (result) {
-        console.log(result);
-        history.push('/dashboard');
-      }
-    })
+    .then(callback)
     .catch((error) => console.error(error));
 };
 
-export const signOut = () => {
-  return firebase.auth().signOut();
+export const signOut = (callback) => {
+  console.log(callback);
+  return firebase.auth().signOut()
+         .then(callback);
 };
 
 export const getAllPosts = async () => {
