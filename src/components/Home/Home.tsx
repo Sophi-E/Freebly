@@ -1,5 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import {useHistory} from 'react-router-dom';
+
+import { AuthContext } from '../Auth';
+import { User } from '../../datatypes/User';
+
 import styles from './home.module.css';
 import boxes from '../../images/boxes.jpg';
 import Footer from '../../reusables/Footer/Footer';
@@ -10,16 +14,21 @@ import { faGifts } from '@fortawesome/free-solid-svg-icons';
 import { faPeopleCarry } from '@fortawesome/free-solid-svg-icons';
 const Home: React.FC = () => {
   const history=useHistory();
-  const handleLogin = (result:any) => {
-    if (result) {
-      console.log(result.user.displayName);
-      history.push('/dashboard');
-    }
-  }
+  const currentUser = useContext<Partial<User> >(AuthContext);
+
+  const handleLogin = (result:any) => history.push('/dashboard');
+  
+  const handleLogout = () => history.push('/');
 
   return (
     <>
-      <Nav login='LOGIN' loginCallback={handleLogin}/>
+        {
+          !!currentUser.currentUser ?
+            <Nav logout='LOGOUT' logoutCallback={handleLogout} />
+          :
+            <Nav login='LOGIN' loginCallback={handleLogin}/>
+        }
+
       <div className={styles.homeContainer}>
         <div className={styles.intro}>
           <h1>All things have value</h1>

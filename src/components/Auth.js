@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 // import Config from '../config';
 import * as DataStore from '../services/firestore';
-import { User } from '../datatypes/User';
 
 export const AuthContext = React.createContext();
 

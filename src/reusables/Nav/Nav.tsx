@@ -12,7 +12,7 @@ type NavProps = {
 };
 const Nav: React.FC<NavProps> = ({ login, logout, loginCallback, logoutCallback }: NavProps) => {
 
-  console.log(loginCallback ? `login: ${loginCallback}` : `logout: ${logoutCallback} ` );
+//  console.log(loginCallback ? `login: ${loginCallback}` : `logout: ${logoutCallback} ` );
   return (
     <nav className={styles.navWrapper}>
       <a className={styles.logo} href='/'>
