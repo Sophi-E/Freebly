@@ -1,13 +1,9 @@
 import React, { useState } from 'react';
-import { useHistory} from 'react-router-dom';
-
+import { useHistory } from 'react-router-dom';
 import styles from './CreatePost.module.css';
-// import axios from 'axios';
-// import * as DataStore from '../../services/freebli';
 import * as DataStore from '../../services/firestore';
 import Nav from '../../reusables/Nav/Nav';
 import Footer from '../../reusables/Footer/Footer';
-
 
 const CreatePost = () => {
   const history = useHistory();
@@ -17,9 +13,9 @@ const CreatePost = () => {
   const [comment, setComment] = useState('');
   const [imageUrl, setImageUrl] = useState('');
 
-  const handleLogout = ()=>{
+  const handleLogout = () => {
     history.push('/');
-  }
+  };
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
@@ -39,11 +35,15 @@ const CreatePost = () => {
     setLocation('');
     setTitle('');
     setShipping('');
+
+    history.push('/thank-you');
   };
+
   return (
     <div>
       <Nav logout='LOGOUT' logoutCallback={handleLogout} />
       <div className={styles.formContainer}>
+        <h2 className={styles.formTitle}>Create new post</h2>
         <form id='postForm' className={styles.postForm} onSubmit={handleSubmit}>
           {/* <h1>Create Post</h1> */}
           <label htmlFor='imageUrl'>Upload Photos:</label>

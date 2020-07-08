@@ -16,6 +16,7 @@ import CreatePost from './components/CreatePost/CreatePost';
 import PostDetail from './components/PostDetail/PostDetail';
 import About from './components/Footer/About';
 import Contact from './components/Footer/Contact';
+import FormSubmittedPage from './components/FormSubmittedPage';
 
 const App = () => {
   return (
@@ -33,6 +34,7 @@ const App = () => {
             <Route path='/view-posts' exact component={PostsPage} />
             <Route path='/create-post' component={CreatePost} />
             <Route path='/view-posts/:id' component={PostDetail} />
+            <Route path='/thank-you' component={FormSubmittedPage} />
           </Switch>
         </div>
       </Router>
