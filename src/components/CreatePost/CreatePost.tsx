@@ -28,13 +28,8 @@ const CreatePost = () => {
       postDate: Date.now(),
     };
     const newPost = DataStore.addPost(data);
-
+    console.log(data);
     console.log(newPost);
-    setComment('');
-    setImageUrl('');
-    setLocation('');
-    setTitle('');
-    setShipping('');
 
     history.push('/thank-you');
   };
