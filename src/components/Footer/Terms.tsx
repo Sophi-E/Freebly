@@ -1,6 +1,6 @@
 import React from 'react';
-import Footer from '../../reusables/Footer/Footer';
-import Nav from '../../reusables/Nav/Nav';
+import Footer from '../Footer';
+import Nav from '../Nav/Nav';
 import styles from './FooterLinks.module.css';
 
 const Terms = () => {

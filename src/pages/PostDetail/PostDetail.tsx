@@ -5,11 +5,11 @@ import { useHistory } from 'react-router-dom';
 import * as DataSource from '../../services/firestore';
 //import * as DataSource from '../../services/freebli';
 
-import Spinner from '../../reusables/Spinner/Spinner';
+import Spinner from '../../components/Spinner/Spinner';
 
 import styles from './PostDetail.module.css';
-import Footer from '../../reusables/Footer/Footer';
-import Nav from '../../reusables/Nav/Nav';
+import Footer from '../../components/Footer';
+import Nav from '../../components/Nav/Nav';
 
 //@ts-ignore
 const PostDetail = ({ match }) => {

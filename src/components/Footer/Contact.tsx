@@ -1,6 +1,6 @@
 import React from 'react';
-import Nav from '../../reusables/Nav/Nav';
-import Footer from '../../reusables/Footer/Footer';
+import Nav from '../Nav/Nav';
+import Footer from '../Footer';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faPhone,

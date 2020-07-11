@@ -3,26 +3,26 @@
 import React, { useContext } from 'react';
 // import Config from '../../config';
 
-import {AuthContext} from '../Auth';
+import { AuthContext } from '../../components/Auth';
 
 import classes from './dashboard.module.css';
 import { Link } from 'react-router-dom';
-import Footer from '../../reusables/Footer/Footer';
+import Footer from '../../components/Footer';
 // import { PostsArray } from '../PostsPage/PostsPage';
 import styles from '../PostsPage/PostsPage.module.css';
 //import PostContainer from '../../reusables/PostsContainer/PostContainer';
-import Nav from '../../reusables/Nav/Nav';
+import Nav from '../../components/Nav/Nav';
 import { User } from '../../datatypes/User';
 import { useHistory } from 'react-router-dom';
 
 const Dashboard: React.FC = () => {
   const history = useHistory();
 
-  const handleLogout = ()=> {
+  const handleLogout = () => {
     history.push(`/`);
-  }
-  let {currentUser} = useContext<Partial<User> >(AuthContext);
-    return (
+  };
+  let { currentUser } = useContext<Partial<User>>(AuthContext);
+  return (
     <>
       <Nav logout='LOGOUT' logoutCallback={handleLogout} />
       <div className={classes.dashboardContainer}>
@@ -42,18 +42,7 @@ const Dashboard: React.FC = () => {
           </div>
         </div>
         <p>Recent Posts</p>
-        {/* <div className={styles.postContainer}>
-          {PostsArray.map((post) => (
-            <div className={styles.card} key={post.id}>
-              <PostContainer
-                imageUrl={post.imageUrl}
-                title={post.title}
-                postDate={post.postDate}
-                location={post.location}
-              />
-            </div>
-          ))}
-        </div> */}
+
         <p className={styles.delAcct}>Delete Account?</p>
       </div>
       <Footer />

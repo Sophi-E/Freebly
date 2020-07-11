@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
-import PostContainer from '../../reusables/PostsContainer/PostContainer';
+import PostContainer from '../../components/PostsContainer/PostContainer';
 import styles from './PostsPage.module.css';
-import Footer from '../../reusables/Footer/Footer';
+import Footer from '../../components/Footer';
 
 import * as DataSource from '../../services/firestore';
 //import * as DataSource from '../../services/freebli';
 
 //import { Pagination } from 'antd';
-import Spinner from '../../reusables/Spinner/Spinner';
+import Spinner from '../../components/Spinner/Spinner';
 import { Link } from 'react-router-dom';
-import Nav from '../../reusables/Nav/Nav';
+import Nav from '../../components/Nav/Nav';
 
 const PostsPage = () => {
   const history = useHistory();

@@ -2,8 +2,8 @@ import React, { useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 
 import {AuthContext} from '../Auth';
-import Nav from '../../reusables/Nav/Nav';
-import Footer from '../../reusables/Footer/Footer';
+import Nav from '../Nav/Nav';
+import Footer from '../Footer';
 import styles from './FooterLinks.module.css';
 
 const About = () => {

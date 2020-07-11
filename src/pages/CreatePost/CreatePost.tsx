@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import styles from './CreatePost.module.css';
 import * as DataStore from '../../services/firestore';
-import Nav from '../../reusables/Nav/Nav';
-import Footer from '../../reusables/Footer/Footer';
+import Nav from '../../components/Nav/Nav';
+import Footer from '../../components/Footer';
 
 const CreatePost = () => {
   const history = useHistory();
