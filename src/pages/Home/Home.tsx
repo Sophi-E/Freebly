@@ -6,29 +6,24 @@ import { User } from '../../datatypes/User';
 
 import styles from './home.module.css';
 import boxes from '../../images/boxes.jpg';
-import Footer from '../../components/Footer';
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 import { faGifts } from '@fortawesome/free-solid-svg-icons';
 import { faPeopleCarry } from '@fortawesome/free-solid-svg-icons';
+import Layout from '../../components/layout';
+import styled from '@emotion/styled';
+
+const HomeContainer = styled.div``;
+const StyledImage = styled.img`
+  width: 100%;
+  height: 500px;
+  margin: 2em 0;
+`;
 const Home: React.FC = () => {
-  const history = useHistory();
-  const currentUser = useContext<Partial<User>>(AuthContext);
-
-  const handleLogin = (result: any) => history.push('/dashboard');
-
-  const handleLogout = () => history.push('/');
-
   return (
-    <>
-      {/* {!!currentUser.currentUser ? (
-        <Nav logout='LOGOUT' logoutCallback={handleLogout} />
-      ) : (
-        <Nav login='LOGIN' loginCallback={handleLogin} />
-      )} */}
-
-      <div className={styles.homeContainer}>
+    <Layout>
+      <HomeContainer>
+        <StyledImage src={boxes} alt='deliveryBox' />
         <div className={styles.intro}>
           <h1>All things have value</h1>
           <p>
@@ -37,9 +32,7 @@ const Home: React.FC = () => {
             ipsam
           </p>
         </div>
-
-        <img src={boxes} alt='deliveryBox' />
-      </div>
+      </HomeContainer>
       <div className={styles.iconWrapper}>
         <div>
           <FontAwesomeIcon icon={faCoffee} className={styles.icon} />
@@ -56,9 +49,7 @@ const Home: React.FC = () => {
       </div>
 
       <p className={styles.cta}>Signup now to get started</p>
-
-      <Footer />
-    </>
+    </Layout>
   );
 };
 
