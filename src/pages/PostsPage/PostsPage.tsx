@@ -11,6 +11,7 @@ import * as DataSource from '../../services/firestore';
 //import { Pagination } from 'antd';
 import Spinner from '../../components/Spinner/Spinner';
 import { Link } from 'react-router-dom';
+import Layout from '../../components/layout';
 
 const PostsPage = () => {
   const history = useHistory();
@@ -32,7 +33,7 @@ const PostsPage = () => {
   }, []);
 
   return (
-    <>
+    <Layout>
       {posts.length === 0 ? (
         <Spinner />
       ) : (
@@ -52,9 +53,7 @@ const PostsPage = () => {
           ))}
         </div>
       )}
-
-      <Footer />
-    </>
+    </Layout>
   );
 };
 

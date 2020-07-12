@@ -1,12 +1,11 @@
 import React from 'react';
 import styles from './FooterLinks.module.css';
-import Nav from '../Nav/Nav';
-import Footer from '../Footer';
+
+import Layout from '../layout';
 
 const PrivacyPolicy = () => {
   return (
-    <>
-      <Nav logout='LOGOUT' />
+    <Layout>
       <div className={styles.linksWrapper}>
         <h2>Privacy Policy</h2>
         <p>
@@ -53,8 +52,7 @@ const PrivacyPolicy = () => {
           This policy is effective as of 1<sup>st</sup> June 2020.
         </p>
       </div>
-      <Footer />
-    </>
+    </Layout>
   );
 };
 

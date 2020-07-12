@@ -1,12 +1,12 @@
 import React from 'react';
 import Footer from '../Footer';
-import Nav from '../Nav/Nav';
+
 import styles from './FooterLinks.module.css';
+import Layout from '../layout';
 
 const Terms = () => {
   return (
-    <>
-      <Nav logout='LOGOUT' />
+    <Layout>
       <div className={styles.linksWrapper}>
         <h2>Freebli Terms of Service</h2>
         <h3>1. Terms</h3>
@@ -115,8 +115,7 @@ const Terms = () => {
           jurisdiction of the courts in that State or location.
         </p>
       </div>
-      <Footer />
-    </>
+    </Layout>
   );
 };
 

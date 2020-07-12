@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import styles from './CreatePost.module.css';
 import * as DataStore from '../../services/firestore';
-import Nav from '../../components/Nav/Nav';
+
 import Footer from '../../components/Footer';
+import Layout from '../../components/layout';
 
 const CreatePost = () => {
   const history = useHistory();
@@ -35,8 +36,7 @@ const CreatePost = () => {
   };
 
   return (
-    <div>
-      <Nav logout='LOGOUT' logoutCallback={handleLogout} />
+    <Layout>
       <div className={styles.formContainer}>
         <h2 className={styles.formTitle}>Create new post</h2>
         <form id='postForm' className={styles.postForm} onSubmit={handleSubmit}>
@@ -90,8 +90,7 @@ const CreatePost = () => {
           <button className={styles.postBtn}>Submit Post</button>
         </form>
       </div>
-      <Footer />
-    </div>
+    </Layout>
   );
 };
 

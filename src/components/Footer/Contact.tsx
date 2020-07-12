@@ -1,6 +1,5 @@
 import React from 'react';
-import Nav from '../Nav/Nav';
-import Footer from '../Footer';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faPhone,
@@ -8,11 +7,11 @@ import {
   faMousePointer,
 } from '@fortawesome/free-solid-svg-icons';
 import styles from './FooterLinks.module.css';
+import Layout from '../layout';
 
 const Contact = () => {
   return (
-    <>
-      <Nav logout='LOGOUT' />
+    <Layout>
       <div className={styles.contactWrapper}>
         <h3>For more info, contact us</h3>
         <div>
@@ -37,8 +36,7 @@ const Contact = () => {
           <p>info@freebli.com</p>
         </div>
       </div>
-      <Footer />
-    </>
+    </Layout>
   );
 };
 

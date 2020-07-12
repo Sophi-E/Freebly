@@ -36,7 +36,7 @@ const App = () => {
             <Route path='/create-post' component={CreatePost} />
             <Route path='/view-posts/:id' component={PostDetail} />
             <Route path='/thank-you' component={FormSubmittedPage} />
-            <Route path='./test' component={Test} />
+            <Route path='/test' component={Test} />
           </Switch>
         </div>
       </Router>

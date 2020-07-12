@@ -1,30 +1,10 @@
-import React, { useContext } from 'react';
-import { useHistory } from 'react-router-dom';
-
-import {AuthContext} from '../Auth';
-import Nav from '../Nav/Nav';
-import Footer from '../Footer';
+import React from 'react';
 import styles from './FooterLinks.module.css';
+import Layout from '../layout';
 
 const About = () => {
-  const {currentUser} = useContext(AuthContext);
-  const history = useHistory();
-
-  const loginHandler = (result:any) =>{
-    history.push('/Dashboard');
-  }
-
-  const logoutHandler = () =>{
-    history.push('/');
-  }
-
-
   return (
-    <>
-    {!!currentUser
-      ? <Nav logout='LOGOUT' logoutCallback={logoutHandler} />
-      : <Nav login='LOGIN' loginCallback={loginHandler} />
-    }
+    <Layout>
       <div className={styles.faqWrapper}>
         <h1>About Freebli - Frequently Asked Questions</h1>
         <div>
@@ -55,8 +35,7 @@ const About = () => {
           <p>Yes. We show ads to support bts running of Freebli.</p>
         </div>
       </div>
-      <Footer />
-    </>
+    </Layout>
   );
 };
 

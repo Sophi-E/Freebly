@@ -9,6 +9,7 @@ import Spinner from '../../components/Spinner/Spinner';
 
 import styles from './PostDetail.module.css';
 import Footer from '../../components/Footer';
+import Layout from '../../components/layout';
 // import Nav from '../../components/Nav/Nav';
 
 //@ts-ignore
@@ -16,11 +17,6 @@ const PostDetail = ({ match }) => {
   const history = useHistory();
   const [post, setPost] = useState<any>({});
   let postId = match.params.id;
-
-  const handleLogout = () => {
-    console.log('Logged out from the post details page!');
-    history.push('/');
-  };
 
   useEffect(() => {
     // Because useEffect doesn't accept asynchronous functions, we have
@@ -34,7 +30,7 @@ const PostDetail = ({ match }) => {
   }, [postId]);
 
   return (
-    <>
+    <Layout>
       {/* <Nav logout='LOGOUT' logoutCallback={handleLogout} /> */}
       {console.log(post) === null || !post.hasOwnProperty('id') ? (
         <Spinner />
@@ -55,8 +51,7 @@ const PostDetail = ({ match }) => {
           <button className={styles.reqBtn}>Request Item</button>
         </div>
       )}
-      <Footer />
-    </>
+    </Layout>
   );
 };
 

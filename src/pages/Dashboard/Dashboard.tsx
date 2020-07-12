@@ -11,7 +11,7 @@ import Footer from '../../components/Footer';
 // import { PostsArray } from '../PostsPage/PostsPage';
 import styles from '../PostsPage/PostsPage.module.css';
 //import PostContainer from '../../reusables/PostsContainer/PostContainer';
-import Nav from '../../components/Nav/Nav';
+
 import { User } from '../../datatypes/User';
 import { useHistory } from 'react-router-dom';
 
@@ -24,7 +24,6 @@ const Dashboard: React.FC = () => {
   let { currentUser } = useContext<Partial<User>>(AuthContext);
   return (
     <>
-      <Nav logout='LOGOUT' logoutCallback={handleLogout} />
       <div className={classes.dashboardContainer}>
         {/* <div className={classes.avi}>
           <button onClick={() => DataStore.signOut()}>Logout</button>

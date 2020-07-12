@@ -3,20 +3,17 @@ import styled from '@emotion/styled';
 import Navbar from './nav/Navbar';
 import Footer from './Footer';
 
-const StyledWrapper = styled.div`
-  max-width: 80%;
-  padding: 40px;
-`;
+const StyledWrapper = styled.div``;
 const StyledContainer = styled.div`
   max-width: 80rem;
   margin: 3rem auto;
 `;
 
-const Layout = (children: any) => {
+const Layout = (props: any) => {
   return (
     <StyledWrapper>
       <Navbar />
-      <StyledContainer>{children}</StyledContainer>
+      <StyledContainer>{props.children}</StyledContainer>
       <Footer />
     </StyledWrapper>
   );

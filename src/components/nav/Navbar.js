@@ -26,7 +26,7 @@ const Nav = styled.nav`
 const Navbar = () => {
   return (
     <Nav>
-      <div className="logo">Loense</div>
+      <div className='logo'>FREEBLI.</div>
       <Burger />
     </Nav>
   );

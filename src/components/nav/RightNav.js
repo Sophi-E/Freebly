@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { Link } from 'gatsby';
+import { Link } from 'react-router-dom';
 
 const Ul = styled.ul`
   list-style: none;
@@ -48,12 +48,9 @@ const Ul = styled.ul`
 const RightNav = ({ open }) => {
   return (
     <Ul open={open}>
-      <Link to="/company">Company</Link>
-      <Link to="/projects">Projects</Link>
-      <Link to="/services">Services</Link>
-      <Link className="contact" to="/contact">
-        Contact Us
-      </Link>
+      <Link to='/about'>About</Link>
+      <Link to='/view-posts'>Products</Link>
+      <Link to='/create-post'>Add New</Link>
     </Ul>
   );
 };
