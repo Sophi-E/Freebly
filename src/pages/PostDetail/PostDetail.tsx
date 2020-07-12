@@ -9,34 +9,34 @@ import Spinner from '../../components/Spinner/Spinner';
 
 import styles from './PostDetail.module.css';
 import Footer from '../../components/Footer';
-import Nav from '../../components/Nav/Nav';
+// import Nav from '../../components/Nav/Nav';
 
 //@ts-ignore
 const PostDetail = ({ match }) => {
   const history = useHistory();
   const [post, setPost] = useState<any>({});
-  let postId=match.params.id;
+  let postId = match.params.id;
 
-  const handleLogout = ()=>{
+  const handleLogout = () => {
     console.log('Logged out from the post details page!');
     history.push('/');
-  }
+  };
 
-    useEffect(() => {
-      // Because useEffect doesn't accept asynchronous functions, we have
-      //  to define our async function in here, and then call it.
-      const findPostById = async (id: string) => {
-        const thePost = await DataSource.findPostById(id);
-        setPost(thePost)
-      }
+  useEffect(() => {
+    // Because useEffect doesn't accept asynchronous functions, we have
+    //  to define our async function in here, and then call it.
+    const findPostById = async (id: string) => {
+      const thePost = await DataSource.findPostById(id);
+      setPost(thePost);
+    };
 
-      findPostById(postId)
-    }, [postId]);
+    findPostById(postId);
+  }, [postId]);
 
   return (
     <>
-      <Nav logout='LOGOUT' logoutCallback={handleLogout} />
-      {console.log(post)===null || !post.hasOwnProperty("id") ? (
+      {/* <Nav logout='LOGOUT' logoutCallback={handleLogout} /> */}
+      {console.log(post) === null || !post.hasOwnProperty('id') ? (
         <Spinner />
       ) : (
         <div className={styles.postDetail} id={post.id}>
@@ -50,11 +50,10 @@ const PostDetail = ({ match }) => {
           </div>
           <p>Location: {post.data.location}</p>
           <p>Free shipping: {post.data.shipping}</p>
-          <p>Posted on: {new Date(post.data.postDate).toLocaleDateString() }</p>
+          <p>Posted on: {new Date(post.data.postDate).toLocaleDateString()}</p>
           <p>Comment: {post.data.comment}</p>
           <button className={styles.reqBtn}>Request Item</button>
         </div>
-
       )}
       <Footer />
     </>

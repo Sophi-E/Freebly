@@ -11,31 +11,28 @@ import * as DataSource from '../../services/firestore';
 //import { Pagination } from 'antd';
 import Spinner from '../../components/Spinner/Spinner';
 import { Link } from 'react-router-dom';
-import Nav from '../../components/Nav/Nav';
 
 const PostsPage = () => {
   const history = useHistory();
 
   const [posts, setPosts] = useState<any[]>([]);
 
-  const handleLogout = ()=>{
+  const handleLogout = () => {
     history.push(`/`);
-  }
+  };
 
   useEffect(() => {
-    const getAllPosts = async()=>{
+    const getAllPosts = async () => {
       const allPosts = await DataSource.getAllPosts();
       console.log(allPosts);
       setPosts(allPosts);
-    }
+    };
 
     getAllPosts();
   }, []);
 
-
   return (
     <>
-      <Nav logout='LOGOUT' logoutCallback={handleLogout} />
       {posts.length === 0 ? (
         <Spinner />
       ) : (
@@ -46,7 +43,7 @@ const PostsPage = () => {
                 <PostContainer
                   imageUrl={post.data.imageUrl}
                   title={post.data.title}
-                  postDate={new Date(post.data.postDate).toLocaleDateString() }
+                  postDate={new Date(post.data.postDate).toLocaleDateString()}
                   location={post.data.location}
                   shipping={post.data.shipping}
                 />

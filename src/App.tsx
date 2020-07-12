@@ -17,6 +17,7 @@ import PostDetail from './pages/PostDetail/PostDetail';
 import About from './components/Footer/About';
 import Contact from './components/Footer/Contact';
 import FormSubmittedPage from './components/FormSubmittedPage';
+import Test from './pages/Test';
 
 const App = () => {
   return (
@@ -35,6 +36,7 @@ const App = () => {
             <Route path='/create-post' component={CreatePost} />
             <Route path='/view-posts/:id' component={PostDetail} />
             <Route path='/thank-you' component={FormSubmittedPage} />
+            <Route path='./test' component={Test} />
           </Switch>
         </div>
       </Router>

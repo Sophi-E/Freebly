@@ -7,7 +7,7 @@ import { User } from '../../datatypes/User';
 import styles from './home.module.css';
 import boxes from '../../images/boxes.jpg';
 import Footer from '../../components/Footer';
-import Nav from '../../components/Nav/Nav';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 import { faGifts } from '@fortawesome/free-solid-svg-icons';
@@ -22,11 +22,11 @@ const Home: React.FC = () => {
 
   return (
     <>
-      {!!currentUser.currentUser ? (
+      {/* {!!currentUser.currentUser ? (
         <Nav logout='LOGOUT' logoutCallback={handleLogout} />
       ) : (
         <Nav login='LOGIN' loginCallback={handleLogin} />
-      )}
+      )} */}
 
       <div className={styles.homeContainer}>
         <div className={styles.intro}>
