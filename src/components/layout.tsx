@@ -3,7 +3,9 @@ import styled from '@emotion/styled';
 import Navbar from './nav/Navbar';
 import Footer from './Footer';
 
-const StyledWrapper = styled.div``;
+const StyledWrapper = styled.div`
+  width: 100%;
+`;
 const StyledContainer = styled.div`
   max-width: 80rem;
   margin: 3rem auto;

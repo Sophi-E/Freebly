@@ -1,16 +1,58 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import styles from './Footer.module.css';
+
 import styled from '@emotion/styled';
 
-const StyledBio = styled.div``;
-const SocialLinks = styled.div``;
+const FooterContainer = styled.div`
+  background-color: #1d3742;
+  color: #fff;
+  padding: 3rem 3rem 1rem 3rem;
+`;
+const Copyright = styled.p`
+  margin-top: 50px;
+  text-align: center;
+`;
+const FooterWrapper = styled.div`
+  display: flex;
+  text-align: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
 
+  div {
+    width: 33%;
+  }
+  @media screen and (max-width: 760px) {
+    flex-direction: column;
+    text-align: left;
+
+    div {
+      width: 100%;
+      margin: 20px 0;
+    }
+  }
+`;
+const StyledBio = styled.div`
+  padding-right: 30px;
+`;
+const FooterLinks = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  a {
+    text-decoration: none;
+    color: #fff;
+    @media screen and (max-width: 760px) {
+      padding: 8px 0;
+    }
+  }
+`;
+const SocialLinks = styled.div``;
 const Footer = () => {
   return (
-    <div>
-      <div className={styles.bottomNav}>
+    <FooterContainer>
+      <FooterWrapper>
         <StyledBio>
           <p>
             FREEBLI. is a non-profit that gives you an opportunity to declutter
@@ -18,13 +60,12 @@ const Footer = () => {
             them
           </p>
         </StyledBio>
-        <div className={styles.footerLinks}>
-          <ul>
-            <Link to='/contact'>Contact Us</Link>
-            <Link to='/privacypolicy'>Privacy Policy</Link>
-            <Link to='/terms'>Terms of Use</Link>
-          </ul>
-        </div>
+        <FooterLinks>
+          <Link to='/contact'>Contact Us</Link>
+          <Link to='/privacypolicy'>Privacy Policy</Link>
+          <Link to='/terms'>Terms of Use</Link>
+        </FooterLinks>
+
         <SocialLinks>
           <p>Follow us</p>
           <p>
@@ -34,9 +75,9 @@ const Footer = () => {
             <span></span>
           </p>
         </SocialLinks>
-      </div>
-      <p className={styles.copyright}>copyright @FREEBLI. 2020</p>
-    </div>
+      </FooterWrapper>
+      <Copyright>All rights reserved @FREEBLI. 2020</Copyright>
+    </FooterContainer>
   );
 };
 

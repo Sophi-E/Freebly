@@ -6,19 +6,14 @@ const Ul = styled.ul`
   list-style: none;
   display: flex;
   flex-flow: row nowrap;
-  padding: 80px;
+  /* padding: 80px; */
 
   a {
     padding: 7px 15px;
     text-decoration: none;
     color: var(--color-text);
   }
-  .contact {
-    background-color: var(--accent-color);
-    color: #fff;
-    border-radius: 2rem;
-    border: none;
-  }
+
   @media (max-width: 768px) {
     flex-flow: column nowrap;
     background-color: #0d2538;
@@ -34,13 +29,6 @@ const Ul = styled.ul`
     a {
       color: #fff;
       padding: 10px;
-    }
-    .contact {
-      background: none;
-      /* color: #fff; */
-      border-radius: none;
-      border: none;
-      margin: 0;
     }
   }
 `;

@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import Burger from './Burger';
+import { Link } from 'react-router-dom';
 
 const Nav = styled.nav`
   width: 100%;
@@ -21,12 +22,17 @@ const Nav = styled.nav`
     text-transform: uppercase;
     font-weight: bold;
   }
+  a {
+    color: #1d3742;
+  }
 `;
 
 const Navbar = () => {
   return (
     <Nav>
-      <div className='logo'>FREEBLI.</div>
+      <div className='logo'>
+        <Link to='/'>FREEBLI.</Link>
+      </div>
       <Burger />
     </Nav>
   );

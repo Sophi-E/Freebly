@@ -16,7 +16,7 @@ import styled from '@emotion/styled';
 const HomeContainer = styled.div``;
 const StyledImage = styled.img`
   width: 100%;
-  height: 500px;
+
   margin: 2em 0;
 `;
 const Home: React.FC = () => {
