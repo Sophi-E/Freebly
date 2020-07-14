@@ -8,13 +8,11 @@ import * as DataSource from '../../services/firestore';
 import Spinner from '../../components/Spinner/Spinner';
 
 import styles from './PostDetail.module.css';
-import Footer from '../../components/Footer';
+
 import Layout from '../../components/layout';
-// import Nav from '../../components/Nav/Nav';
 
 //@ts-ignore
 const PostDetail = ({ match }) => {
-  const history = useHistory();
   const [post, setPost] = useState<any>({});
   let postId = match.params.id;
 
@@ -31,12 +29,11 @@ const PostDetail = ({ match }) => {
 
   return (
     <Layout>
-      {/* <Nav logout='LOGOUT' logoutCallback={handleLogout} /> */}
       {console.log(post) === null || !post.hasOwnProperty('id') ? (
         <Spinner />
       ) : (
         <div className={styles.postDetail} id={post.id}>
-          <h2>{post.data.title}</h2>
+          <h4>{post.data.title}</h4>
           <img src={post.data.imageUrl} alt='post-pic' />
           <div className={styles.thumbnail}>
             <img src={post.data.imageUrl} alt='post-pic' />

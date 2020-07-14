@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
-import PostContainer from '../../components/PostsContainer/PostContainer';
+import PostContainer from '../../components/PostContainer';
 import styles from './PostsPage.module.css';
 
 import * as DataSource from '../../services/firestore';

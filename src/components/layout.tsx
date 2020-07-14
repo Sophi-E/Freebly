@@ -7,7 +7,7 @@ const StyledWrapper = styled.div`
   width: 100%;
 `;
 const StyledContainer = styled.div`
-  max-width: 80rem;
+  max-width: 70rem;
   margin: 3rem auto;
 `;
 

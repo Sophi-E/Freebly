@@ -1,9 +1,6 @@
-import React, { useContext } from 'react';
-import { useHistory } from 'react-router-dom';
+import React from 'react';
 
-import { AuthContext } from '../../components/Auth';
-import { User } from '../../datatypes/User';
-
+import { Link } from 'react-router-dom';
 import styles from './home.module.css';
 import boxes from '../../images/boxes.jpg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -13,12 +10,20 @@ import { faPeopleCarry } from '@fortawesome/free-solid-svg-icons';
 import Layout from '../../components/layout';
 import styled from '@emotion/styled';
 
-const HomeContainer = styled.div``;
+const HomeContainer = styled.div`
+  a {
+    text-decoration: none;
+    color: #000;
+  }
+`;
 const StyledImage = styled.img`
   width: 100%;
 
   margin: 2em 0;
 `;
+// const ProductContainer = styled.div`
+// display: flex;
+// `
 const Home: React.FC = () => {
   return (
     <Layout>
@@ -32,23 +37,25 @@ const Home: React.FC = () => {
             ipsam
           </p>
         </div>
-      </HomeContainer>
-      <div className={styles.iconWrapper}>
-        <div>
-          <FontAwesomeIcon icon={faCoffee} className={styles.icon} />
-          <p>Give away stuff you no longer need</p>
+        <div className={styles.iconWrapper}>
+          <div>
+            <FontAwesomeIcon icon={faCoffee} className={styles.icon} />
+            <p>Give away stuff you no longer need</p>
+          </div>
+          <div>
+            <FontAwesomeIcon icon={faPeopleCarry} className={styles.icon} />
+            <p>Reduce clutter in your home and offices</p>
+          </div>
+          <div>
+            <FontAwesomeIcon icon={faGifts} className={styles.icon} />
+            <p>Add value to others while also getting stuffs you need</p>
+          </div>
         </div>
-        <div>
-          <FontAwesomeIcon icon={faPeopleCarry} className={styles.icon} />
-          <p>Reduce clutter in your home and offices</p>
-        </div>
-        <div>
-          <FontAwesomeIcon icon={faGifts} className={styles.icon} />
-          <p>Add value to others while also getting stuffs you need</p>
-        </div>
-      </div>
 
-      <p className={styles.cta}>Signup now to get started</p>
+        <p className={styles.cta}>
+          <Link to='/signup'>Signup now to get started</Link>
+        </p>
+      </HomeContainer>
     </Layout>
   );
 };

@@ -1,5 +1,18 @@
 import React from 'react';
-import styles from './PostContainer.module.css';
+import styled from '@emotion/styled';
+
+const PostWrapper = styled.div`
+  p,
+  h4 {
+    padding: 0.2em 1em;
+    text-transform: capitalize;
+  }
+  img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+`;
 
 type PostItemProps = {
   imageUrl: string;
@@ -17,13 +30,13 @@ const PostContainer: React.FC<PostItemProps> = ({
   shipping,
 }: PostItemProps) => {
   return (
-    <div className={styles.postContainer}>
-      <img className={styles.postImg} src={imageUrl} alt='' />
+    <PostWrapper>
+      <img src={imageUrl} alt={title} />
       <h4>{title}</h4>
       <p>Posted on: {postDate}</p>
       <p>Location: {location}</p>
-      <p>Free Shipping: {shipping}</p>
-    </div>
+      <p>Shipping: {shipping}</p>
+    </PostWrapper>
   );
 };
 
