@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { useHistory } from 'react-router-dom';
 
 import PostContainer from '../../components/PostContainer';
 import styles from './PostsPage.module.css';
@@ -16,7 +15,7 @@ const PostsPage = () => {
   useEffect(() => {
     const getAllPosts = async () => {
       const allPosts = await DataSource.getAllPosts();
-      console.log(allPosts);
+      //console.log(allPosts);
       setPosts(allPosts);
     };
 

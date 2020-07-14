@@ -25,9 +25,8 @@ const tobyDevConfig = {
 };
 
 export const Config = firebase.initializeApp(
-  // Temporarily swapping in my firebase, so I can see what's going on.
-  tobyDevConfig
-//  freebliConfig
+  // tobyDevConfig
+  freebliConfig
 );
 
 const db = firebase.firestore();
@@ -66,8 +65,7 @@ export const signInViaGoogle = (callback) => {
 
 export const signOut = (callback) => {
   console.log(callback);
-  return firebase.auth().signOut()
-         .then(callback);
+  return firebase.auth().signOut().then(callback);
 };
 
 export const getAllPosts = async () => {
@@ -109,12 +107,3 @@ export const updatePost = (postId, dataObj) => {
 export const deletePost = (postId) => {
   db.collection('posts').doc(postId).remove();
 };
-
-// export const onSignIn = (googleUser) => {
-//   var profile = googleUser.getBasicProfile();
-//   console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-//   console.log('Name: ' + profile.getName());
-//   console.log('Image URL: ' + profile.getImageUrl());
-//   console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
-// };
-// onSignIn();

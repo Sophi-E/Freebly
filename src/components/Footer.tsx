@@ -1,12 +1,22 @@
+//@ts-nocheck
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faFacebookSquare,
+  faTwitterSquare,
+  faInstagram,
+  faLinkedin,
+  faFacebook,
+  faTwitter,
+  faLinkedinIn,
+} from '@fortawesome/free-brands-svg-icons';
 
 import styled from '@emotion/styled';
 
 const FooterContainer = styled.div`
   background-color: #1d3742;
-  color: #fff;
+
   padding: 3rem 3rem 1rem 3rem;
 `;
 const Copyright = styled.p`
@@ -14,6 +24,7 @@ const Copyright = styled.p`
   text-align: center;
 `;
 const FooterWrapper = styled.div`
+  color: #fff;
   display: flex;
   text-align: center;
   justify-content: space-between;
@@ -48,7 +59,15 @@ const FooterLinks = styled.div`
     }
   }
 `;
-const SocialLinks = styled.div``;
+const SocialLinks = styled.div`
+  p {
+    padding-bottom: 10px;
+  }
+  a {
+    padding: 20px;
+    text-decoration: none;
+  }
+`;
 const Footer = () => {
   return (
     <FooterContainer>
@@ -67,13 +86,22 @@ const Footer = () => {
         </FooterLinks>
 
         <SocialLinks>
-          <p>Follow us</p>
-          <p>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-          </p>
+          <p>Follow us on our social media accounts</p>
+
+          <a href='facebook'>
+            <FontAwesomeIcon icon={faFacebook} />
+          </a>
+          <a href='socialmedia'>
+            {' '}
+            <FontAwesomeIcon icon={faTwitter} />
+          </a>
+          <a href='socialmedia'>
+            {' '}
+            <FontAwesomeIcon icon={faInstagram} />
+          </a>
+          <a href='socialmedia'>
+            <FontAwesomeIcon icon={faLinkedinIn} />
+          </a>
         </SocialLinks>
       </FooterWrapper>
       <Copyright>All rights reserved @FREEBLI. 2020</Copyright>
