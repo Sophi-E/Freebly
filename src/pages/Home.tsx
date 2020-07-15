@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import * as DataSource from '../../services/firestore';
+import * as DataSource from '../services/firestore';
 import { Link } from 'react-router-dom';
 
-import box from '../../images/box.jpg';
+import box from '../images/box.jpg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 import { faGifts } from '@fortawesome/free-solid-svg-icons';
 import { faPeopleCarry } from '@fortawesome/free-solid-svg-icons';
-import Layout from '../../components/layout';
+import Layout from '../components/layout';
 import styled from '@emotion/styled';
-import PostContainer from '../../components/PostContainer';
-import Spinner from '../../components/Spinner/Spinner';
-import GridContainer from '../../components/GridContainer';
+import PostContainer from '../components/PostContainer';
+import Spinner from '../components/Spinner/Spinner';
+import GridContainer from '../components/GridContainer';
 
 const HomeContainer = styled.div`
   text-align: center;
@@ -22,7 +22,8 @@ const HomeContainer = styled.div`
 `;
 const StyledImage = styled.img`
   width: 100%;
-  margin: 1em 0;
+  border-radius: 5px;
+  /* margin: 0.3em auto; */
 `;
 
 const BlurbWrapper = styled.div`

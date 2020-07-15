@@ -9,7 +9,7 @@ import classes from './dashboard.module.css';
 import { Link } from 'react-router-dom';
 import Footer from '../../components/Footer';
 // import { PostsArray } from '../PostsPage/PostsPage';
-import styles from '../PostsPage/PostsPage.module.css';
+
 //import PostContainer from '../../reusables/PostsContainer/PostContainer';
 
 import { User } from '../../datatypes/User';

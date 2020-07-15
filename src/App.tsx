@@ -2,7 +2,7 @@ import React from 'react';
 
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-import Home from './pages/Home/Home';
+import Home from './pages/Home';
 
 import PrivacyPolicy from './components/Footer/PrivacyPolicy';
 
@@ -10,7 +10,7 @@ import Terms from './components/Footer/Terms';
 import Dashboard from './pages/Dashboard/Dashboard';
 import { AuthProvider } from './components/Auth';
 import PrivateRoute from './components/PrivateRoute';
-import PostsPage from './pages/PostsPage/PostsPage';
+import PostsPage from './pages/PostsPage';
 import CreatePost from './pages/CreatePost/CreatePost';
 import PostDetail from './pages/PostDetail/PostDetail';
 import About from './components/Footer/About';

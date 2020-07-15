@@ -9,9 +9,10 @@ const PostWrapper = styled.div`
   }
 
   img {
-    width: 100%;
+    width: 100px;
     height: auto;
     object-fit: cover;
+    margin: 20px auto;
   }
 `;
 
