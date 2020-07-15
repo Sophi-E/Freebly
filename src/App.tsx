@@ -5,7 +5,6 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Home from './pages/Home/Home';
 
 import PrivacyPolicy from './components/Footer/PrivacyPolicy';
-import './App.css';
 
 import Terms from './components/Footer/Terms';
 import Dashboard from './pages/Dashboard/Dashboard';

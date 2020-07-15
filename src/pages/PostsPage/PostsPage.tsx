@@ -2,12 +2,16 @@ import React, { useEffect, useState } from 'react';
 
 import PostContainer from '../../components/PostContainer';
 import styles from './PostsPage.module.css';
-
+import box from '../../images/box.jpg';
 import * as DataSource from '../../services/firestore';
-
+import styled from '@emotion/styled';
 import Spinner from '../../components/Spinner/Spinner';
 import { Link } from 'react-router-dom';
 import Layout from '../../components/layout';
+const StyledImage = styled.img`
+  width: 100%;
+  margin: 1em 0;
+`;
 
 const PostsPage = () => {
   const [posts, setPosts] = useState<any[]>([]);
@@ -24,6 +28,7 @@ const PostsPage = () => {
 
   return (
     <Layout>
+      <StyledImage src={box} alt='Box' />
       {posts.length === 0 ? (
         <Spinner />
       ) : (

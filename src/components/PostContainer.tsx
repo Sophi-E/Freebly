@@ -7,10 +7,11 @@ const PostWrapper = styled.div`
     padding: 0.2em 1em;
     text-transform: capitalize;
   }
+
   img {
     width: 100%;
-    height: 100px;
-    object-fit: contain;
+    height: auto;
+    object-fit: cover;
   }
 `;
 

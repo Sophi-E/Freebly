@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import * as DataSource from '../../services/firestore';
 import { Link } from 'react-router-dom';
-import styles from './home.module.css';
-import boxes from '../../images/boxes.jpg';
+
+import box from '../../images/box.jpg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 import { faGifts } from '@fortawesome/free-solid-svg-icons';
@@ -22,8 +22,7 @@ const HomeContainer = styled.div`
 `;
 const StyledImage = styled.img`
   width: 100%;
-
-  margin: 2em 0;
+  margin: 1em 0;
 `;
 
 const BlurbWrapper = styled.div`
@@ -60,15 +59,15 @@ const Home: React.FC = () => {
   return (
     <Layout>
       <HomeContainer>
-        <StyledImage src={boxes} alt='deliveryBox' />
-        <div className={styles.intro}>
-          <h1>All things have value</h1>
-          <p>
-            {/* Choose to give something of value to someone at no extra cost to you */}
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi dolore
-            ipsam
-          </p>
-        </div>
+        <StyledImage src={box} alt='Box' />
+        {/* <div className={styles.intro}> */}
+        <h1>All things have value</h1>
+        <p>
+          {/* Choose to give something of value to someone at no extra cost to you */}
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi dolore
+          ipsam
+        </p>
+        {/* </div> */}
         <BlurbWrapper>
           <div>
             <FontAwesomeIcon icon={faCoffee} className='icon' />
@@ -90,7 +89,7 @@ const Home: React.FC = () => {
           <GridContainer>
             {posts.map((post) => (
               <div className='card' key={post.id}>
-                <Link to={`/view-posts/${post.id}`} className={styles.postLink}>
+                <Link to={`/view-posts/${post.id}`}>
                   <PostContainer
                     imageUrl={post.data.imageUrl}
                     title={post.data.title}
@@ -106,7 +105,7 @@ const Home: React.FC = () => {
           </GridContainer>
         )}
 
-        <p className={styles.cta}>
+        <p>
           <Link to='/signup'>Signup now to get started</Link>
         </p>
       </HomeContainer>
