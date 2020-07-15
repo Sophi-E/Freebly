@@ -25,8 +25,8 @@ const tobyDevConfig = {
 };
 
 export const Config = firebase.initializeApp(
-  // tobyDevConfig
-  freebliConfig
+  tobyDevConfig
+  // freebliConfig
 );
 
 const db = firebase.firestore();

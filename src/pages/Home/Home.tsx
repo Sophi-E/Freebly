@@ -1,5 +1,5 @@
-import React from 'react';
-
+import React, { useState, useEffect } from 'react';
+import * as DataSource from '../../services/firestore';
 import { Link } from 'react-router-dom';
 import styles from './home.module.css';
 import boxes from '../../images/boxes.jpg';
@@ -9,8 +9,12 @@ import { faGifts } from '@fortawesome/free-solid-svg-icons';
 import { faPeopleCarry } from '@fortawesome/free-solid-svg-icons';
 import Layout from '../../components/layout';
 import styled from '@emotion/styled';
+import PostContainer from '../../components/PostContainer';
+import Spinner from '../../components/Spinner/Spinner';
+import GridContainer from '../../components/GridContainer';
 
 const HomeContainer = styled.div`
+  text-align: center;
   a {
     text-decoration: none;
     color: #000;
@@ -21,10 +25,38 @@ const StyledImage = styled.img`
 
   margin: 2em 0;
 `;
-// const ProductContainer = styled.div`
-// display: flex;
-// `
+
+const BlurbWrapper = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+  text-align: center;
+  padding: 2em 0;
+  margin: 4em 0;
+  div {
+    padding: 1em;
+    width: 200px;
+    background-color: var(--accent-color);
+    color: #fff;
+  }
+  p {
+    padding: 0.5em 0;
+  }
+  .icon {
+    font-size: 4em;
+  }
+`;
 const Home: React.FC = () => {
+  const [posts, setPosts] = useState<any[]>([]);
+
+  useEffect(() => {
+    const getAllPosts = async () => {
+      const allPosts = await DataSource.getAllPosts();
+      setPosts(allPosts);
+    };
+
+    getAllPosts();
+  }, []);
+
   return (
     <Layout>
       <HomeContainer>
@@ -37,20 +69,42 @@ const Home: React.FC = () => {
             ipsam
           </p>
         </div>
-        <div className={styles.iconWrapper}>
+        <BlurbWrapper>
           <div>
-            <FontAwesomeIcon icon={faCoffee} className={styles.icon} />
+            <FontAwesomeIcon icon={faCoffee} className='icon' />
             <p>Give away stuff you no longer need</p>
           </div>
           <div>
-            <FontAwesomeIcon icon={faPeopleCarry} className={styles.icon} />
+            <FontAwesomeIcon icon={faPeopleCarry} className='icon' />
             <p>Reduce clutter in your home and offices</p>
           </div>
           <div>
-            <FontAwesomeIcon icon={faGifts} className={styles.icon} />
+            <FontAwesomeIcon icon={faGifts} className='icon' />
             <p>Add value to others while also getting stuffs you need</p>
           </div>
-        </div>
+        </BlurbWrapper>
+        <h4>Recent posts</h4>
+        {posts.length === 0 ? (
+          <Spinner />
+        ) : (
+          <GridContainer>
+            {posts.map((post) => (
+              <div className='card' key={post.id}>
+                <Link to={`/view-posts/${post.id}`} className={styles.postLink}>
+                  <PostContainer
+                    imageUrl={post.data.imageUrl}
+                    title={post.data.title}
+                    // postDate={new Date(
+                    //   post.data.postDate
+                    // ).toLocaleDateString()}
+                    // location={post.data.location}
+                    // shipping={post.data.shipping}
+                  />
+                </Link>
+              </div>
+            ))}
+          </GridContainer>
+        )}
 
         <p className={styles.cta}>
           <Link to='/signup'>Signup now to get started</Link>

@@ -9,8 +9,8 @@ const PostWrapper = styled.div`
   }
   img {
     width: 100%;
-    height: 200px;
-    object-fit: cover;
+    height: 100px;
+    object-fit: contain;
   }
 `;
 
@@ -18,7 +18,7 @@ type PostItemProps = {
   imageUrl: string;
   title: string;
   postDate?: string;
-  location: string;
+  location?: string;
   shipping?: string;
 };
 
@@ -33,9 +33,9 @@ const PostContainer: React.FC<PostItemProps> = ({
     <PostWrapper>
       <img src={imageUrl} alt={title} />
       <h4>{title}</h4>
-      <p>Posted on: {postDate}</p>
-      <p>Location: {location}</p>
-      <p>Shipping: {shipping}</p>
+      <p> {postDate}</p>
+      <p> {location}</p>
+      <p> {shipping}</p>
     </PostWrapper>
   );
 };
