@@ -41,13 +41,19 @@ const PostDetail = ({ match }) => {
       ) : (
         <div className={styles.postDetail} id={post.id}>
           <h2>{post.data.title}</h2>
-          <img src={post.data.imageUrl} alt='post-pic' />
-          <div className={styles.thumbnail}>
-            <img src={post.data.imageUrl} alt='post-pic' />
-            <img src={post.data.imageUrl} alt='post-pic' />
-            <img src={post.data.imageUrl} alt='post-pic' />
-            <img src={post.data.imageUrl} alt='post-pic' />
-          </div>
+          { post.data.images 
+            ? <div className={styles.thumbnail}>
+                {post.data.images.map((image:any) =>
+                  <img key={image.id} src={image.url} alt='post-pic' />
+                )}
+
+              </div>
+            : post.data.imageUrl 
+              ? <img src={post.data.imageUrl} alt='post-pic' />
+              : null
+
+          }
+
           <p>Location: {post.data.location}</p>
           <p>Free shipping: {post.data.shipping}</p>
           <p>Posted on: {new Date(post.data.postDate).toLocaleDateString() }</p>

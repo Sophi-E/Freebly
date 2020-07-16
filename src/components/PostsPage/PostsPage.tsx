@@ -44,7 +44,11 @@ const PostsPage = () => {
             <div className={styles.card} key={post.id}>
               <Link to={`/view-posts/${post.id}`} className={styles.postLink}>
                 <PostContainer
-                  imageUrl={post.data.imageUrl}
+                   imageUrl={post.data.images 
+                           ? post.data.images[0].url 
+                           : post.data.imageUrl 
+                               ? post.data.imageUrl
+                               : null }
                   title={post.data.title}
                   postDate={new Date(post.data.postDate).toLocaleDateString() }
                   location={post.data.location}

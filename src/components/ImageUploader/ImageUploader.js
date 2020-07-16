@@ -43,7 +43,17 @@ const ImageUploader = ({
         () => {
           // Finished uploading!
           load(id);
-          onRequestSave(id);
+          /****
+           * Let's change this a little: I want to save the image
+           *   as an object in the state.
+           */
+          const imageUrl = storageRef.child(`images/${id}`).getDownloadURL()
+               .then((url) => {
+                  onRequestSave({
+                    id,
+                    url
+                  });
+               })
         }
       )
     },

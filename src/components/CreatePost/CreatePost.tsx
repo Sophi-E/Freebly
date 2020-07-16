@@ -47,10 +47,12 @@ const CreatePost = () => {
         <form id='postForm' className={styles.postForm} onSubmit={handleSubmit}>
           {/* <h1>Create Post</h1> */}
           <ImageUploader 
-            onRequestSave={(id:string) => setImages(prev=>{
-              return prev.includes(id) 
+            onRequestSave={(image:any) => setImages(prev=>{
+              // so the find function here should disallow
+              // adding the same image mult times. I think
+              return prev.find((img:any) =>img.id === image.id) 
                    ? [...prev] 
-                   : [...prev, id];
+                   : [...prev, image];
             })}
             onRequestClear={() =>setImages([]) }
             defaultFiles={
