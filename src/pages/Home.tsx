@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import * as DataSource from '../services/firestore';
 import { Link } from 'react-router-dom';
-
 import box from '../images/box.jpg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCoffee } from '@fortawesome/free-solid-svg-icons';
@@ -22,8 +21,7 @@ const HomeContainer = styled.div`
 `;
 const StyledImage = styled.img`
   width: 100%;
-  border-radius: 5px;
-  /* margin: 0.3em auto; */
+  margin: 1em auto;
 `;
 
 const BlurbWrapper = styled.div`

@@ -7,11 +7,15 @@ import Spinner from '../components/Spinner/Spinner';
 import { Link } from 'react-router-dom';
 import Layout from '../components/layout';
 import GridContainer from '../components/GridContainer';
+import InputComponent from '../components/FormComponent/InputComponent';
 const StyledImage = styled.img`
   width: 100%;
   margin: 1em 0;
 `;
-
+const InputWrapper = styled.div`
+  display: flex;
+  width: 40%;
+`;
 const PostsPage = () => {
   const [posts, setPosts] = useState<any[]>([]);
 
@@ -28,6 +32,14 @@ const PostsPage = () => {
   return (
     <Layout>
       <StyledImage src={box} alt='Box' />
+      <InputWrapper>
+        <InputComponent
+          name='search'
+          placeholder='search by location'
+          type='text'
+        />
+        {/* <InputComponent name='sort' placeholder='sort' type='text' /> */}
+      </InputWrapper>
       {posts.length === 0 ? (
         <Spinner />
       ) : (

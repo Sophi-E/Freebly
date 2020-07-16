@@ -12,7 +12,8 @@ const PostWrapper = styled.div`
     width: 100px;
     height: auto;
     object-fit: cover;
-    margin: 20px auto;
+    /* margin: 10px auto; */
+    /* border-radius: 10px; */
   }
 `;
 
