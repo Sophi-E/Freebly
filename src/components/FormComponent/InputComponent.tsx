@@ -9,41 +9,43 @@ const Input = styled('input')`
   border: none;
   border-radius: 5px;
   &:hover {
-    border: 1px solid blueviolet;
+    border: 1px solid #093142;
+  }
+  &:focus {
+    outline: none;
+    border: 1px solid #093134;
   }
 `;
-type InputProps = {
-  name: string;
-  placeholder: string;
+interface InputProps extends React.HTMLAttributes<HTMLInputElement> {
   label?: string;
-  onChange?: any;
-  value?: any;
   error?: string;
-  type: any;
-};
+  name: string;
+  inputType: string;
+  value: any;
+}
 
 const InputComponent: React.FC<InputProps> = ({
   name,
-  placeholder,
   label,
-  onChange,
-  value,
   error,
-  type,
+  placeholder,
+  onChange,
+  inputType,
+  id,
+  value,
 }: InputProps) => {
   return (
     <>
       <label htmlFor={name}>{label}</label>
       <Input
-        type={type}
-        required
-        // size='1em'
-        id={name}
-        name={name}
-        placeholder={placeholder}
-        onChange={onChange}
         value={value}
-        //  style={error && { border: 'solid 1px red' }}
+        type={inputType}
+        onChange={onChange}
+        placeholder={placeholder}
+        name={name}
+        id={id}
+        required
+        //style={error && { border: 'solid 1px red' }}
       />
       {error && <p>{error}</p>}
     </>

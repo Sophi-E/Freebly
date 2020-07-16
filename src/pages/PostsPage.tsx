@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom';
 import Layout from '../components/layout';
 import GridContainer from '../components/GridContainer';
 import InputComponent from '../components/FormComponent/InputComponent';
+
 const StyledImage = styled.img`
   width: 100%;
   margin: 1em 0;
@@ -15,14 +16,19 @@ const StyledImage = styled.img`
 const InputWrapper = styled.div`
   display: flex;
   width: 40%;
+  margin: 1em 0;
+  @media screen and (max-width: 764px) {
+    width: 100%;
+  }
 `;
 const PostsPage = () => {
   const [posts, setPosts] = useState<any[]>([]);
+  const [searchTerm, setSearchTerm] = useState<string>('');
 
   useEffect(() => {
     const getAllPosts = async () => {
       const allPosts = await DataSource.getAllPosts();
-      //console.log(allPosts);
+
       setPosts(allPosts);
     };
 
@@ -36,7 +42,12 @@ const PostsPage = () => {
         <InputComponent
           name='search'
           placeholder='search by location'
-          type='text'
+          inputType='text'
+          id='search'
+          value={searchTerm}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+            setSearchTerm(e.target.value)
+          }
         />
         {/* <InputComponent name='sort' placeholder='sort' type='text' /> */}
       </InputWrapper>

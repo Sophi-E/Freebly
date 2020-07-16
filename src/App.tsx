@@ -11,7 +11,7 @@ import Dashboard from './pages/Dashboard/Dashboard';
 import { AuthProvider } from './components/Auth';
 import PrivateRoute from './components/PrivateRoute';
 import PostsPage from './pages/PostsPage';
-import CreatePost from './pages/CreatePost/CreatePost';
+import CreatePost from './pages/CreatePost';
 import PostDetail from './pages/PostDetail/PostDetail';
 import About from './components/Footer/About';
 import Contact from './components/Footer/Contact';
