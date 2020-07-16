@@ -17,17 +17,16 @@ const FormContainer = styled.form`
 `;
 const StyledButton = styled('button')`
   width: 100%;
-  background-color: #6c63ff;
+  background-color: #093142;
   color: white;
-  padding: 14px 20px;
+  padding: 10px 0;
   margin: 8px 0;
   border: none;
   border-radius: 4px;
   cursor: pointer;
 
   &:hover {
-    background-color: blue;
-    color: #000;
+    background-color: #1d3742;
   }
   &:disabled {
     background-color: #ccc;
@@ -58,26 +57,31 @@ const CreatePost = () => {
   } = post;
 
   const isInvalid =
-    title === '' || location === '' || description === '' || shipping === '';
+    imageUrl === '' ||
+    title === '' ||
+    location === '' ||
+    description === '' ||
+    shipping === '';
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setPost({ ...post, [e.target.name]: e.target.value });
   };
   const handleSubmit = (e: any) => {
     e.preventDefault();
-    const data = {
-      title,
-      location,
-      shipping,
-      description,
-      imageUrl,
-      postDate: Date.now(),
-    };
-    const newPost = DataStore.addPost(data);
+    // const data = {
+    //   title,
+    //   location,
+    //   shipping,
+    //   description,
+    //   imageUrl,
+    //   postDate: Date.now(),
+    // };
+    // const newPost = DataStore.addPost(data);
     setPost({ ...post, submitted: true });
-    console.log(data);
-    console.log(newPost);
-    history.push('/thank-you');
+    console.log(submitted);
+    //console.log(data);
+    console.log(post);
+    //history.push('/thank-you');
   };
 
   return (
@@ -86,8 +90,8 @@ const CreatePost = () => {
         <h2>Create new post</h2>
 
         <InputComponent
-          name='photo'
-          placeholder='photo'
+          name='imageUrl'
+          placeholder='Photo'
           inputType='file'
           label='Upload Photos'
           id='imageUrl'
