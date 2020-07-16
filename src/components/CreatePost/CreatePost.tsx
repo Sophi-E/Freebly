@@ -5,13 +5,18 @@ import * as DataStore from '../../services/firestore';
 import Nav from '../../reusables/Nav/Nav';
 import Footer from '../../reusables/Footer/Footer';
 
+
+import ImageUploader from '../ImageUploader';
+
 const CreatePost = () => {
   const history = useHistory();
   const [title, setTitle] = useState('');
   const [location, setLocation] = useState('');
   const [shipping, setShipping] = useState('');
   const [comment, setComment] = useState('');
-  const [imageUrl, setImageUrl] = useState('');
+
+  const [ images, setImages ] = useState<Array<string>>([]);
+
 
   const handleLogout = () => {
     history.push('/');
@@ -24,7 +29,7 @@ const CreatePost = () => {
       location,
       shipping,
       comment,
-      imageUrl,
+      images,
       postDate: Date.now(),
     };
     const newPost = DataStore.addPost(data);
@@ -41,15 +46,24 @@ const CreatePost = () => {
         <h2 className={styles.formTitle}>Create new post</h2>
         <form id='postForm' className={styles.postForm} onSubmit={handleSubmit}>
           {/* <h1>Create Post</h1> */}
-          <label htmlFor='imageUrl'>Upload Photos:</label>
-          <input
-            type='file'
-            name='imageUrl'
-            id='imageUrl'
-            multiple
-            value={imageUrl}
-            onChange={(e) => setImageUrl(e.target.value)}
-          />
+          <ImageUploader 
+            onRequestSave={(id:string) => setImages(prev=>{
+              return prev.includes(id) 
+                   ? [...prev] 
+                   : [...prev, id];
+            })}
+            onRequestClear={() =>setImages([]) }
+            defaultFiles={
+              images
+                ? [{
+                  source: images,
+                  options: {
+                    type: 'local'
+                  }
+                }]
+                : []
+            }
+            />
           <label htmlFor='title'> Item Name:</label>
           <input
             type='text'
