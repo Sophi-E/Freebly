@@ -33,6 +33,7 @@ const InputComponent: React.FC<InputProps> = ({
   inputType,
   id,
   value,
+  ...props
 }: InputProps) => {
   return (
     <>

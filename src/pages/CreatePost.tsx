@@ -68,19 +68,19 @@ const CreatePost = () => {
   };
   const handleSubmit = (e: any) => {
     e.preventDefault();
-    // const data = {
-    //   title,
-    //   location,
-    //   shipping,
-    //   description,
-    //   imageUrl,
-    //   postDate: Date.now(),
-    // };
-    // const newPost = DataStore.addPost(data);
+    const data = {
+      title,
+      location,
+      shipping,
+      description,
+      imageUrl,
+      postDate: Date.now(),
+    };
+    const newPost = DataStore.addPost(data);
     setPost({ ...post, submitted: true });
-    console.log(submitted);
+
     //console.log(data);
-    console.log(post);
+
     //history.push('/thank-you');
   };
 
