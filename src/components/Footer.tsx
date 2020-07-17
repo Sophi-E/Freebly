@@ -10,6 +10,7 @@ import {
 } from '@fortawesome/free-brands-svg-icons';
 
 import styled from '@emotion/styled';
+import { faEnvelopeOpen } from '@fortawesome/free-solid-svg-icons';
 
 const FooterContainer = styled.div`
   background-color: #1d3742;
@@ -17,8 +18,9 @@ const FooterContainer = styled.div`
   padding: 3rem 3rem 1rem 3rem;
 `;
 const Copyright = styled.p`
-  margin-top: 50px;
+  margin-top: 30px;
   text-align: center;
+  color: #fff;
 `;
 const FooterWrapper = styled.div`
   color: #fff;
@@ -41,7 +43,10 @@ const FooterWrapper = styled.div`
   }
 `;
 const StyledBio = styled.div`
-  padding-right: 30px;
+  text-align: justify;
+  p {
+    width: 300px;
+  }
 `;
 const FooterLinks = styled.div`
   display: flex;
@@ -58,10 +63,12 @@ const FooterLinks = styled.div`
 `;
 const SocialLinks = styled.div`
   p {
-    padding-bottom: 10px;
+    font-size: 1.4em;
+    padding-bottom: 20px;
   }
   a {
     padding: 20px;
+    color: white;
     text-decoration: none;
   }
 `;
@@ -76,14 +83,9 @@ const Footer = () => {
             them
           </p>
         </StyledBio>
-        <FooterLinks>
-          <Link to='/contact'>Contact Us</Link>
-          <Link to='/privacypolicy'>Privacy Policy</Link>
-          <Link to='/terms'>Terms of Use</Link>
-        </FooterLinks>
 
         <SocialLinks>
-          <p>Follow us on our social media accounts</p>
+          <p>FREEBLI.</p>
 
           <a href='facebook'>
             <FontAwesomeIcon icon={faFacebook} />
@@ -97,9 +99,14 @@ const Footer = () => {
             <FontAwesomeIcon icon={faInstagram} />
           </a>
           <a href='socialmedia'>
-            <FontAwesomeIcon icon={faLinkedinIn} />
+            <FontAwesomeIcon icon={faEnvelopeOpen} />
           </a>
         </SocialLinks>
+        <FooterLinks>
+          <Link to='/privacypolicy'>Privacy Policy</Link>
+          <Link to='/terms'>Terms of Use</Link>
+          <Link to='/contact'>Contact Us</Link>
+        </FooterLinks>
       </FooterWrapper>
       <Copyright>All rights reserved @FREEBLI. 2020</Copyright>
     </FooterContainer>
