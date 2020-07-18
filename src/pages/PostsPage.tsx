@@ -49,7 +49,6 @@ const PostsPage = () => {
             setSearchTerm(e.target.value)
           }
         />
-        {/* <InputComponent name='sort' placeholder='sort' type='text' /> */}
       </InputWrapper>
       {posts.length === 0 ? (
         <Spinner />

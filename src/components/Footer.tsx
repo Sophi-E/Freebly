@@ -6,7 +6,6 @@ import {
   faInstagram,
   faFacebook,
   faTwitter,
-  faLinkedinIn,
 } from '@fortawesome/free-brands-svg-icons';
 
 import styled from '@emotion/styled';
