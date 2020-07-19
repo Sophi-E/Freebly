@@ -77,6 +77,7 @@ export const getAllPosts = async () => {
 
   await db
     .collection('posts')
+    .orderBy('postDate', 'desc')
     .get()
     .then((querySnapshot) =>
       querySnapshot.forEach((doc) => {
