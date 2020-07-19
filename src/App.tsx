@@ -7,7 +7,7 @@ import Home from './pages/Home';
 import PrivacyPolicy from './components/Footer/PrivacyPolicy';
 
 import Terms from './components/Footer/Terms';
-import Dashboard from './pages/Dashboard/Dashboard';
+import Dashboard from './pages/Dashboard';
 import { AuthProvider } from './components/Auth';
 import PrivateRoute from './components/PrivateRoute';
 import PostsPage from './pages/PostsPage';
