@@ -1,21 +1,22 @@
 import React from 'react';
 import { Spin } from 'antd';
+import styled from '@emotion/styled';
 
-const spinStyle = {
-  textAlign: 'center',
-  // width: '90vh',
-  borderRadius: '4px',
-  marginBottom: '20px',
-  padding: '30px 50px',
-  margin: '20px 0',
-};
+const SpinnerDiv = styled.div`
+  text-align: center;
+  // width: 90vh;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  padding: 30px 50px;
+  margin: 20px 0;
+`;
 
 const Spinner = () => {
   return (
-    <div style={spinStyle}>
+    <SpinnerDiv>
       <Spin />
       <p>Loading Posts...</p>
-    </div>
+    </SpinnerDiv>
   );
 };
 
