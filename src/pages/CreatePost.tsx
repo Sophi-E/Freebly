@@ -4,6 +4,8 @@ import * as DataStore from '../services/firestore';
 import styled from '@emotion/styled';
 import Layout from '../components/layout';
 import InputComponent from '../components/FormComponent/InputComponent';
+import ImageUploader from '../components/ImageUploader';
+
 
 const FormContainer = styled.form`
   border-radius: 5px;
@@ -34,7 +36,7 @@ const StyledButton = styled('button')`
   }
 `;
 const initialState = {
-  imageUrl: '',
+  images: [],
   title: '',
   location: '',
   description: '',
@@ -46,8 +48,9 @@ const initialState = {
 const CreatePost = () => {
   const history = useHistory();
   const [post, setPost] = useState(initialState);
+  const [ images, setImages ] = useState<Array<string>>([]);
+
   const {
-    imageUrl,
     submitted,
     error,
     title,
@@ -57,7 +60,7 @@ const CreatePost = () => {
   } = post;
 
   const isInvalid =
-    imageUrl === '' ||
+    // images.length === 0 ||
     title === '' ||
     location === '' ||
     description === '' ||
@@ -73,7 +76,7 @@ const CreatePost = () => {
       location,
       shipping,
       description,
-      imageUrl,
+      images,
       postDate: Date.now(),
     };
     const newPost = DataStore.addPost(data);
@@ -89,16 +92,27 @@ const CreatePost = () => {
       <FormContainer onSubmit={handleSubmit}>
         <h2>Create new post</h2>
 
-        <InputComponent
-          name='imageUrl'
-          placeholder='Photo'
-          inputType='file'
-          label='Upload Photos'
-          id='imageUrl'
-          // multiple
-          value={imageUrl}
-          onChange={handleChange}
+        <ImageUploader 
+        onRequestSave={(image:any) => setImages(prev=>{
+          // so the find function here should disallow
+          // adding the same image mult times. I think
+          return prev.find((img:any) =>img.id === image.id) 
+               ? [...prev] 
+               : [...prev, image];
+        })}
+        onRequestClear={() =>setImages([]) }
+        defaultFiles={
+          images
+            ? [{
+              source: images,
+              options: {
+                type: 'local'
+              }
+            }]
+            : []
+        }
         />
+
         <InputComponent
           name='title'
           placeholder='Enter item name'

@@ -3,6 +3,7 @@ import * as firebase from 'firebase/app';
 
 import 'firebase/auth';
 import 'firebase/firestore';
+import 'firebase/storage';
 // import { Redirect } from 'react-router-dom';
 
 const freebliConfig = {
@@ -30,6 +31,9 @@ export const Config = firebase.initializeApp(
 );
 
 const db = firebase.firestore();
+
+// Used for the file upload bits...
+export const storage = firebase.storage();
 
 export const signInAnonymously = () => {
   return firebase
@@ -73,6 +77,7 @@ export const getAllPosts = async () => {
 
   await db
     .collection('posts')
+    .orderBy('postDate', 'desc')
     .get()
     .then((querySnapshot) =>
       querySnapshot.forEach((doc) => {

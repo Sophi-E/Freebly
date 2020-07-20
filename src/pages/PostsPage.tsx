@@ -9,6 +9,7 @@ import Layout from '../components/layout';
 import GridContainer from '../components/GridContainer';
 import InputComponent from '../components/FormComponent/InputComponent';
 
+
 const StyledImage = styled.img`
   width: 100%;
   margin: 1em 0;
@@ -58,7 +59,11 @@ const PostsPage = () => {
             <div className='card' key={post.id}>
               <Link to={`/view-posts/${post.id}`}>
                 <PostContainer
-                  imageUrl={post.data.imageUrl}
+                imageUrl={post.data.images 
+                  ? post.data.images[0].url 
+                  : post.data.imageUrl 
+                      ? post.data.imageUrl
+                      : null }
                   title={post.data.title}
                   postDate={new Date(post.data.postDate).toLocaleDateString()}
                   location={post.data.location}
