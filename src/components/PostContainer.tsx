@@ -7,12 +7,17 @@ const PostWrapper = styled.div`
     padding: 0.2em 1em;
     text-transform: capitalize;
   }
-
+  div {
+    /* background-color: blue; */
+    width: 150px;
+    height: 100px;
+    margin: 10px auto;
+  }
   img {
-    width: 100px;
-    height: auto;
-    object-fit: cover;
-    /* margin: 10px auto; */
+    max-width: 150px;
+    max-height: 100px;
+    object-fit: contain;
+    /* */
     /* border-radius: 10px; */
   }
 `;
@@ -34,7 +39,9 @@ const PostContainer: React.FC<PostItemProps> = ({
 }: PostItemProps) => {
   return (
     <PostWrapper>
-      <img src={imageUrl} alt={title} />
+      <div>
+        <img src={imageUrl} alt={title} />
+      </div>
       <h4>{title}</h4>
       <p> {postDate}</p>
       <p> {location}</p>

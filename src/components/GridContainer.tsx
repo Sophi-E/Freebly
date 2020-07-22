@@ -4,7 +4,8 @@ import styled from '@emotion/styled';
 const StyledFlex = styled.div`
   display: grid;
   grid-template-rows: 1fr;
-  justify-items: center;
+
+  /* justify-items: space-between; */
 
   @media screen and (min-width: 764px) {
     grid-template-columns: repeat(2, 1fr);

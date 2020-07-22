@@ -35,6 +35,10 @@ const BlurbWrapper = styled.div`
     width: 200px;
     background-color: var(--accent-color);
     color: #fff;
+
+    @media screen and (max-width: 764px) {
+      width: 100%;
+    }
   }
   p {
     padding: 0.5em 0;
