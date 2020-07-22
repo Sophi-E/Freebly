@@ -94,7 +94,13 @@ const Home: React.FC = () => {
               <div className='card' key={post.id}>
                 <Link to={`/view-posts/${post.id}`}>
                   <PostContainer
-                    imageUrl={post.data.imageUrl}
+                    imageUrl={
+                      post.data.images
+                        ? post.data.images[0].url
+                        : post.data.imageUrl
+                        ? post.data.imageUrl
+                        : null
+                    }
                     title={post.data.title}
                     // postDate={new Date(
                     //   post.data.postDate
