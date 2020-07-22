@@ -6,7 +6,6 @@ import Layout from '../components/layout';
 import InputComponent from '../components/FormComponent/InputComponent';
 import ImageUploader from '../components/ImageUploader';
 
-
 const FormContainer = styled.form`
   border-radius: 5px;
   padding: 1em 3em;
@@ -48,23 +47,13 @@ const initialState = {
 const CreatePost = () => {
   const history = useHistory();
   const [post, setPost] = useState(initialState);
-  const [ images, setImages ] = useState<Array<string>>([]);
+  const [images, setImages] = useState<Array<string>>([]);
 
-  const {
-    submitted,
-    error,
-    title,
-    location,
-    description,
-    shipping,
-  } = post;
+  const { submitted, error, title, location, description, shipping } = post;
 
   const isInvalid =
     // images.length === 0 ||
-    title === '' ||
-    location === '' ||
-    description === '' ||
-    shipping === '';
+    title === '' || location === '' || description === '' || shipping === '';
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setPost({ ...post, [e.target.name]: e.target.value });
@@ -84,7 +73,7 @@ const CreatePost = () => {
 
     //console.log(data);
 
-    //history.push('/thank-you');
+    history.push('/thank-you');
   };
 
   return (
@@ -92,25 +81,29 @@ const CreatePost = () => {
       <FormContainer onSubmit={handleSubmit}>
         <h2>Create new post</h2>
 
-        <ImageUploader 
-        onRequestSave={(image:any) => setImages(prev=>{
-          // so the find function here should disallow
-          // adding the same image mult times. I think
-          return prev.find((img:any) =>img.id === image.id) 
-               ? [...prev] 
-               : [...prev, image];
-        })}
-        onRequestClear={() =>setImages([]) }
-        defaultFiles={
-          images
-            ? [{
-              source: images,
-              options: {
-                type: 'local'
-              }
-            }]
-            : []
-        }
+        <ImageUploader
+          onRequestSave={(image: any) =>
+            setImages((prev) => {
+              // so the find function here should disallow
+              // adding the same image mult times. I think
+              return prev.find((img: any) => img.id === image.id)
+                ? [...prev]
+                : [...prev, image];
+            })
+          }
+          onRequestClear={() => setImages([])}
+          defaultFiles={
+            images
+              ? [
+                  {
+                    source: images,
+                    options: {
+                      type: 'local',
+                    },
+                  },
+                ]
+              : []
+          }
         />
 
         <InputComponent
