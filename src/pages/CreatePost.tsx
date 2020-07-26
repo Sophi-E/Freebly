@@ -15,6 +15,11 @@ const FormContainer = styled.form`
     padding-bottom: 1em;
     text-align: center;
   }
+  @media screen and (max-width: 664px) {
+    width: 100%;
+
+    padding: 1em 0;
+  }
 `;
 const StyledButton = styled('button')`
   width: 100%;

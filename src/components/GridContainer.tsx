@@ -7,10 +7,10 @@ const StyledFlex = styled.div`
 
   /* justify-items: space-between; */
 
-  @media screen and (min-width: 764px) {
+  @media screen and (min-width: 664px) {
     grid-template-columns: repeat(2, 1fr);
   }
-  @media only screen and (min-width: 966px) {
+  @media only screen and (min-width: 866px) {
     grid-template-columns: repeat(3, 1fr);
   }
   @media only screen and (min-width: 1366px) {

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import PostContainer from '../components/PostContainer';
-import box from '../images/box.jpg';
+import giftBox from '../images/gift-box.svg';
 import * as DataSource from '../services/firestore';
 import styled from '@emotion/styled';
 import Spinner from '../components/Spinner/Spinner';
@@ -8,12 +8,8 @@ import { Link } from 'react-router-dom';
 import Layout from '../components/layout';
 import GridContainer from '../components/GridContainer';
 import InputComponent from '../components/FormComponent/InputComponent';
+import { StyledImage } from './Home';
 
-
-const StyledImage = styled.img`
-  width: 100%;
-  margin: 1em 0;
-`;
 const InputWrapper = styled.div`
   display: flex;
   width: 40%;
@@ -38,7 +34,7 @@ const PostsPage = () => {
 
   return (
     <Layout>
-      <StyledImage src={box} alt='Box' />
+      <StyledImage src={giftBox} alt='Box' />
       <InputWrapper>
         <InputComponent
           name='search'
@@ -59,11 +55,13 @@ const PostsPage = () => {
             <div className='card' key={post.id}>
               <Link to={`/view-posts/${post.id}`}>
                 <PostContainer
-                imageUrl={post.data.images 
-                  ? post.data.images[0].url 
-                  : post.data.imageUrl 
+                  imageUrl={
+                    post.data.images
+                      ? post.data.images[0].url
+                      : post.data.imageUrl
                       ? post.data.imageUrl
-                      : null }
+                      : null
+                  }
                   title={post.data.title}
                   postDate={new Date(post.data.postDate).toLocaleDateString()}
                   location={post.data.location}

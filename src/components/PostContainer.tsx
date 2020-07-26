@@ -16,7 +16,7 @@ const PostWrapper = styled.div`
   img {
     max-width: 150px;
     max-height: 100px;
-    object-fit: contain;
+    object-fit: cover;
     /* */
     /* border-radius: 10px; */
   }
