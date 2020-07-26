@@ -18,6 +18,9 @@ const HomeContainer = styled.div`
     text-decoration: none;
     color: #000;
   }
+  .wrapper {
+    margin: 8em 0;
+  }
 `;
 export const StyledImage = styled.img`
   margin: 1em auto;
@@ -32,7 +35,7 @@ const BlurbWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   /* text-align: center; */
-  margin: 14em 0;
+
   div {
     /* padding: 1em; */
     width: 300px;
@@ -42,7 +45,7 @@ const BlurbWrapper = styled.div`
   }
   .icon {
     color: #1d3742;
-    margin-bottom: 1em;
+    margin: 1em 0;
     font-size: 5em;
   }
   @media screen and (max-width: 664px) {
@@ -65,31 +68,28 @@ const Home: React.FC = () => {
     <Layout>
       <HomeContainer>
         <StyledImage src={giftBox} alt='Box' />
-        {/* <div className={styles.intro}> */}
-        <h1>All things have value</h1>
-        <p>
-          {/* Choose to give something of value to someone at no extra cost to you */}
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi dolore
-          ipsam
-        </p>
-        {/* </div> */}
-        <BlurbWrapper>
-          <div>
-            <FontAwesomeIcon icon={faCoffee} className='icon' />
-            <h2>Its easy</h2>
-            <p>Give away stuff you no longer need</p>
-          </div>
-          <div>
-            <FontAwesomeIcon icon={faPeopleCarry} className='icon' />
-            <h2>It aids decluttering</h2>
-            <p>Reduce clutter in your home and offices</p>
-          </div>
-          <div>
-            <FontAwesomeIcon icon={faGifts} className='icon' />
-            <h2>It brings value</h2>
-            <p>Add value to others while also getting stuffs you need</p>
-          </div>
-        </BlurbWrapper>
+        <div className='wrapper'>
+          <h2>
+            Freebli helps to recirculate items that still have value in them
+          </h2>
+          <BlurbWrapper>
+            <div>
+              <FontAwesomeIcon icon={faCoffee} className='icon' />
+              <h2>Its easy</h2>
+              <p>Give away stuff you no longer need</p>
+            </div>
+            <div>
+              <FontAwesomeIcon icon={faPeopleCarry} className='icon' />
+              <h2>It aids decluttering</h2>
+              <p>Reduce clutter in your home and offices</p>
+            </div>
+            <div>
+              <FontAwesomeIcon icon={faGifts} className='icon' />
+              <h2>It brings value</h2>
+              <p>Add value to others while also getting stuffs you need</p>
+            </div>
+          </BlurbWrapper>
+        </div>
         <h4>Recent posts</h4>
         {posts.length === 0 ? (
           <Spinner />
