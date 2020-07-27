@@ -30,7 +30,7 @@ export const Config = firebase.initializeApp(
   // freebliConfig
 );
 
-const db = firebase.firestore();
+export const db = firebase.firestore();
 
 // Used for the file upload bits...
 export const storage = firebase.storage();
@@ -63,7 +63,16 @@ export const signInViaGoogle = (callback) => {
   return firebase
     .auth()
     .signInWithPopup(provider)
-    .then(callback)
+    .then(result => {
+      /****
+       * Changing here - want to modify the user object returned.
+       *   Probably create a custom User object, I think, and simply
+       *   compose a class with that functionality? I dunno. I'll 
+       *   fake it. That always works well.
+       */
+      
+      return callback(result) 
+    })
     .catch((error) => console.error(error));
 };
 
@@ -71,6 +80,13 @@ export const signOut = (callback) => {
   console.log(callback);
   return firebase.auth().signOut().then(callback);
 };
+
+// shortcut references to db endpoints
+export const posts = () => db.collection("posts");
+export const post = (postId) => posts.doc(postId);
+export const replies = (postId) => post(postId).collection('replies');
+export const reply = (postId) => (replyId) => post(postId).collection("replies").doc(replyId); 
+
 
 export const getAllPosts = async () => {
   let allPosts = [];
@@ -112,3 +128,64 @@ export const updatePost = (postId, dataObj) => {
 export const deletePost = (postId) => {
   db.collection('posts').doc(postId).remove();
 };
+
+/****
+ * Later on, like version two, I'd like to make a Post object.
+ * Using that, we'd simply create a new post and either pass
+ * in an object to create a new one, or pass in a uid to find
+ * an existing one.
+ * 
+ * The Post class should handle the save(), read(), and delete()
+ *   in itself. Additionally, we could attach methods for children
+ *   in there. For example:
+ * 
+ * // to get an existing post...
+ * const post = new Post(posts.where({"uid", "===", uid});
+ * 
+ * // to update a property on that post
+ * post.set({shipping: false}) // or something similar, doing a setState
+ *                             // kind of thing
+ * post.save();
+ * const replies = post.replies;
+ * // or even
+ * const {replies} = post; // to deconstruct the replies property.
+ * 
+ * that would also let us do things to create a NEW post:
+ * const post = new Post({
+ *   title,
+ *   description,
+ *   userId,
+ *   images
+ * }).save();
+ * 
+ * // I think the mechanism would be to check if a post HAS a uid 
+ *    assigned and, if not, then it would be a "create this post"
+ *    rather than an update. But a simplified interface for each
+ * 
+ */
+
+ export const getAllRepliesFor = async (postUid) => {
+    let allReplies = [];
+    await replies(postUid)
+         .orderBy('postDate', 'asc')
+         .get()
+         .then((querySnapshot) => {
+           querySnapshot.forEach(doc => {
+             allReplies = [...allReplies, {id: doc.id, data: doc.data()}]
+           })
+         })
+         .catch(err => console.log(err.message));
+    return allReplies;
+ }
+
+ export const addReply = (postId) => async (dataObj) => {
+   const replyReference = await replies(postId).add(dataObj);
+   return replyReference.id;
+ }
+ export const editReply = (postId) => async (replyId, updateObject) => {
+   await reply(postId)(replyId).update(updateObject)
+ }
+
+ export const deleteReply = (postId) => (replyId) =>{
+   return reply(postId)(replyId).remove();
+ }

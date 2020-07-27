@@ -1,0 +1,33 @@
+.dialog {
+  border-radius: 5px;
+  padding: 0;
+
+}
+.dialog header {
+  display: flex;
+  justify-content: space-between;
+  align-items: top;
+  padding: .25em;
+  margin: 0 0 0.3em 0;
+  background-color: #eee;
+  border-bottom: 1px #333;
+}
+.dialog header * {
+  margin: 0;
+}
+.dialog header .closeBtn {
+  border: 1px solid silver;
+  padding: .1em;
+}
+.dialog .bodyContent {
+  margin: .5em;
+} 
+.dialog button {
+  padding: 0.8em 1.5em;
+  background-color: #6c63ff;
+  color: #fff;
+  cursor: pointer;
+  border: none;
+  border-radius: 25px;
+  margin-top: 1em;
+}
