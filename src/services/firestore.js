@@ -4,6 +4,7 @@ import * as firebase from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/firestore';
 import 'firebase/storage';
+import { removeListener } from 'process';
 // import { Redirect } from 'react-router-dom';
 
 const freebliConfig = {
@@ -83,9 +84,9 @@ export const signOut = (callback) => {
 
 // shortcut references to db endpoints
 export const posts = () => db.collection("posts");
-export const post = (postId) => posts.doc(postId);
-export const replies = (postId) => post(postId).collection('replies');
-export const reply = (postId) => (replyId) => post(postId).collection("replies").doc(replyId); 
+export const post = (postId) => db.collection("posts").doc(postId);
+export const replies = (postId) => db.collection("posts").doc(postId).collection('replies');
+export const reply = (postId) => (replyId) => db.collection("posts").doc(postId).collection("replies").doc(replyId); 
 
 
 export const getAllPosts = async () => {
@@ -105,6 +106,7 @@ export const getAllPosts = async () => {
 
 export const findPostById = async (id) => {
   let result;
+  const user = firebase.auth().currentUser || JSON.parse(localStorage.getItem("currentUser") );
   await db
     .collection('posts')
     .doc(id)
@@ -112,6 +114,24 @@ export const findPostById = async (id) => {
     .then((doc) => {
       result = { id, data: doc.data() };
     });
+    /****
+     * Last, we want to append the replies. If the user is
+     *  the OP, get all replies. If the user posted a reply,
+     *  we get *that* reply, and a count of all replies. If
+     *  the user is neither of these, we just get the count
+     *  of replies.
+     */
+    await getAllRepliesFor(id).then(replies =>{
+      console.log(replies);
+      if(user && user.uid===result.data.userId ) {
+        result = {...result, replies:[...replies], totalReplies: replies.length };
+      } else if(user && replies.filter(reply=>reply.data.userId===user.uid).length===1){
+        result = {...result, replies: replies.filter(reply=>reply.data.userId===user.uid), totalReplies: replies.length}
+      } else {
+        result = {...result, replies:[], totalReplies:replies.length}
+      }
+    })
+    
   return result;
 };
 
@@ -175,13 +195,19 @@ export const deletePost = (postId) => {
            })
          })
          .catch(err => console.log(err.message));
+         console.log(`inside getAllReplies, ${postUid} contains ${JSON.stringify(allReplies) }`)
     return allReplies;
  }
 
- export const addReply = (postId) => async (dataObj) => {
-   const replyReference = await replies(postId).add(dataObj);
-   return replyReference.id;
- }
+  export const addReply = (postId) => async (dataObj) => {
+    const replyReference = await replies(postId).add(dataObj);
+
+    await replyReference.update({
+      postDate: firebase.firestore.FieldValue.serverTimestamp()
+    })
+    return replyReference.id;
+  }
+
  export const editReply = (postId) => async (replyId, updateObject) => {
    await reply(postId)(replyId).update(updateObject)
  }
