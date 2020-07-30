@@ -55,6 +55,7 @@ const ImageUploader = ({
                     url
                   });
                })
+          console.info(imageUrl);
         }
       )
     },

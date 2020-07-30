@@ -4,18 +4,19 @@ import * as firebase from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/firestore';
 import 'firebase/storage';
-import { removeListener } from 'process';
+
+// import { removeListener } from 'process';
 // import { Redirect } from 'react-router-dom';
 
-const freebliConfig = {
-  apiKey: 'AIzaSyC07b5BHcNWuUGd4bkMA1P7a-bjrewaUVQ',
-  authDomain: 'freebly.firebaseapp.com',
-  databaseURL: 'https://freebly.firebaseio.com',
-  projectId: 'freebly',
-  storageBucket: 'freebly.appspot.com',
-  messagingSenderId: '681902899769',
-  appId: '1:681902899769:web:1364a22155ac42853c43e8',
-};
+// const freebliConfig = {
+//   apiKey: 'AIzaSyC07b5BHcNWuUGd4bkMA1P7a-bjrewaUVQ',
+//   authDomain: 'freebly.firebaseapp.com',
+//   databaseURL: 'https://freebly.firebaseio.com',
+//   projectId: 'freebly',
+//   storageBucket: 'freebly.appspot.com',
+//   messagingSenderId: '681902899769',
+//   appId: '1:681902899769:web:1364a22155ac42853c43e8',
+// };
 const tobyDevConfig = {
   apiKey: 'AIzaSyAWo0ZWObKQYijaeWRvT5ygQeDSR21rnxk',
   authDomain: 'sharing-stuff-3ccd8.firebaseapp.com',
@@ -59,7 +60,7 @@ export const signInViaEmail = (email, password) => {
     .catch((error) => console.error(error));
 };
 
-export const signInViaGoogle = (callback) => {
+export const signInViaGoogle = (callback=()=>{} ) => {
   const provider = new firebase.auth.GoogleAuthProvider();
   return firebase
     .auth()
@@ -77,7 +78,7 @@ export const signInViaGoogle = (callback) => {
     .catch((error) => console.error(error));
 };
 
-export const signOut = (callback) => {
+export const signOut = (callback=()=>{} ) => {
   console.log(callback);
   return firebase.auth().signOut().then(callback);
 };
@@ -122,7 +123,6 @@ export const findPostById = async (id) => {
      *  of replies.
      */
     await getAllRepliesFor(id).then(replies =>{
-      console.log(replies);
       if(user && user.uid===result.data.userId ) {
         result = {...result, replies:[...replies], totalReplies: replies.length };
       } else if(user && replies.filter(reply=>reply.data.userId===user.uid).length===1){
@@ -195,7 +195,6 @@ export const deletePost = (postId) => {
            })
          })
          .catch(err => console.log(err.message));
-         console.log(`inside getAllReplies, ${postUid} contains ${JSON.stringify(allReplies) }`)
     return allReplies;
  }
 

@@ -1,6 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
+import { Button } from 'antd';
+
+import { signInViaGoogle, signOut } from '../../services/firestore';
+import { AuthContext } from '../Auth';
+
+import 'antd/dist/antd.css';
 
 const Ul = styled.ul`
   list-style: none;
@@ -34,11 +40,28 @@ const Ul = styled.ul`
 `;
 
 const RightNav = ({ open }) => {
+  const {currentUser} = useContext(AuthContext);
+
+  const loginHandler = ()=>signInViaGoogle();
+
+  const logoutHandler = ()=>signOut();
+
   return (
     <Ul open={open}>
       <Link to='/about'>About</Link>
       <Link to='/view-posts'>Products</Link>
-      <Link to='/create-post'>Add New</Link>
+      {
+        !!currentUser ? (
+          <>
+            <Link to='/create-post'>Add New</Link>
+            <Link to='/dashboard'>Dashboard</Link>
+            <Button type="primary" onClick={logoutHandler}>Log out</Button>
+          </>
+        ) : (
+          <Button type="primary" onClick={loginHandler}>Log in</Button>
+
+        )
+      }
     </Ul>
   );
 };
