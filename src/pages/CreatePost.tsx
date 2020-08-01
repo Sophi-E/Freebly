@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 import * as DataStore from '../services/firestore';
 import styled from '@emotion/styled';
 import Layout from '../components/layout';
 import InputComponent from '../components/FormComponent/InputComponent';
 import ImageUploader from '../components/ImageUploader';
+
+import { AuthContext } from '../components/Auth'
 
 const FormContainer = styled.form`
   border-radius: 5px;
@@ -40,6 +42,7 @@ const StyledButton = styled('button')`
   }
 `;
 const initialState = {
+  userId: '',
   images: [],
   title: '',
   location: '',
@@ -53,8 +56,9 @@ const CreatePost = () => {
   const history = useHistory();
   const [post, setPost] = useState(initialState);
   const [images, setImages] = useState<Array<string>>([]);
+  const { currentUser } = useContext(AuthContext);
 
-  const { submitted, error, title, location, description, shipping } = post;
+  const { title, location, description, shipping } = post;
 
   const isInvalid =
     // images.length === 0 ||
@@ -66,6 +70,7 @@ const CreatePost = () => {
   const handleSubmit = (e: any) => {
     e.preventDefault();
     const data = {
+      userId: currentUser.uid,
       title,
       location,
       shipping,
@@ -73,7 +78,10 @@ const CreatePost = () => {
       images,
       postDate: Date.now(),
     };
+    
     const newPost = DataStore.addPost(data);
+    console.log(newPost);
+
     setPost({ ...post, submitted: true });
 
     //console.log(data);

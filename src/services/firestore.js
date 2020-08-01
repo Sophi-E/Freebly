@@ -4,17 +4,19 @@ import * as firebase from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/firestore';
 import 'firebase/storage';
+
+// import { removeListener } from 'process';
 // import { Redirect } from 'react-router-dom';
 
-const freebliConfig = {
-  apiKey: 'AIzaSyC07b5BHcNWuUGd4bkMA1P7a-bjrewaUVQ',
-  authDomain: 'freebly.firebaseapp.com',
-  databaseURL: 'https://freebly.firebaseio.com',
-  projectId: 'freebly',
-  storageBucket: 'freebly.appspot.com',
-  messagingSenderId: '681902899769',
-  appId: '1:681902899769:web:1364a22155ac42853c43e8',
-};
+// const freebliConfig = {
+//   apiKey: 'AIzaSyC07b5BHcNWuUGd4bkMA1P7a-bjrewaUVQ',
+//   authDomain: 'freebly.firebaseapp.com',
+//   databaseURL: 'https://freebly.firebaseio.com',
+//   projectId: 'freebly',
+//   storageBucket: 'freebly.appspot.com',
+//   messagingSenderId: '681902899769',
+//   appId: '1:681902899769:web:1364a22155ac42853c43e8',
+// };
 const tobyDevConfig = {
   apiKey: 'AIzaSyAWo0ZWObKQYijaeWRvT5ygQeDSR21rnxk',
   authDomain: 'sharing-stuff-3ccd8.firebaseapp.com',
@@ -58,7 +60,7 @@ export const signInViaEmail = (email, password) => {
     .catch((error) => console.error(error));
 };
 
-export const signInViaGoogle = (callback) => {
+export const signInViaGoogle = (callback=()=>{} ) => {
   const provider = new firebase.auth.GoogleAuthProvider();
   return firebase
     .auth()
@@ -76,16 +78,16 @@ export const signInViaGoogle = (callback) => {
     .catch((error) => console.error(error));
 };
 
-export const signOut = (callback) => {
+export const signOut = (callback=()=>{} ) => {
   console.log(callback);
   return firebase.auth().signOut().then(callback);
 };
 
 // shortcut references to db endpoints
 export const posts = () => db.collection("posts");
-export const post = (postId) => posts.doc(postId);
-export const replies = (postId) => post(postId).collection('replies');
-export const reply = (postId) => (replyId) => post(postId).collection("replies").doc(replyId); 
+export const post = (postId) => db.collection("posts").doc(postId);
+export const replies = (postId) => db.collection("posts").doc(postId).collection('replies');
+export const reply = (postId) => (replyId) => db.collection("posts").doc(postId).collection("replies").doc(replyId); 
 
 
 export const getAllPosts = async () => {
@@ -105,6 +107,7 @@ export const getAllPosts = async () => {
 
 export const findPostById = async (id) => {
   let result;
+  const user = firebase.auth().currentUser || JSON.parse(localStorage.getItem("currentUser") );
   await db
     .collection('posts')
     .doc(id)
@@ -112,6 +115,23 @@ export const findPostById = async (id) => {
     .then((doc) => {
       result = { id, data: doc.data() };
     });
+    /****
+     * Last, we want to append the replies. If the user is
+     *  the OP, get all replies. If the user posted a reply,
+     *  we get *that* reply, and a count of all replies. If
+     *  the user is neither of these, we just get the count
+     *  of replies.
+     */
+    await getAllRepliesFor(id).then(replies =>{
+      if(user && user.uid===result.data.userId ) {
+        result = {...result, replies:[...replies], totalReplies: replies.length };
+      } else if(user && replies.filter(reply=>reply.data.userId===user.uid).length===1){
+        result = {...result, replies: replies.filter(reply=>reply.data.userId===user.uid), totalReplies: replies.length}
+      } else {
+        result = {...result, replies:[], totalReplies:replies.length}
+      }
+    })
+    
   return result;
 };
 
@@ -178,10 +198,15 @@ export const deletePost = (postId) => {
     return allReplies;
  }
 
- export const addReply = (postId) => async (dataObj) => {
-   const replyReference = await replies(postId).add(dataObj);
-   return replyReference.id;
- }
+  export const addReply = (postId) => async (dataObj) => {
+    const replyReference = await replies(postId).add(dataObj);
+
+    await replyReference.update({
+      postDate: firebase.firestore.FieldValue.serverTimestamp()
+    })
+    return replyReference.id;
+  }
+
  export const editReply = (postId) => async (replyId, updateObject) => {
    await reply(postId)(replyId).update(updateObject)
  }

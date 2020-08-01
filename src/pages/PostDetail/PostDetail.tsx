@@ -9,7 +9,7 @@ import Spinner from '../../components/Spinner/Spinner';
 import styles from './PostDetail.module.css';
 
 import Layout from '../../components/layout';
-import Dialog from '../../components/Dialog';
+import ReplyDialog from '../../components/ReplyDialog';
 
 //@ts-ignore
 const PostDetail = ({ match }) => {
@@ -53,13 +53,7 @@ const PostDetail = ({ match }) => {
           <p>Posted on: {new Date(post.data.postDate).toLocaleDateString()}</p>
           <p>Comment: {post.data.comment}</p>
           
-          <Dialog trigger={<button className={styles.reqBtn}>Request Item</button>} title='Send Request Message'> 
-            <form>
-              <label htmlFor='message'>Message</label>
-              <textarea id="message" rows={3} cols={40}></textarea>
-              <button>Cancel</button><button>Send</button>
-            </form>
-          </Dialog>
+          <ReplyDialog postId={post.id} title='Send Request Message' /> 
         </div>
       )}
     </Layout>
