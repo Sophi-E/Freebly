@@ -18,6 +18,9 @@ const InputWrapper = styled.div`
     width: 100%;
   }
 `;
+const ImageContainer = styled.div`
+  text-align: center;
+`;
 const PostsPage = () => {
   const [posts, setPosts] = useState<any[]>([]);
   const [searchTerm, setSearchTerm] = useState<string>('');
@@ -34,7 +37,9 @@ const PostsPage = () => {
 
   return (
     <Layout>
-      <StyledImage src={giftBox} alt='Box' />
+      <ImageContainer>
+        <StyledImage src={giftBox} alt='Box' />
+      </ImageContainer>
       <InputWrapper>
         <InputComponent
           name='search'

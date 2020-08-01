@@ -20,8 +20,8 @@ const PostWrapper = styled.div`
     /* */
     /* border-radius: 10px; */
   }
-  /* small {
-    color: red;
+  /* p {
+    padding: 0;
   } */
 `;
 
@@ -46,9 +46,9 @@ const PostContainer: React.FC<PostItemProps> = ({
         <img src={imageUrl} alt={title} />
       </div>
       <h4>{title}</h4>
-      <small> {postDate}</small>
-      <small> {location}</small>
-      <small> {shipping}</small>
+      <p>Posted on: {postDate}</p>
+      <p>Location: {location}</p>
+      <p>Shipping available? {shipping}</p>
     </PostWrapper>
   );
 };

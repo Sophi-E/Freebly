@@ -21,7 +21,7 @@
   display: inline-block;
 }
 .contactWrapper .contactIcon {
-  color: #6c63ff;
+  color: var(--primary-color);
   font-size: 20px;
 }
 .contactWrapper p {

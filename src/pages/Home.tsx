@@ -23,7 +23,7 @@ const HomeContainer = styled.div`
   }
 `;
 export const StyledImage = styled.img`
-  margin: 1em auto;
+  margin: 1.5em auto;
   width: 100%;
   @media screen and (min-width: 1024px) {
     max-width: 800px;
@@ -38,6 +38,10 @@ const BlurbWrapper = styled.div`
   div {
     padding: 0 1em;
     width: 300px;
+  }
+  h2 {
+    text-decoration: underline;
+    font-weight: bold;
   }
   p {
     padding: 0.5em 0;
@@ -106,11 +110,9 @@ const Home: React.FC = () => {
                         : null
                     }
                     title={post.data.title}
-                    // postDate={new Date(
-                    //   post.data.postDate
-                    // ).toLocaleDateString()}
-                    // location={post.data.location}
-                    // shipping={post.data.shipping}
+                    postDate={new Date(post.data.postDate).toLocaleDateString()}
+                    location={post.data.location}
+                    shipping={post.data.shipping}
                   />
                 </Link>
               </div>
@@ -118,9 +120,7 @@ const Home: React.FC = () => {
           </GridContainer>
         )}
 
-        <p>
-          <Link to='/signup'>Signup now to get started</Link>
-        </p>
+        <h2>Login now to get started</h2>
       </HomeContainer>
     </Layout>
   );

@@ -3,11 +3,9 @@ import React, { useState, useEffect } from 'react';
 // import axios from 'axios';
 import * as DataSource from '../../services/firestore';
 //import * as DataSource from '../../services/freebli';
-
 import Spinner from '../../components/Spinner/Spinner';
-
 import styles from './PostDetail.module.css';
-
+import style from '@emotion/styled';
 import Layout from '../../components/layout';
 import ReplyDialog from '../../components/ReplyDialog';
 
