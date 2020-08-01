@@ -2,17 +2,15 @@ import React, { useContext } from 'react';
 import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
 import { Button } from 'antd';
-
 import { signInViaGoogle, signOut } from '../../services/firestore';
 import { AuthContext } from '../Auth';
-
 import 'antd/dist/antd.css';
 
 const Ul = styled.ul`
   list-style: none;
   display: flex;
   flex-flow: row nowrap;
-  /* padding: 80px; */
+  padding-top: 14px;
 
   a {
     padding: 7px 15px;
@@ -40,28 +38,37 @@ const Ul = styled.ul`
 `;
 
 const RightNav = ({ open }) => {
-  const {currentUser} = useContext(AuthContext);
+  const { currentUser } = useContext(AuthContext);
 
-  const loginHandler = ()=>signInViaGoogle();
+  const loginHandler = () => signInViaGoogle();
 
-  const logoutHandler = ()=>signOut();
+  const logoutHandler = () => signOut();
 
   return (
     <Ul open={open}>
       <Link to='/about'>About</Link>
       <Link to='/view-posts'>Products</Link>
-      {
-        !!currentUser ? (
-          <>
-            <Link to='/create-post'>Add New</Link>
-            <Link to='/dashboard'>Dashboard</Link>
-            <Button type="primary" onClick={logoutHandler}>Log out</Button>
-          </>
-        ) : (
-          <Button type="primary" onClick={loginHandler}>Log in</Button>
-
-        )
-      }
+      {!!currentUser ? (
+        <>
+          <Link to='/create-post'>Add New</Link>
+          <Link to='/dashboard'>Dashboard</Link>
+          <Button
+            type='primary'
+            style={{ background: 'var(--primary-color)' }}
+            onClick={logoutHandler}
+          >
+            Log out
+          </Button>
+        </>
+      ) : (
+        <Button
+          type='primary'
+          style={{ background: 'var(--primary-color)' }}
+          onClick={loginHandler}
+        >
+          Log in
+        </Button>
+      )}
     </Ul>
   );
 };

@@ -12,16 +12,15 @@
   --heading-text: 32px;
   --sub-heading-text: 24px;
   --title-heading: 18px;
-  --primary-color: #1d3742;
+  --primary-color: #0c79a8;
   --accent-color: #093142;
   --base-spacing: 10px;
 }
 body {
-  font-family: 'roboto';
+  font-family: 'Roboto', sans-serif !important;
 }
 p {
   line-height: 1.4;
-  /* color: var(--accent-color); */
 }
 h1,
 h2,

@@ -22,6 +22,8 @@ const Nav = styled.nav`
     color: #006aff;
     text-transform: uppercase;
     font-weight: bold;
+    text-decoration: underline;
+    font-size: var(--title-heading);
   }
   a {
     color: #1d3742;

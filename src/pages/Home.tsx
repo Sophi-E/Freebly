@@ -34,10 +34,9 @@ export const StyledImage = styled.img`
 const BlurbWrapper = styled.div`
   display: flex;
   justify-content: space-between;
-  /* text-align: center; */
 
   div {
-    /* padding: 1em; */
+    padding: 0 1em;
     width: 300px;
   }
   p {
@@ -69,9 +68,9 @@ const Home: React.FC = () => {
       <HomeContainer>
         <StyledImage src={giftBox} alt='Box' />
         <div className='wrapper'>
-          <h2>
+          <h1>
             Freebli helps to recirculate items that still have value in them
-          </h2>
+          </h1>
           <BlurbWrapper>
             <div>
               <FontAwesomeIcon icon={faCoffee} className='icon' />

@@ -13,7 +13,6 @@ import { faEnvelopeOpen } from '@fortawesome/free-solid-svg-icons';
 
 const FooterContainer = styled.div`
   background-color: #1d3742;
-
   padding: 3rem 3rem 1rem 3rem;
 `;
 const Copyright = styled.p`
@@ -30,6 +29,14 @@ const FooterWrapper = styled.div`
 
   div {
     width: 33%;
+  }
+  @media screen and (max-width: 960px) {
+    text-align: left;
+
+    div {
+      width: 45%;
+      margin: 1em 2%;
+    }
   }
   @media screen and (max-width: 760px) {
     flex-direction: column;
@@ -63,10 +70,10 @@ const FooterLinks = styled.div`
 const SocialLinks = styled.div`
   p {
     font-size: 1.4em;
-    padding-bottom: 20px;
+    padding-bottom: 10px;
   }
   a {
-    padding: 20px;
+    padding: 10px 20px 10px 0;
     color: white;
     text-decoration: none;
   }

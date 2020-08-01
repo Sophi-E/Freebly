@@ -20,9 +20,9 @@ const PostWrapper = styled.div`
     /* */
     /* border-radius: 10px; */
   }
-  small {
+  /* small {
     color: red;
-  }
+  } */
 `;
 
 type PostItemProps = {
@@ -45,7 +45,7 @@ const PostContainer: React.FC<PostItemProps> = ({
       <div>
         <img src={imageUrl} alt={title} />
       </div>
-      <h5>{title}</h5>
+      <h4>{title}</h4>
       <small> {postDate}</small>
       <small> {location}</small>
       <small> {shipping}</small>
