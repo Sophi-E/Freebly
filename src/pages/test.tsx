@@ -15,12 +15,14 @@ const Test = () => {
   const [posts, setPosts] = useState([]);
 
   //get posts by users
-  const userId = currentUser.uid;
+  //let fullDate = firebase.firestore.Timestamp.fromDate(new Date(1590998505486));
+
   const getUserPost = async () => {
     let userPost = [];
     await db
       .collection('posts')
-      .where('userId', '==', userId)
+      .where('postDate', '==', '1590944479139')
+      // .where('postDate', '<=', '1590944479139')
       .get()
       .then((querySnapshot) =>
         querySnapshot.forEach((doc) => {
@@ -39,15 +41,7 @@ const Test = () => {
   }, []);
 
   console.log(posts);
-  //   useEffect(() => {
-  //     const getUserPosts = async () => {
-  //       const userPosts = await DataSource.getUserPost();
-  //       setPosts(userPosts);
-  //     };
-  //     getUserPosts();
-  //   }, []);
-  //   console.log(posts);
-  // console.log(userId)
+
   return (
     <div>
       {posts.map((post) => (

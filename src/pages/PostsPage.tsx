@@ -27,7 +27,7 @@ const PostsPage = () => {
 
   useEffect(() => {
     const getAllPosts = async () => {
-      const allPosts = await DataSource.getAllPosts();
+      const allPosts = await DataSource.getAllPosts(50);
 
       setPosts(allPosts);
     };

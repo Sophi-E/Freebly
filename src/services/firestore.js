@@ -90,12 +90,13 @@ export const replies = (postId) =>
 export const reply = (postId) => (replyId) =>
   db.collection('posts').doc(postId).collection('replies').doc(replyId);
 
-export const getAllPosts = async () => {
+export const getAllPosts = async (limit) => {
   let allPosts = [];
 
   await db
     .collection('posts')
     .orderBy('postDate', 'desc')
+    .limit(limit)
     .get()
     .then((querySnapshot) =>
       querySnapshot.forEach((doc) => {

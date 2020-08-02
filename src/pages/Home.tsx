@@ -61,7 +61,7 @@ const Home: React.FC = () => {
 
   useEffect(() => {
     const getAllPosts = async () => {
-      const allPosts = await DataSource.getAllPosts();
+      const allPosts = await DataSource.getAllPosts(8);
       setPosts(allPosts);
     };
 
@@ -94,7 +94,7 @@ const Home: React.FC = () => {
             </div>
           </BlurbWrapper>
         </div>
-        <h4>Recent posts</h4>
+        <h3>Recent posts</h3>
         {posts.length === 0 ? (
           <Spinner />
         ) : (
