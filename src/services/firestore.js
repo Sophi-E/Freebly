@@ -7,28 +7,28 @@ import 'firebase/storage';
 // import { removeListener } from 'process';
 // import { Redirect } from 'react-router-dom';
 
-// const freebliConfig = {
-//   apiKey: 'AIzaSyC07b5BHcNWuUGd4bkMA1P7a-bjrewaUVQ',
-//   authDomain: 'freebly.firebaseapp.com',
-//   databaseURL: 'https://freebly.firebaseio.com',
-//   projectId: 'freebly',
-//   storageBucket: 'freebly.appspot.com',
-//   messagingSenderId: '681902899769',
-//   appId: '1:681902899769:web:1364a22155ac42853c43e8',
-// };
-const tobyDevConfig = {
-  apiKey: 'AIzaSyAWo0ZWObKQYijaeWRvT5ygQeDSR21rnxk',
-  authDomain: 'sharing-stuff-3ccd8.firebaseapp.com',
-  databaseURL: 'https://sharing-stuff-3ccd8.firebaseio.com',
-  projectId: 'sharing-stuff-3ccd8',
-  storageBucket: 'sharing-stuff-3ccd8.appspot.com',
-  messagingSenderId: '313621377942',
-  appId: '1:313621377942:web:ea5f0002ff393bdecc63b7',
+const freebliConfig = {
+  apiKey: 'AIzaSyC07b5BHcNWuUGd4bkMA1P7a-bjrewaUVQ',
+  authDomain: 'freebly.firebaseapp.com',
+  databaseURL: 'https://freebly.firebaseio.com',
+  projectId: 'freebly',
+  storageBucket: 'freebly.appspot.com',
+  messagingSenderId: '681902899769',
+  appId: '1:681902899769:web:1364a22155ac42853c43e8',
 };
+// const tobyDevConfig = {
+//   apiKey: 'AIzaSyAWo0ZWObKQYijaeWRvT5ygQeDSR21rnxk',
+//   authDomain: 'sharing-stuff-3ccd8.firebaseapp.com',
+//   databaseURL: 'https://sharing-stuff-3ccd8.firebaseio.com',
+//   projectId: 'sharing-stuff-3ccd8',
+//   storageBucket: 'sharing-stuff-3ccd8.appspot.com',
+//   messagingSenderId: '313621377942',
+//   appId: '1:313621377942:web:ea5f0002ff393bdecc63b7',
+// };
 
 export const Config = firebase.initializeApp(
-  tobyDevConfig
-  //freebliConfig
+  //tobyDevConfig
+  freebliConfig
 );
 
 export const db = firebase.firestore();
