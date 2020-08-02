@@ -12,7 +12,7 @@
   --heading-text: 32px;
   --sub-heading-text: 24px;
   --title-heading: 18px;
-  --primary-color: #0c79a8;
+  --primary-color: #4d7b8f;
   --accent-color: #093142;
   --base-spacing: 10px;
 }
@@ -41,6 +41,9 @@ h6 {
   margin: 1em 0;
   cursor: pointer;
 }
+.card a {
+  color: rgb(26, 19, 19);
+}
 .card:hover {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
@@ -48,6 +51,7 @@ a {
   text-decoration: none;
   color: var(--accent-color);
 }
+
 @media screen and (min-width: 764px) {
   .card {
     width: 95%;

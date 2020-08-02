@@ -2,10 +2,13 @@ import React from 'react';
 import styled from '@emotion/styled';
 
 const PostWrapper = styled.div`
-  p,
-  h4 {
-    padding: 0.2em 1em;
-    text-transform: capitalize;
+  /* p,
+  h4 { */
+  padding: 0 1em;
+  text-transform: capitalize;
+  /* } */
+  p {
+    line-height: 1;
   }
   div {
     /* background-color: blue; */

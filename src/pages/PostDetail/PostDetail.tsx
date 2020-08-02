@@ -49,9 +49,9 @@ const PostDetail = ({ match }) => {
           ) : null}
 
           <p>Location: {post.data.location}</p>
-          <p>Free shipping: {post.data.shipping}</p>
+          <p>Available for shipping? {post.data.shipping}</p>
           <p>Posted on: {new Date(post.data.postDate).toLocaleDateString()}</p>
-          <p>Comment: {post.data.comment}</p>
+          <p>Description: {post.data.comment}</p>
 
           <ReplyDialog postId={post.id} title='Send Request Message' />
         </div>
