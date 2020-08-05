@@ -67,7 +67,7 @@ const ReplyDialog: FunctionComponent<replyProps> = ({ title, postId }) => {
       style={{ background: 'var(--primary-color)' }}
       onClick={loginButtonHandler}
     >
-      Sign in to reply!
+      Sign in to request item!
     </Button>
   );
 };
