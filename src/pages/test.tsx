@@ -1,61 +1,14 @@
-// //@ts-nocheck
-// import React, { useContext, useState, useEffect } from 'react';
-// import * as firebase from 'firebase/app';
-// import 'firebase/auth';
-// import 'firebase/firestore';
-// import 'firebase/storage';
-// import { AuthContext } from '../components/Auth';
-// import { User } from '../datatypes/User';
-
-// const Test = () => {
-//   let { currentUser } = useContext<Partial<User>>(AuthContext);
-//   const db = firebase.firestore();
-//   const [posts, setPosts] = useState([]);
-
-//   const getUserPost = async () => {
-//     let userPost = [];
-//     await db
-//       .collection('posts')
-//       .where('postDate', '==', '1590944479139')
-//       .get()
-//       .then((querySnapshot) =>
-//         querySnapshot.forEach((doc) => {
-//           userPost = [...userPost, { id: doc.id, data: doc.data() }];
-//         })
-//       );
-//     return userPost;
-//   };
-
-//   useEffect(() => {
-//     const getUserPosts = async () => {
-//       const userPost = await getUserPost();
-//       setPosts(userPost);
-//     };
-//     getUserPosts();
-//   }, []);
-
-//   console.log(posts);
-
-//   return (
-//     <div>
-//       {posts.map((post) => (
-//         <p>{post.data.title}</p>
-//       ))}
-//     </div>
-//   );
-// };
-
-// export default Test;
-
 import React, { useState, useEffect } from 'react';
 import * as DataSource from '../services/firestore';
 import { Link } from 'react-router-dom';
 import deliveries from '../images/deliveries.svg';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCoffee } from '@fortawesome/free-solid-svg-icons';
-import { faGifts } from '@fortawesome/free-solid-svg-icons';
-import { faPeopleCarry } from '@fortawesome/free-solid-svg-icons';
-import Layout from '../components/layout';
+import ease from '../images/ease.svg';
+import value from '../images/value.svg';
+import recycle from '../images/recycle.svg';
+import circulate from '../images/recirculation.png';
+import gift from '../images/giving-gift.png';
+import online from '../images/online.png';
+import Layout, { StyledContainer } from '../components/layout';
 import styled from '@emotion/styled';
 import PostContainer from '../components/PostContainer';
 import Spinner from '../components/Spinner/Spinner';
@@ -67,8 +20,19 @@ const HomeContainer = styled.div`
     text-decoration: none;
     color: #000;
   }
-  .wrapper {
-    margin: 8em 0;
+  h3 {
+    text-align: center;
+  }
+  /* .wrapper {
+    margin: 4em 0;
+  } */
+  .row-1 {
+    background: #f4f3ff;
+    padding: 3em 0;
+  }
+  .row-2 {
+    background: #e9e7ff;
+    padding: 3em 0;
   }
 `;
 const HeaderDiv = styled.div`
@@ -97,33 +61,49 @@ const HeaderDiv = styled.div`
     .bio {
       width: 100%;
       align-self: flex-start;
-      margin-top: 3em;
+      margin-top: 1em;
     }
   }
   @media screen and (max-width: 640px) {
     .bio {
       text-align: center;
+      margin-top: 0;
     }
   }
 `;
 
 export const StyledImage = styled.img`
-  margin: 1.5em auto;
-  width: 100%;
+  /* margin: 1.5em auto; */
+  /* width: 100%; */
   @media screen and (min-width: 1024px) {
-    max-width: 800px;
-    max-height: 600px;
+    margin-left: 4em;
+    /* max-width: 800px;
+    max-height: 600px; */
   }
 `;
 
 const BlurbWrapper = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  align-content: center;
 
-  div {
-    padding: 0 1em;
-    width: 300px;
+  /* justify-content: space-between; */
+
+  .blurb-img-container {
+    max-width: 500px;
+    max-height: 400px;
+
+    img {
+      width: 100%;
+    }
   }
+
+  .blurb-text {
+    align-self: center;
+    max-width: 400px;
+    padding: 0 1em;
+  }
+
   h2 {
     text-decoration: underline;
     font-weight: bold;
@@ -132,13 +112,14 @@ const BlurbWrapper = styled.div`
   p {
     padding: 0.5em 0;
   }
-  .icon {
-    color: #1d3742;
-    margin: 1em 0;
-    font-size: 5em;
-  }
+
   @media screen and (max-width: 664px) {
+    /* text-align: center; */
     flex-direction: column;
+
+    div {
+      padding: 1em;
+    }
   }
 `;
 const Test: React.FC = () => {
@@ -156,68 +137,84 @@ const Test: React.FC = () => {
   return (
     <Layout>
       <HomeContainer>
-        <HeaderDiv>
-          <div className='bio'>
-            <h1>Lorem ipsum lorem</h1>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Adipiscing enim quisque hendrerit sagittis ultrices nisi magna
-              gravida. Non quis ut dictumst in duis
-            </p>
-            <button>Get Started</button>
-          </div>
-          <StyledImage src={deliveries} alt='deliveries' />
-        </HeaderDiv>
+        <StyledContainer>
+          <HeaderDiv>
+            <div className='bio'>
+              <h1>Lorem ipsum lorem</h1>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Adipiscing enim quisque hendrerit sagittis ultrices nisi magna
+                gravida. Non quis ut dictumst in duis
+              </p>
+              <button>Get Started</button>
+            </div>
+            <StyledImage src={deliveries} alt='deliveries' />
+          </HeaderDiv>
+        </StyledContainer>
         <div className='wrapper'>
-          <h1>
-            Freebli helps to recirculate items that still have value in them
-          </h1>
-          <BlurbWrapper>
-            <div>
-              <FontAwesomeIcon icon={faCoffee} className='icon' />
-              <h2>Its easy</h2>
-              <p>Give away stuff you no longer need</p>
-            </div>
-            <div>
-              <FontAwesomeIcon icon={faPeopleCarry} className='icon' />
-              <h2>It aids decluttering</h2>
-              <p>Reduce clutter in your home and offices</p>
-            </div>
-            <div>
-              <FontAwesomeIcon icon={faGifts} className='icon' />
-              <h2>It brings value</h2>
-              <p>Add value to others while also getting stuffs you need</p>
-            </div>
-          </BlurbWrapper>
-        </div>
-        <h3>Recent posts</h3>
-        {posts.length === 0 ? (
-          <Spinner />
-        ) : (
-          <GridContainer>
-            {posts.map((post) => (
-              <div className='card' key={post.id}>
-                <Link to={`/view-posts/${post.id}`}>
-                  <PostContainer
-                    imageUrl={
-                      post.data.images
-                        ? post.data.images[0].url
-                        : post.data.imageUrl
-                        ? post.data.imageUrl
-                        : null
-                    }
-                    title={post.data.title}
-                    postDate={new Date(post.data.postDate).toLocaleDateString()}
-                    location={post.data.location}
-                    shipping={post.data.shipping}
-                  />
-                </Link>
+          <div className='row-1'>
+            <BlurbWrapper>
+              <div className='blurb-img-container'>
+                <img src={online} alt='online chatting' />
               </div>
-            ))}
-          </GridContainer>
-        )}
-
-        <h2>Login now to get started</h2>
+              <div className='blurb-text'>
+                <h2>It aids decluttering</h2>
+                <p>
+                  Reduce clutter in your home and offices Lorem ipsum dolor sit
+                  amet, consectetur adipiscing elit. Adipiscing enim quisque
+                  hendrerit sagittis ultrices nisi magna gravida. Non quis ut
+                  dictumst in duis
+                </p>
+              </div>
+            </BlurbWrapper>
+          </div>
+          <div className='row-2'>
+            <BlurbWrapper>
+              <div className='blurb-text'>
+                <h2>It aids decluttering</h2>
+                <p>
+                  Reduce clutter in your home and offices Lorem ipsum dolor sit
+                  amet, consectetur adipiscing elit. Adipiscing enim quisque
+                  hendrerit sagittis ultrices nisi magna gravida. Non quis ut
+                  dictumst in duis
+                </p>
+              </div>
+              <div className='blurb-img-container'>
+                <img src={gift} alt='giving-gift' />
+              </div>
+            </BlurbWrapper>
+          </div>
+        </div>
+        <StyledContainer>
+          <h3>Recent posts</h3>
+          {posts.length === 0 ? (
+            <Spinner />
+          ) : (
+            <GridContainer>
+              {posts.map((post) => (
+                <div className='card' key={post.id}>
+                  <Link to={`/view-posts/${post.id}`}>
+                    <PostContainer
+                      imageUrl={
+                        post.data.images
+                          ? post.data.images[0].url
+                          : post.data.imageUrl
+                          ? post.data.imageUrl
+                          : null
+                      }
+                      title={post.data.title}
+                      postDate={new Date(
+                        post.data.postDate
+                      ).toLocaleDateString()}
+                      location={post.data.location}
+                      shipping={post.data.shipping}
+                    />
+                  </Link>
+                </div>
+              ))}
+            </GridContainer>
+          )}
+        </StyledContainer>
       </HomeContainer>
     </Layout>
   );

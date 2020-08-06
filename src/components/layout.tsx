@@ -6,7 +6,7 @@ import Footer from './Footer';
 const StyledWrapper = styled.div`
   width: 100%;
 `;
-const StyledContainer = styled.div`
+export const StyledContainer = styled.div`
   max-width: 80%;
   margin: 3rem auto;
 `;
@@ -15,7 +15,8 @@ const Layout = (props: any) => {
   return (
     <StyledWrapper>
       <Navbar />
-      <StyledContainer>{props.children}</StyledContainer>
+
+      <>{props.children}</>
       <Footer />
     </StyledWrapper>
   );
