@@ -2,24 +2,44 @@ import React, { useState, useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 import * as DataStore from '../services/firestore';
 import styled from '@emotion/styled';
-import Layout from '../components/layout';
+import Layout, { StyledContainer } from '../components/layout';
 import InputComponent from '../components/FormComponent/InputComponent';
 import ImageUploader from '../components/ImageUploader';
+import Addfile from '../images/addfile.svg';
+import { AuthContext } from '../components/Auth';
 
-import { AuthContext } from '../components/Auth'
+const CreatePostContainer = styled.div`
+  display: flex;
+  margin-top: 5rem;
+
+  .form-div {
+    margin-left: 3rem;
+  }
+  @media screen and (max-width: 966px) {
+    flex-direction: column;
+    h2 {
+      text-align: center;
+    }
+    .form-div {
+      margin: 2em 0;
+    }
+  }
+`;
+const IllustrationDiv = styled.div`
+  align-self: center;
+
+  img {
+    width: 100%;
+  }
+`;
 
 const FormContainer = styled.form`
+  border: 1px solid #e5e5e5;
   border-radius: 5px;
   padding: 1em 3em;
-  max-width: 700px;
-  margin: 8rem auto;
-  h2 {
-    padding-bottom: 1em;
-    text-align: center;
-  }
+
   @media screen and (max-width: 664px) {
     width: 100%;
-
     padding: 1em 0;
   }
 `;
@@ -61,7 +81,6 @@ const CreatePost = () => {
   const { title, location, description, shipping } = post;
 
   const isInvalid =
-    // images.length === 0 ||
     title === '' || location === '' || description === '' || shipping === '';
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -78,7 +97,7 @@ const CreatePost = () => {
       images,
       postDate: Date.now(),
     };
-    
+
     const newPost = DataStore.addPost(data);
     console.log(newPost);
 
@@ -91,74 +110,82 @@ const CreatePost = () => {
 
   return (
     <Layout>
-      <FormContainer onSubmit={handleSubmit}>
-        <h2>Create new post</h2>
+      <StyledContainer>
+        <CreatePostContainer>
+          <IllustrationDiv>
+            <img src={Addfile} alt='add-file-illustration' />
+          </IllustrationDiv>
+          <div className='form-div'>
+            <h2>Create A New Post</h2>
+            <FormContainer onSubmit={handleSubmit}>
+              <ImageUploader
+                onRequestSave={(image: any) =>
+                  setImages((prev) => {
+                    // so the find function here should disallow
+                    // adding the same image mult times. I think
+                    return prev.find((img: any) => img.id === image.id)
+                      ? [...prev]
+                      : [...prev, image];
+                  })
+                }
+                onRequestClear={() => setImages([])}
+                defaultFiles={
+                  images
+                    ? [
+                        {
+                          source: images,
+                          options: {
+                            type: 'local',
+                          },
+                        },
+                      ]
+                    : []
+                }
+              />
 
-        <ImageUploader
-          onRequestSave={(image: any) =>
-            setImages((prev) => {
-              // so the find function here should disallow
-              // adding the same image mult times. I think
-              return prev.find((img: any) => img.id === image.id)
-                ? [...prev]
-                : [...prev, image];
-            })
-          }
-          onRequestClear={() => setImages([])}
-          defaultFiles={
-            images
-              ? [
-                  {
-                    source: images,
-                    options: {
-                      type: 'local',
-                    },
-                  },
-                ]
-              : []
-          }
-        />
+              <InputComponent
+                name='title'
+                placeholder='Enter item name'
+                inputType='text'
+                // label='item Name'
+                id='title'
+                value={title}
+                onChange={handleChange}
+              />
+              <InputComponent
+                name='location'
+                placeholder='Enter item location'
+                inputType='text'
+                // label='Location'
+                id='location'
+                value={location}
+                onChange={handleChange}
+              />
+              <InputComponent
+                name='description'
+                placeholder='Enter any info/description about the item'
+                inputType='text'
+                // label='Description'
+                value={description}
+                id='description'
+                onChange={handleChange}
+              />
+              <InputComponent
+                name='shipping'
+                placeholder='Willing to ship items/s if required?'
+                inputType='text'
+                // label='Shipping available?'
+                value={shipping}
+                id='shipping'
+                onChange={handleChange}
+              />
 
-        <InputComponent
-          name='title'
-          placeholder='Enter item name'
-          inputType='text'
-          label='item Name'
-          id='title'
-          value={title}
-          onChange={handleChange}
-        />
-        <InputComponent
-          name='location'
-          placeholder='Enter item location'
-          inputType='text'
-          label='Location'
-          id='location'
-          value={location}
-          onChange={handleChange}
-        />
-        <InputComponent
-          name='description'
-          placeholder='Enter any info/description about the item'
-          inputType='text'
-          label='Description'
-          value={description}
-          id='comment'
-          onChange={handleChange}
-        />
-        <InputComponent
-          name='shipping'
-          placeholder='Willing to ship items/s if required?'
-          inputType='text'
-          label='Shipping available?'
-          value={shipping}
-          id='shipping'
-          onChange={handleChange}
-        />
-
-        {/* {post.error === null ? '' : <p>{error?.message}</p>} */}
-        <StyledButton disabled={isInvalid}>Submit Post</StyledButton>
-      </FormContainer>
+              {/* {post.error === null ? '' : <p>{error?.message}</p>} */}
+              <StyledButton disabled={isInvalid}>Submit Post</StyledButton>
+            </FormContainer>
+          </div>
+        </CreatePostContainer>
+      </StyledContainer>
     </Layout>
   );
 };
