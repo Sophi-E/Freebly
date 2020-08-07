@@ -30,15 +30,15 @@ const FooterWrapper = styled.div`
   div {
     width: 33%;
   }
-  @media screen and (max-width: 960px) {
+  /* @media screen and (max-width: 960px) {
     text-align: left;
 
     div {
       width: 45%;
       margin: 1em 2%;
     }
-  }
-  @media screen and (max-width: 760px) {
+  } */
+  @media screen and (max-width: 960px) {
     flex-direction: column;
     text-align: left;
 

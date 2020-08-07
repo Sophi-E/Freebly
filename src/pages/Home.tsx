@@ -104,7 +104,7 @@ const BlurbWrapper = styled.div`
   h2 {
     text-decoration: underline;
     font-weight: bold;
-    color: #8f5c22;
+    color: #3f3d56;
   }
   p {
     padding: 0.5em 0;

@@ -2,7 +2,7 @@ import React, { useContext, useState, useEffect } from 'react';
 import { AuthContext } from '../components/Auth';
 import { User } from '../datatypes/User';
 import { useHistory, Link } from 'react-router-dom';
-import Layout from '../components/layout';
+import Layout, { StyledContainer } from '../components/layout';
 import styled from '@emotion/styled';
 import GridContainer from '../components/GridContainer';
 import PostContainer from '../components/PostContainer';
@@ -10,7 +10,7 @@ import Spinner from '../components/Spinner/Spinner';
 import * as DataSource from '../services/firestore';
 import * as firebase from 'firebase/app';
 
-const StyledContainer = styled.div`
+const DashboardContainer = styled.div`
   display: flex;
   margin: 10rem 0;
   position: relative;
@@ -80,51 +80,53 @@ const Dashboard: React.FC = () => {
   return (
     <Layout>
       <StyledContainer>
-        <div className='user-profile'>
-          <img
-            src={currentUser?.photoURL}
-            alt={currentUser?.displayName}
-            className='profile-img'
-          />
-          <p>{currentUser?.displayName}</p>
-          <p>{currentUser?.email}</p>
-          <p>Location: Port Harcourt</p>
-          <p>No of posts: 15</p>
-          <p>Connections: 10</p>
+        <DashboardContainer>
+          <div className='user-profile'>
+            <img
+              src={currentUser?.photoURL}
+              alt={currentUser?.displayName}
+              className='profile-img'
+            />
+            <p>{currentUser?.displayName}</p>
+            <p>{currentUser?.email}</p>
+            <p>Location: Port Harcourt</p>
+            <p>No of posts: 15</p>
+            <p>Connections: 10</p>
 
-          <button onClick={handleDelete}>Delete Acount?</button>
-        </div>
+            <button onClick={handleDelete}>Delete Acount?</button>
+          </div>
 
-        <div>
-          <h3>Your posts</h3>
-          {posts.length === 0 ? (
-            <Spinner />
-          ) : (
-            <GridContainer>
-              {posts.map((post) => (
-                <div className='card' key={post.id}>
-                  <Link to={`/view-posts/${post.id}`}>
-                    <PostContainer
-                      imageUrl={
-                        post.data.images
-                          ? post.data.images[0].url
-                          : post.data.imageUrl
-                          ? post.data.imageUrl
-                          : null
-                      }
-                      title={post.data.title}
-                      postDate={new Date(
-                        post.data.postDate
-                      ).toLocaleDateString()}
-                      location={post.data.location}
-                      shipping={post.data.shipping}
-                    />
-                  </Link>
-                </div>
-              ))}
-            </GridContainer>
-          )}
-        </div>
+          <div>
+            <h3>Your posts</h3>
+            {posts.length === 0 ? (
+              <Spinner />
+            ) : (
+              <GridContainer>
+                {posts.map((post) => (
+                  <div className='card' key={post.id}>
+                    <Link to={`/view-posts/${post.id}`}>
+                      <PostContainer
+                        imageUrl={
+                          post.data.images
+                            ? post.data.images[0].url
+                            : post.data.imageUrl
+                            ? post.data.imageUrl
+                            : null
+                        }
+                        title={post.data.title}
+                        postDate={new Date(
+                          post.data.postDate
+                        ).toLocaleDateString()}
+                        location={post.data.location}
+                        shipping={post.data.shipping}
+                      />
+                    </Link>
+                  </div>
+                ))}
+              </GridContainer>
+            )}
+          </div>
+        </DashboardContainer>
       </StyledContainer>
     </Layout>
   );

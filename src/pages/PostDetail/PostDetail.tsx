@@ -6,7 +6,7 @@ import * as DataSource from '../../services/firestore';
 import Spinner from '../../components/Spinner/Spinner';
 import styles from './PostDetail.module.css';
 import style from '@emotion/styled';
-import Layout from '../../components/layout';
+import Layout, { StyledContainer } from '../../components/layout';
 import ReplyDialog from '../../components/ReplyDialog';
 
 //@ts-ignore
@@ -28,34 +28,38 @@ const PostDetail = ({ match }) => {
 
   return (
     <Layout>
-      {console.log(post) === null || !post.hasOwnProperty('id') ? (
-        <Spinner />
-      ) : (
-        <div className={styles.postDetail} id={post.id}>
-          <h2>{post.data.title}</h2>
-          {post.data.images ? (
-            <div className={styles.thumbnail}>
-              {post.data.images.map((image: any, index: number) => (
-                <img
-                  key={image.id}
-                  src={image.url}
-                  className={styles.primaryImg}
-                  alt='post-pic'
-                />
-              ))}
-            </div>
-          ) : post.data.imageUrl ? (
-            <img src={post.data.imageUrl} alt='post-pic' />
-          ) : null}
+      <StyledContainer>
+        {console.log(post) === null || !post.hasOwnProperty('id') ? (
+          <Spinner />
+        ) : (
+          <div className={styles.postDetail} id={post.id}>
+            <h2>{post.data.title}</h2>
+            {post.data.images ? (
+              <div className={styles.thumbnail}>
+                {post.data.images.map((image: any, index: number) => (
+                  <img
+                    key={image.id}
+                    src={image.url}
+                    className={styles.primaryImg}
+                    alt='post-pic'
+                  />
+                ))}
+              </div>
+            ) : post.data.imageUrl ? (
+              <img src={post.data.imageUrl} alt='post-pic' />
+            ) : null}
 
-          <p>Location: {post.data.location}</p>
-          <p>Available for shipping? {post.data.shipping}</p>
-          <p>Posted on: {new Date(post.data.postDate).toLocaleDateString()}</p>
-          <p>Description: {post.data.comment}</p>
+            <p>Location: {post.data.location}</p>
+            <p>Available for shipping? {post.data.shipping}</p>
+            <p>
+              Posted on: {new Date(post.data.postDate).toLocaleDateString()}
+            </p>
+            <p>Description: {post.data.comment}</p>
 
-          <ReplyDialog postId={post.id} title='Send Request Message' />
-        </div>
-      )}
+            <ReplyDialog postId={post.id} title='Send Request Message' />
+          </div>
+        )}
+      </StyledContainer>
     </Layout>
   );
 };
