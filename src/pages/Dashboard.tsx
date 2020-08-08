@@ -30,12 +30,23 @@ const DashboardContainer = styled.div`
     border-radius: 50%;
     margin-bottom: 1em;
   }
-
+  button {
+    background: var(--primary-color);
+    color: #fff;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 3px;
+  }
+  button:hover {
+    background: #b01c0e;
+    font-weight: bold;
+    cursor: pointer;
+  }
   @media screen and (max-width: 760px) {
     flex-direction: column;
 
     .user-profile {
-      width: 70%;
+      width: 100%;
     }
   }
 `;
@@ -70,12 +81,16 @@ const Dashboard: React.FC = () => {
     getUserPosts();
   }, []);
 
+  let user = firebase.auth().currentUser;
   const handleDelete = () => {
-    console.log('your account has been deleted!');
+    user
+      ?.delete()
+      .then(() => console.log('User deleted'))
+      .catch((error: ErrorEvent) => console.log('An error happened', error));
     history.push(`/`);
   };
+
   let { currentUser } = useContext<Partial<User>>(AuthContext);
-  console.log(currentUser?.uid);
 
   return (
     <Layout>
@@ -93,14 +108,15 @@ const Dashboard: React.FC = () => {
             <p>No of posts: 15</p>
             <p>Connections: 10</p>
 
-            <button onClick={handleDelete}>Delete Acount?</button>
+            <button onClick={handleDelete}>Delete Acount</button>
           </div>
 
           <div>
             <h3>Your posts</h3>
             {posts.length === 0 ? (
-              <Spinner />
+              <p>You have no posts yet.</p>
             ) : (
+              // <Spinner />
               <GridContainer>
                 {posts.map((post) => (
                   <div className='card' key={post.id}>
