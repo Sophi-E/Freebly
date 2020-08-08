@@ -34,6 +34,7 @@ type PostItemProps = {
   postDate?: string;
   location?: string;
   shipping?: string;
+  description?: string;
 };
 
 const PostContainer: React.FC<PostItemProps> = ({
@@ -42,6 +43,7 @@ const PostContainer: React.FC<PostItemProps> = ({
   postDate,
   location,
   shipping,
+  description,
 }: PostItemProps) => {
   return (
     <PostWrapper>
@@ -52,6 +54,7 @@ const PostContainer: React.FC<PostItemProps> = ({
       <p>Posted on: {postDate}</p>
       <p>Location: {location}</p>
       <p>Shipping available? {shipping}</p>
+      <p>{description}</p>
     </PostWrapper>
   );
 };

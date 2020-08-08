@@ -38,9 +38,9 @@ const PostsPage = () => {
   return (
     <Layout>
       <StyledContainer>
-        <ImageContainer>
+        {/* <ImageContainer>
           <StyledImage src={giftBox} alt='Box' />
-        </ImageContainer>
+        </ImageContainer> */}
         <InputWrapper>
           <InputComponent
             name='search'

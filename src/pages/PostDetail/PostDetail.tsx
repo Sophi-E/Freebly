@@ -49,12 +49,12 @@ const PostDetail = ({ match }) => {
               <img src={post.data.imageUrl} alt='post-pic' />
             ) : null}
 
+            <p>Description: {post.data.description}</p>
             <p>Location: {post.data.location}</p>
-            <p>Available for shipping? {post.data.shipping}</p>
             <p>
               Posted on: {new Date(post.data.postDate).toLocaleDateString()}
             </p>
-            <p>Description: {post.data.comment}</p>
+            <p>Available for shipping? {post.data.shipping}</p>
 
             <ReplyDialog postId={post.id} title='Send Request Message' />
           </div>

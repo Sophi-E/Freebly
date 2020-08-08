@@ -51,10 +51,14 @@ const HeaderDiv = styled.div`
       border-radius: 15px;
       border: none;
     }
+    button:hover {
+      background: #302f55;
+      cursor: pointer;
+    }
   }
 
   @media screen and (max-width: 966px) {
-    flex-direction: column-reverse;
+    flex-direction: column;
     .bio {
       width: 100%;
       align-self: flex-start;
@@ -108,6 +112,7 @@ const BlurbWrapper = styled.div`
   }
   p {
     padding: 0.5em 0;
+    line-height: 1.8;
   }
 
   @media screen and (max-width: 664px) {
@@ -125,6 +130,8 @@ const BlurbWrapper = styled.div`
 
 const Home: React.FC = () => {
   const [posts, setPosts] = useState<any[]>([]);
+
+  const loginButtonHandler = () => DataSource.signInViaGoogle(() => {});
 
   useEffect(() => {
     const getAllPosts = async () => {
@@ -148,7 +155,7 @@ const Home: React.FC = () => {
                 of items by giving out those things that we leave laying around
                 in our homes and offices without use.
               </p>
-              <button>Get Started</button>
+              <button onClick={loginButtonHandler}>Get Started</button>
             </div>
             <StyledImage src={deliveries} alt='deliveries' />
           </HeaderDiv>
@@ -160,12 +167,13 @@ const Home: React.FC = () => {
                 <img src={online} alt='online chatting' />
               </div>
               <div className='blurb-text'>
-                <h2>It aids decluttering</h2>
+                <h2>It's Easy</h2>
                 <p>
-                  Reduce clutter in your home and offices Lorem ipsum dolor sit
-                  amet, consectetur adipiscing elit. Adipiscing enim quisque
-                  hendrerit sagittis ultrices nisi magna gravida. Non quis ut
-                  dictumst in duis
+                  The recirculation process is really easy. Designed in such a
+                  way to give you the most control. No shipping if you don't
+                  want. Just take a snapshot of stuff you want to give away and
+                  list on Freebli. Interested users request for them and once
+                  you're both agreed, items are picked up. No hassle.
                 </p>
               </div>
             </BlurbWrapper>
@@ -175,10 +183,12 @@ const Home: React.FC = () => {
               <div className='blurb-text'>
                 <h2>It aids decluttering</h2>
                 <p>
-                  Reduce clutter in your home and offices Lorem ipsum dolor sit
-                  amet, consectetur adipiscing elit. Adipiscing enim quisque
-                  hendrerit sagittis ultrices nisi magna gravida. Non quis ut
-                  dictumst in duis
+                  Do you always have loads of stuff just laying around,
+                  collecting dust in your home/office? Stuff just taking up
+                  precious space without use? Listing on Freebli helps you clear
+                  out the clutter, making room for new and useful items. Giving
+                  others the opportunity to get something of value in the
+                  process. It's win! win!. 🙂
                 </p>
               </div>
               <div className='blurb-img-container'>

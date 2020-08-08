@@ -38,3 +38,13 @@
 .faqWrapper div p {
   padding-top: 1em;
 }
+@media screen and (max-width: 966px) {
+  .contactWrapper h3 {
+    font-size: 2em;
+  }
+}
+/* @media screen and (max-width: 764px) {
+  .contactWrapper h3 {
+    font-size: 2em;
+  }
+} */

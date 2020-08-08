@@ -103,7 +103,7 @@ const CreatePost = () => {
 
     setPost({ ...post, submitted: true });
 
-    //console.log(data);
+    console.log(data);
 
     history.push('/thank-you');
   };
