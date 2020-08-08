@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './FooterLinks.module.css';
-import Layout, { StyledContainer } from '../layout';
+import Layout, { StyledContainer } from '../../components/layout';
 
 const About = () => {
   return (
@@ -32,10 +32,10 @@ const About = () => {
             <h3>Does Freebli have a mobile app?</h3>
             <p>No. for now, Freebli is only available on the web.</p>
           </div>
-          <div>
+          {/* <div>
             <h3>Can my company advertise on Freebli?</h3>
             <p>Yes. We show ads to support bts running of Freebli.</p>
-          </div>
+          </div> */}
         </div>
       </StyledContainer>
     </Layout>

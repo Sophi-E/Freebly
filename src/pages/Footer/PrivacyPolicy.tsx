@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './FooterLinks.module.css';
 
-import Layout, { StyledContainer } from '../layout';
+import Layout, { StyledContainer } from '../../components/layout';
 
 const PrivacyPolicy = () => {
   return (

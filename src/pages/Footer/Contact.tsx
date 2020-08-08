@@ -7,7 +7,7 @@ import {
   faMousePointer,
 } from '@fortawesome/free-solid-svg-icons';
 import styles from './FooterLinks.module.css';
-import Layout, { StyledContainer } from '../layout';
+import Layout, { StyledContainer } from '../../components/layout';
 
 const Contact = () => {
   return (
