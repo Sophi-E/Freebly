@@ -84,7 +84,7 @@ const Dashboard: React.FC = () => {
       setPosts(userPost);
     };
     getUserPosts();
-  }, []);
+  }, [posts]);
 
   let user = firebase.auth().currentUser;
   const handleDeleteAccount = () => {
@@ -126,7 +126,10 @@ const Dashboard: React.FC = () => {
           <div>
             <h3>Your posts</h3>
             {posts.length === 0 ? (
-              <p>You have no posts yet.</p>
+              <p>
+                You have no posts yet. Go <Link to='/create-post'>here</Link>{' '}
+                and make your first post.
+              </p>
             ) : (
               // <Spinner />
               <GridContainer>
