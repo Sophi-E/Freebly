@@ -28,6 +28,9 @@ const Nav = styled.nav`
   a {
     color: #1d3742;
   }
+  @media screen and (max-width: 960px) {
+    padding: 10px 50px 10px 20px;
+  }
 `;
 
 const Navbar = () => {

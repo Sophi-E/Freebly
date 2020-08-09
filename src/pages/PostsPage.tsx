@@ -41,7 +41,7 @@ const PostsPage = () => {
         {/* <ImageContainer>
           <StyledImage src={giftBox} alt='Box' />
         </ImageContainer> */}
-        <InputWrapper>
+        {/* <InputWrapper>
           <InputComponent
             name='search'
             placeholder='search by location'
@@ -52,7 +52,7 @@ const PostsPage = () => {
               setSearchTerm(e.target.value)
             }
           />
-        </InputWrapper>
+        </InputWrapper> */}
         {posts.length === 0 ? (
           <Spinner />
         ) : (
