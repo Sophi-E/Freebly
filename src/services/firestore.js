@@ -15,6 +15,7 @@ const freebliConfig = {
   storageBucket: 'freebly.appspot.com',
   messagingSenderId: '681902899769',
   appId: '1:681902899769:web:1364a22155ac42853c43e8',
+  measurementId: 'G-XYLGZL3S73',
 };
 // const tobyDevConfig = {
 //   apiKey: 'AIzaSyAWo0ZWObKQYijaeWRvT5ygQeDSR21rnxk',
@@ -30,6 +31,7 @@ export const Config = firebase.initializeApp(
   //tobyDevConfig
   freebliConfig
 );
+firebase.analytics();
 
 export const db = firebase.firestore();
 
