@@ -105,8 +105,8 @@ const Dashboard: React.FC = () => {
             <p>{currentUser?.displayName}</p>
             <p>{currentUser?.email}</p>
             <p>Location: Port Harcourt</p>
-            <p>No of posts: 15</p>
-            <p>Connections: 10</p>
+            <p>No of posts: {posts.length}</p>
+            {/* <p>Connections: 10</p> */}
 
             <button onClick={handleDelete}>Delete Acount</button>
           </div>
