@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
@@ -19,6 +19,10 @@ import FormSubmittedPage from './components/FormSubmittedPage';
 import Test from './pages/test';
 
 const App = () => {
+  // useEffect(() => {
+  //   window.scrollTo(0, 0);
+  // }, []);
+
   return (
     <AuthProvider>
       <Router>
