@@ -106,23 +106,6 @@ export const getAllPosts = async (limit) => {
   return allPosts;
 };
 
-//get posts by users
-export const getUserPosts = async () => {
-  let userPosts = [];
-  const userId = firebase.auth.currentUser.uid;
-  console.log(userId);
-  await db
-    .collection('posts')
-    .where('userId', '=', userId)
-    .get()
-    .then((querySnapshot) =>
-      querySnapshot.forEach((doc) => {
-        userPosts = [...userPosts, { id: doc.id, data: doc.data() }];
-      })
-    );
-  return userPosts;
-};
-
 export const findPostById = async (id) => {
   let result;
   const user =

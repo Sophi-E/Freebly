@@ -6,22 +6,26 @@ import Layout, { StyledContainer } from '../components/layout';
 import styled from '@emotion/styled';
 import GridContainer from '../components/GridContainer';
 import PostContainer from '../components/PostContainer';
-import Spinner from '../components/Spinner/Spinner';
 import * as DataSource from '../services/firestore';
 import * as firebase from 'firebase/app';
 
 const DashboardContainer = styled.div`
   display: flex;
-  margin: 10rem 0;
-  position: relative;
+  margin: 6rem 0;
+
+  .delPostBtn {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0 3px;
+    background: red;
+  }
 
   .user-profile {
     width: 300px;
     text-align: center;
     padding: 5rem 0;
-    /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    transition: 0.3s;
-    border-radius: 5px; */
+    border-right: 1px solid var(--primary-color);
     margin-right: 5em;
   }
   .profile-img {
@@ -47,6 +51,7 @@ const DashboardContainer = styled.div`
 
     .user-profile {
       width: 100%;
+      border: none;
     }
   }
 `;
@@ -82,7 +87,7 @@ const Dashboard: React.FC = () => {
   }, []);
 
   let user = firebase.auth().currentUser;
-  const handleDelete = () => {
+  const handleDeleteAccount = () => {
     user
       ?.delete()
       .then(() => console.log('User deleted'))
@@ -90,6 +95,13 @@ const Dashboard: React.FC = () => {
     history.push(`/`);
   };
 
+  const deletePost = (postId: string) => {
+    db.collection('posts')
+      .doc(postId)
+      .delete()
+      .then(() => getUserPost())
+      .catch((error) => console.error('Error removing document: ', error));
+  };
   let { currentUser } = useContext<Partial<User>>(AuthContext);
 
   return (
@@ -108,7 +120,7 @@ const Dashboard: React.FC = () => {
             <p>No of posts: {posts.length}</p>
             {/* <p>Connections: 10</p> */}
 
-            <button onClick={handleDelete}>Delete Acount</button>
+            <button onClick={handleDeleteAccount}>Delete Account</button>
           </div>
 
           <div>
@@ -137,6 +149,13 @@ const Dashboard: React.FC = () => {
                         shipping={post.data.shipping}
                       />
                     </Link>
+                    {/* @ts-ignore */}
+                    <button
+                      onClick={() => deletePost(post.id)}
+                      className='delPostBtn'
+                    >
+                      X
+                    </button>
                   </div>
                 ))}
               </GridContainer>

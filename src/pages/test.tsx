@@ -76,11 +76,11 @@ const Test: React.FC = () => {
   };
 
   const deletePost = (postId: string) => {
-    // db.collection('posts')
-    //   .doc(postId)
-    //   .delete()
-    //   .then(() => console.log('Document successfully deleted!'))
-    //   .catch((error) => console.error('Error removing document: ', error));
+    db.collection('posts')
+      .doc(postId)
+      .delete()
+      .then(() => console.log('Document successfully deleted!'))
+      .catch((error) => console.error('Error removing document: ', error));
   };
 
   let { currentUser } = useContext<Partial<User>>(AuthContext);
@@ -132,7 +132,6 @@ const Test: React.FC = () => {
                     </Link>
                     {/* @ts-ignore */}
                     <button onClick={deletePost(post.id)}>Delete post</button>
-                    <button>Item taken</button>
                   </div>
                 ))}
               </GridContainer>
