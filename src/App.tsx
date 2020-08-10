@@ -19,9 +19,9 @@ import FormSubmittedPage from './components/FormSubmittedPage';
 import Test from './pages/test';
 
 const App = () => {
-  // useEffect(() => {
-  //   window.scrollTo(0, 0);
-  // }, []);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <AuthProvider>
