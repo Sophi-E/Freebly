@@ -159,11 +159,10 @@ const Home: React.FC = () => {
                 of items by giving out those things that we leave laying around
                 in our homes and offices without use.
               </p>
-              {currentUser ? (
-                <a href='/dashboard' className='start-link'>
-                  Go to Dashboard
-                </a>
-              ) : (
+              {currentUser ? //  <a href='/dashboard' className='start-link'>
+              //   Go to Dashboard
+              // </a>
+              null : (
                 <button onClick={loginButtonHandler}>Get Started</button>
               )}
             </div>
