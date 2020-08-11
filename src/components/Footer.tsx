@@ -93,18 +93,18 @@ const Footer = () => {
         <SocialLinks>
           <p>FREEBLI.</p>
 
-          <a href='/'>
+          <a href='https://www.facebook.com/Freebli1-102559858229316'>
             <FontAwesomeIcon icon={faFacebook} />
           </a>
-          <a href='https://twitter.com/freebli1'>
+          <a href='https://www.twitter.com/freebli1'>
             {' '}
             <FontAwesomeIcon icon={faTwitter} />
           </a>
-          <a href='/'>
+          <a href='https://www.instagram.com/freebli1'>
             {' '}
             <FontAwesomeIcon icon={faInstagram} />
           </a>
-          <a href='/'>
+          <a href='/contact'>
             <FontAwesomeIcon icon={faEnvelopeOpen} />
           </a>
         </SocialLinks>
