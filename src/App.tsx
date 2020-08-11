@@ -17,6 +17,7 @@ import About from './pages/Footer/About';
 import Contact from './pages/Footer/Contact';
 import FormSubmittedPage from './components/FormSubmittedPage';
 import Test from './pages/test';
+import ScrollToTop from './components/ScrollToTop';
 
 const App = () => {
   useEffect(() => {
@@ -26,22 +27,24 @@ const App = () => {
   return (
     <AuthProvider>
       <Router>
-        <div className='App'>
-          <Switch>
-            <Route path='/' exact component={Home} />
+        <ScrollToTop>
+          <div className='App'>
+            <Switch>
+              <Route path='/' exact component={Home} />
 
-            <Route path='/privacypolicy' component={PrivacyPolicy} />
-            <Route path='/terms' component={Terms} />
-            <Route path='/about' component={About} />
-            <Route path='/contact' component={Contact} />
-            <PrivateRoute path='/dashboard' component={Dashboard} />
-            <Route path='/view-posts' exact component={PostsPage} />
-            <Route path='/create-post' component={CreatePost} />
-            <Route path='/view-posts/:id' component={PostDetail} />
-            <Route path='/thank-you' component={FormSubmittedPage} />
-            <Route path='/test' component={Test} />
-          </Switch>
-        </div>
+              <Route path='/privacypolicy' component={PrivacyPolicy} />
+              <Route path='/terms' component={Terms} />
+              <Route path='/about' component={About} />
+              <Route path='/contact' component={Contact} />
+              <PrivateRoute path='/dashboard' component={Dashboard} />
+              <Route path='/view-posts' exact component={PostsPage} />
+              <Route path='/create-post' component={CreatePost} />
+              <Route path='/view-posts/:id' component={PostDetail} />
+              <Route path='/thank-you' component={FormSubmittedPage} />
+              <Route path='/test' component={Test} />
+            </Switch>
+          </div>
+        </ScrollToTop>
       </Router>
     </AuthProvider>
   );
