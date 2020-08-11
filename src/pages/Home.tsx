@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import * as DataSource from '../services/firestore';
 import { Link } from 'react-router-dom';
 
@@ -10,6 +10,7 @@ import styled from '@emotion/styled';
 import PostContainer from '../components/PostContainer';
 import Spinner from '../components/Spinner/Spinner';
 import GridContainer from '../components/GridContainer';
+import { AuthContext } from '../components/Auth';
 
 const HomeContainer = styled.div`
   padding: 3rem 0;
@@ -42,7 +43,8 @@ const HeaderDiv = styled.div`
     align-self: center;
     text-align: left;
 
-    button {
+    button,
+    .start-link {
       background: linear-gradient(79.46deg, #302f55 37.36%, #00b213 105.52%);
       color: #fff;
       padding: 10px;
@@ -51,6 +53,7 @@ const HeaderDiv = styled.div`
       border-radius: 15px;
       border: none;
     }
+
     button:hover {
       background: #302f55;
       cursor: pointer;
@@ -132,6 +135,7 @@ const Home: React.FC = () => {
   const [posts, setPosts] = useState<any[]>([]);
 
   const loginButtonHandler = () => DataSource.signInViaGoogle(() => {});
+  let { currentUser } = useContext(AuthContext);
 
   useEffect(() => {
     const getAllPosts = async () => {
@@ -155,7 +159,13 @@ const Home: React.FC = () => {
                 of items by giving out those things that we leave laying around
                 in our homes and offices without use.
               </p>
-              <button onClick={loginButtonHandler}>Get Started</button>
+              {currentUser ? (
+                <a href='/dashboard' className='start-link'>
+                  Go to Dashboard
+                </a>
+              ) : (
+                <button onClick={loginButtonHandler}>Get Started</button>
+              )}
             </div>
             <StyledImage src={deliveries} alt='deliveries' />
           </HeaderDiv>
