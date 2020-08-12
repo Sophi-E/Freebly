@@ -217,7 +217,7 @@ const Home: React.FC = () => {
                   <Link to={`/view-posts/${post.id}`}>
                     <PostContainer
                       imageUrl={
-                        post.data.images
+                        post.data.images && post.data.images.length > 0
                           ? post.data.images[0].url
                           : post.data.imageUrl
                           ? post.data.imageUrl
