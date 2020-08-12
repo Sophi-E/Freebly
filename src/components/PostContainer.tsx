@@ -27,7 +27,7 @@ const PostWrapper = styled.div`
     padding: 0;
   } */
 `;
-
+ 
 type PostItemProps = {
   imageUrl: string;
   title: string;
@@ -47,9 +47,13 @@ const PostContainer: React.FC<PostItemProps> = ({
 }: PostItemProps) => {
   return (
     <PostWrapper>
+    {imageUrl ? 
       <div>
         <img src={imageUrl} alt={title} />
       </div>
+    :
+      <div></div>
+    }
       <h4>{title}</h4>
       <p>Posted on: {postDate}</p>
       <p>Location: {location}</p>
